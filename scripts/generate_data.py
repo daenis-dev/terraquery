@@ -51,12 +51,10 @@ def get_schema():
 def generate_dynamic_queries(num_new_queries=100):
     for _ in range(num_new_queries):
         new_query = get_random_query_from_base_queries()
-        # TODO: Add desired return fields to natural language query
         new_query["natural-language"] = generate_query_variation(new_query["natural-language"]) + ". " + get_schema()
 
         while new_query["natural-language"] in generated_queries_set:
             new_query = get_random_query_from_base_queries()
-            # TODO: Add desired return fields to natural language query
             new_query["natural-language"] = generate_query_variation(new_query["natural-language"]) + ". " + get_schema()
 
         new_queries.append(new_query)
@@ -85,12 +83,10 @@ def test_query(query):
 def retry_failed_query(query):
     print(f"Retrying query '{query['natural-language']}' after failure.")
     new_query = get_random_query_from_base_queries()
-    # TODO: Add desired return fields to natural language query
     new_query["natural-language"] = generate_query_variation(new_query["natural-language"]) + ". " + get_schema()
     
     while new_query["natural-language"] in generated_queries_set:
         new_query = get_random_query_from_base_queries()
-        # TODO: Add desired return fields to natural language query
         new_query["natural-language"] = generate_query_variation(new_query["natural-language"]) + ". " + get_schema()
         
     return new_query

@@ -17,7 +17,7 @@ dataset = dataset["train"].train_test_split(test_size=0.2)
 tokenized_datasets = dataset.map(preprocess_function, batched=True)
 
 training_args = TrainingArguments(
-    output_dir="../terraquery_model",  # Model output directory for fine-tuned model
+    output_dir="../terraquery_model",
     per_device_train_batch_size=2,
     evaluation_strategy="epoch",
     save_strategy="epoch",

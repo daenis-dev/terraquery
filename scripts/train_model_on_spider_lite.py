@@ -6,8 +6,8 @@ import numpy as np
 
 def get_dataset():
     return load_dataset("json", data_files={
-        "train": "../spider/data/processed_train_spider.json",
-        "dev": "../spider/data/processed_dev_spider.json"
+        "train": "spider/data/processed_train_spider.json",
+        "dev": "spider/data/processed_dev_spider.json"
         }
     )
 
