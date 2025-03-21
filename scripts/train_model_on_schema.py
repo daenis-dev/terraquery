@@ -3,8 +3,8 @@ from datasets import load_dataset
 from transformers import GPT2LMHeadModel, GPT2Tokenizer, Trainer, TrainingArguments
 
 # Load the pre-trained model and tokenizer from the Spider training
-model = GPT2LMHeadModel.from_pretrained("./terraquery_model_spider")
-tokenizer = GPT2Tokenizer.from_pretrained("./terraquery_model_spider")
+model = GPT2LMHeadModel.from_pretrained("../terraquery_model_spider")
+tokenizer = GPT2Tokenizer.from_pretrained("../terraquery_model_spider")
 
 # Load your custom dataset
 dataset = load_dataset("json", data_files="terraquery_dataset.json")
@@ -22,11 +22,11 @@ tokenized_datasets = dataset.map(preprocess_function, batched=True)
 
 # Set up fine-tuning training arguments
 training_args = TrainingArguments(
-    output_dir="./terraquery_model",  # Model output directory for fine-tuned model
+    output_dir="../terraquery_model",  # Model output directory for fine-tuned model
     per_device_train_batch_size=2,
     evaluation_strategy="epoch",
     save_strategy="epoch",
-    logging_dir="./logs",
+    logging_dir="../logs",
     logging_steps=10,
     remove_unused_columns=False,
 )
@@ -43,5 +43,5 @@ trainer = Trainer(
 trainer.train()
 
 # Save the fine-tuned model and tokenizer
-model.save_pretrained("./terraquery_model")
-tokenizer.save_pretrained("./terraquery_model")
+model.save_pretrained("../terraquery_model")
+tokenizer.save_pretrained("../terraquery_model")
