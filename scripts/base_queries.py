@@ -1,15 +1,4 @@
-# TODO: Verbiage gaps
-# - owned by groups
-# - owned by individuals
-# - written out words - query error - fifty two thousand evaluated as fifteen thousand
-# - find cities with a park
-# - find cities with at least one park
-# - find cities that contain at least two intersections
-# - find the city with the most number of parks - query error - ST_Within(... HINT: No function matches the given name and argument type; may need explicit type casts
-
-
 BASE_QUERIES = [
-  # Cities (52)
   {
     "natural-language": "Find cities within the area bound by (-119.3047, 34.2805), (-119.2280, 34.2900), (-119.2265, 34.2400), (-119.2660, 34.2100), (-119.2940, 34.2385), and (-119.3047, 34.2805)",
     "sql": "SELECT c.name FROM cities c WHERE ST_Within(c.boundary, ST_GeomFromText('POLYGON((-119.3047 34.2805, -119.2280 34.2900, -119.2265 34.2400, -119.2660 34.2100, -119.2940 34.2385, -119.3047 34.2805))', 4326))"
@@ -259,7 +248,6 @@ BASE_QUERIES = [
     "sql": "SELECT c.* FROM cities c JOIN buildings b ON ST_Within(b.location, c.boundary) JOIN owning_entities o ON b.owning_entity_id = o.id GROUP BY c.id HAVING SUM(CASE WHEN o.is_group = FALSE THEN 1 ELSE 0 END) > SUM(CASE WHEN o.is_group = TRUE THEN 1 ELSE 0 END)"
   },
 
-  # Roads (58)
   {
     "natural-language": "Find roads with at least one kilometer crossing within the area bound by (-119.3047, 34.2805), (-119.2280, 34.2900), (-119.2265, 34.2400), (-119.2660, 34.2100), (-119.2940, 34.2385), and (-119.3047, 34.2805)",
     "sql": "SELECT * FROM roads WHERE ST_Intersects(route, ST_GeomFromText('POLYGON((-119.3047 34.2805, -119.2280 34.2900, -119.2265 34.2400, -119.2660 34.2100, -119.2940 34.2385, -119.3047 34.2805))', 4326)) AND ST_Length(ST_Transform(route, 3857)) >= 1000"
@@ -493,7 +481,6 @@ BASE_QUERIES = [
     "sql": "SELECT * FROM roads ORDER BY ST_Y(ST_Transform(ST_StartPoint(route), 4326)) DESC LIMIT 1"
   },
 
-  # Parks (58)
   {
     "natural-language": "Find parks within the area bound by (-119.3047, 34.2805), (-119.2280, 34.2900), (-119.2265, 34.2400), (-119.2660, 34.2100), (-119.2940, 34.2385), and (-119.3047, 34.2805)",
     "sql": "SELECT * FROM parks p WHERE ST_Within(p.boundary, ST_GeomFromText('POLYGON((-119.3047 34.2805, -119.2280 34.2900, -119.2265 34.2400, -119.2660 34.2100, -119.2940 34.2385, -119.3047 34.2805))', 4326))"
@@ -727,7 +714,6 @@ BASE_QUERIES = [
     "sql": "SELECT * FROM parks p WHERE NOT ST_Within(p.boundary, (SELECT boundary FROM cities WHERE name = 'Ojai' LIMIT 1))"
   },
 
-  # Buildings (51)
   {
     "natural-language": "Find buildings within 10 km of Ventura",
     "sql": "SELECT * FROM buildings WHERE ST_DWithin(ST_Transform(location, 3857), (SELECT ST_Transform(boundary, 3857) FROM cities WHERE name = 'Ventura'), 10000)"
@@ -933,7 +919,6 @@ BASE_QUERIES = [
     "sql": "SELECT * FROM buildings WHERE ST_X(location) < (SELECT ST_X(ST_Centroid(boundary)) FROM cities WHERE name = 'Oxnard') AND ST_Within(location, (SELECT boundary FROM cities WHERE name = 'Oxnard'))"
   },
 
-  # Owners (50)
   {
     "natural-language": "Find owners with buildings within the area bound by (-119.3047, 34.2805), (-119.2280, 34.2900), (-119.2265, 34.2400), (-119.2660, 34.2100), (-119.2940, 34.2385), and (-119.3047, 34.2805)",
     "sql": "SELECT DISTINCT o.name FROM owning_entities o JOIN buildings b ON o.id = b.owning_entity_id WHERE ST_Within(b.location, ST_GeomFromText('POLYGON((-119.3047 34.2805, -119.2280 34.2900, -119.2265 34.2400, -119.2660 34.2100, -119.2940 34.2385, -119.3047 34.2805))', 4326))"

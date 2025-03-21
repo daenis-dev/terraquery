@@ -7,7 +7,7 @@ RUN pip install --no-cache-dir --upgrade pip && pip install --no-cache-dir torch
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY app.py .
+COPY controller/app.py .
 COPY terraquery_model/config.json \
      terraquery_model/generation_config.json \
      terraquery_model/model.safetensors \
