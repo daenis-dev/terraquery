@@ -4,7 +4,7 @@ import torch
 
 app = Flask(__name__)
 
-model_path = "../terraquery_model" # was ./terraquery_model
+model_path = "./terraquery_model" # was ./terraquery_model
 tokenizer = GPT2Tokenizer.from_pretrained(model_path)
 model = GPT2LMHeadModel.from_pretrained(model_path)
 

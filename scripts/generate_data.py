@@ -97,7 +97,7 @@ def reset_transaction():
 
 new_queries = generate_dynamic_queries(1000)
 
-with open('terraquery_dataset.json', 'w') as f:
+with open('scripts/terraquery_dataset.json', 'w') as f:
     json.dump(new_queries, f, indent=4)
 
 for query in new_queries:

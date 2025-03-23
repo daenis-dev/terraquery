@@ -6,8 +6,8 @@ import numpy as np
 
 def get_dataset():
     return load_dataset("json", data_files={
-        "train": "spider/data/processed_train_spider.json",
-        "dev": "spider/data/processed_dev_spider.json"
+        "train": "scripts/spider/data/processed_train_spider.json",
+        "dev": "scripts/spider/data/processed_dev_spider.json"
         }
     )
 
@@ -49,7 +49,7 @@ tokenized_train_dataset = train_dataset.map(preprocess_function, batched=True)
 tokenized_datasets = tokenized_train_dataset.train_test_split(test_size=0.2)
 
 training_args = TrainingArguments(
-    output_dir="../terraquery_model_spider",
+    output_dir="./terraquery_model_spider",
     per_device_train_batch_size=2,
     evaluation_strategy="epoch",
     save_strategy="epoch",
@@ -66,5 +66,5 @@ trainer = Trainer(
 
 trainer.train()
 
-model.save_pretrained("../terraquery_model_spider")
-tokenizer.save_pretrained("../terraquery_model_spider")
+model.save_pretrained("./terraquery_model_spider")
+tokenizer.save_pretrained("./terraquery_model_spider")
