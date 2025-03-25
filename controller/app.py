@@ -1,10 +1,14 @@
-from flask import Flask, request, jsonify
+import psycopg2
+import folium
+from flask import Flask, request, render_template_string
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
 import torch
+import json
+from config import DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT
 
 app = Flask(__name__)
 
-model_path = "./terraquery_model" # was ./terraquery_model
+model_path = "./terraquery_model"
 tokenizer = GPT2Tokenizer.from_pretrained(model_path)
 model = GPT2LMHeadModel.from_pretrained(model_path)
 
@@ -34,6 +38,87 @@ def generate_sql_for_natural_language_query(natural_language_query):
     
     return sql_query
 
+def get_webmap_for_spatial_query(sql_query):
+    """Execute the SQL query, render a webmap, and return HTML."""
+    print('SQL query: ' + str(sql_query), flush=True)
+    # TODO: Hard coding for test
+    sql_query = 'SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 2229), 4326)) AS boundary FROM cities WHERE population > 100000 ORDER BY ST_Area(boundary)'
+    try:
+        conn = psycopg2.connect(
+            dbname=DB_NAME,
+            user=DB_USER,
+            password=DB_PASSWORD,
+            host=DB_HOST,
+            port=DB_PORT
+        )
+        cursor = conn.cursor()
+        cursor.execute(sql_query)
+
+        columns = [desc[0] for desc in cursor.description]
+
+        allowed_pairs = [
+            ("name", "boundary"),
+            ("name", "route"),
+            ("street_number", "location"),
+        ]
+
+        selected_pair = next(
+            ((name_field, geom_field) for name_field, geom_field in allowed_pairs if name_field in columns and geom_field in columns),
+            None
+        )
+
+        if not selected_pair:
+            return "Error: Query must return one of the following field pairs: (name, boundary), (name, route), or (street_number, location)."
+
+        name_field, geom_field = selected_pair
+
+        m = folium.Map(location=[34.2746, -119.2290], zoom_start=11)
+
+        for row in cursor.fetchall():
+            row_dict = dict(zip(columns, row))
+            name = row_dict.get(name_field, "Unnamed")
+            geom_geojson = row_dict.get(geom_field)
+
+            if not geom_geojson:
+                continue
+
+            try:
+                print('GeoJSON: ' + str(json.dumps(geom_geojson)))
+                geom = json.loads(geom_geojson)
+                print('Successfully loaded', flush=True)
+            except Exception as e:
+                print(f"Error loading GeoJSON for {name}: {e}")
+                continue
+
+            print('Geom object: ' + str(json.dumps(geom)), flush=True)
+            if geom["type"] == "Point":
+                folium.Marker(
+                    location=[geom["coordinates"][1], geom["coordinates"][0]],
+                    popup=name,
+                    icon=folium.Icon(color="red")
+                ).add_to(m)
+            elif geom["type"] in ["Polygon", "MultiPolygon"]:
+                print('Adding polygon to map: ' + str(geom), flush=True) # TOOD: Check this next
+                folium.GeoJson(
+                    geom,
+                    name=name,
+                    style_function=lambda x: {"color": "blue", "fillColor": "#0000ff", "fillOpacity": 0.2}
+                ).add_to(m)
+            elif geom["type"] in ["LineString", "MultiLineString"]:
+                folium.GeoJson(
+                    geom,
+                    name=name,
+                    style_function=lambda x: {"color": "red", "weight": 3, "opacity": 1}
+                ).add_to(m)
+
+        cursor.close()
+        conn.close()
+
+        return m._repr_html_()
+
+    except Exception as e:
+        return f"Error: {e}"
+
 @app.route('/v1/generated-sql-queries', methods=['GET'])
 def get_generated_sql():
     natural_language_query = request.args.get('natural-language-query')
@@ -41,7 +126,23 @@ def get_generated_sql():
         return jsonify({"error": "Missing 'natural-language-query' parameter"}), 400
     
     sql_query = generate_sql_for_natural_language_query(natural_language_query)
-    return jsonify({"natural-language-query": natural_language_query, "generated-sql-query": sql_query})
+
+    webmap_html = get_webmap_for_spatial_query(sql_query)
+    
+    return render_template_string("""
+        <html>
+            <head>
+                <title>Generated Web Map</title>
+            </head>
+            <body>
+                <h2>Natural Language Query: {{ query }}</h2>
+                <h3>Generated SQL Query:</h3>
+                <pre>{{ sql }}</pre>
+                <h3>Generated Web Map:</h3>
+                {{ webmap|safe }}
+            </body>
+        </html>
+    """, query=natural_language_query, sql=sql_query, webmap=webmap_html)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=9090, debug=True)

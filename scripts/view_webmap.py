@@ -57,10 +57,10 @@ def add_layer(query, geom_type, color, fill_color=None, point_radius=5):
             ).add_to(m)
 
 # TOOD: Execute one of these depending on the table being selected from in the SQL script
-add_layer("SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 2229), 4326)) FROM cities WHERE boundary IS NOT NULL", "polygon", "blue", "#0000ff")
-# add_layer("SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(route, 2229), 4326)) FROM roads WHERE route IS NOT NULL", "line", "red")
-# add_layer("SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 3857), 4326)) FROM parks WHERE boundary IS NOT NULL", "polygon", "green", "#00FF00")
-# add_layer("SELECT street_number, ST_AsGeoJSON(location) FROM buildings WHERE location IS NOT NULL", "point", "red")
+add_layer("SELECT name, ST_AsGeoJSON(boundary) FROM cities WHERE boundary IS NOT NULL", "polygon", "blue", "#0000ff")
+add_layer("SELECT name, ST_AsGeoJSON(route) FROM roads WHERE route IS NOT NULL", "line", "red")
+add_layer("SELECT name, ST_AsGeoJSON(boundary) FROM parks WHERE boundary IS NOT NULL", "polygon", "green", "#00FF00")
+add_layer("SELECT street_number, ST_AsGeoJSON(location) FROM buildings WHERE location IS NOT NULL", "point", "red")
 
 
 

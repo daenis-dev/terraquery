@@ -71,17 +71,18 @@ def test_query(query):
         cur.execute(query["sql"])
         result = cur.fetchall()
         if len(result) > 0:
-            print(f"Query '{query['natural-language']}' returned {len(result)} results.")
+            # print(f"Query '{query['natural-language']}' returned {len(result)} results.")
             return True
         else:
-            print(f"Query '{query['natural-language']}' returned no results.")
+            # print(f"Query '{query['natural-language']}' returned no results.")
             return False
     except Exception as e:
-        print(f"Error executing query '{query['natural-language']}': {str(e)}")
+        print('Failed query: ' + str(query["sql"]), flush=True)
+        # print(f"Error executing query '{query['natural-language']}': {str(e)}")
         return False
 
 def retry_failed_query(query):
-    print(f"Retrying query '{query['natural-language']}' after failure.")
+    # print(f"Retrying query '{query['natural-language']}' after failure.")
     new_query = get_random_query_from_base_queries()
     new_query["natural-language"] = generate_query_variation(new_query["natural-language"]) + ". " + get_schema()
     
@@ -92,10 +93,10 @@ def retry_failed_query(query):
     return new_query
 
 def reset_transaction():
-    print("Rolling back the transaction due to an error...")
+    # print("Rolling back the transaction due to an error...")
     conn.rollback()
 
-new_queries = generate_dynamic_queries(1000)
+new_queries = generate_dynamic_queries(3600)
 
 with open('scripts/terraquery_dataset.json', 'w') as f:
     json.dump(new_queries, f, indent=4)

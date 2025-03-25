@@ -1,395 +1,395 @@
-# TODO: Add owner information to building queries
-# TODO: Validate conversions before checking for intersections / contains queries (ex: find roads that intersect cities with a population > 100000)
+# TODO: Update to use the word 'DISTINCT' 
 # TODO: Add more queries (Ex: population of 100)
+# TODO: Add owner information to building queries
 BASE_QUERIES = [
   {
     "natural-language": "Find cities within the area bound by (-119.3047, 34.2805), (-119.2280, 34.2900), (-119.2265, 34.2400), (-119.2660, 34.2100), (-119.2940, 34.2385), and (-119.3047, 34.2805)",
-    "sql": "SELECT c.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(c.boundary, 2229), 4326)) AS boundary FROM cities c WHERE ST_Within(c.boundary, ST_GeomFromText('POLYGON((-119.3047 34.2805, -119.2280 34.2900, -119.2265 34.2400, -119.2660 34.2100, -119.2940 34.2385, -119.3047 34.2805))', 4326))"
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c WHERE ST_Within(c.boundary, ST_GeomFromText('POLYGON((-119.3047 34.2805, -119.2280 34.2900, -119.2265 34.2400, -119.2660 34.2100, -119.2940 34.2385, -119.3047 34.2805))', 4326))"
   },
   {
     "natural-language": "Find cities within the area bound by (-119.3120, 34.4660), (-119.2630, 34.4720), (-119.2410, 34.4450), (-119.2690, 34.4260), (-119.2980, 34.4350), and (-119.3120, 34.4660)",
-    "sql": "SELECT c.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(c.boundary, 2229), 4326)) AS boundary FROM cities c WHERE ST_Within(c.boundary, ST_GeomFromText('POLYGON((-119.3120 34.4660, -119.2630 34.4720, -119.2410 34.4450, -119.2690 34.4260, -119.2980 34.4350, -119.3120 34.4660))', 4326))"
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c WHERE ST_Within(c.boundary, ST_GeomFromText('POLYGON((-119.3120 34.4660, -119.2630 34.4720, -119.2410 34.4450, -119.2690 34.4260, -119.2980 34.4350, -119.3120 34.4660))', 4326))"
   },
   {
     "natural-language": "Find cities within the area bound by (-119.2450, 34.2320), (-119.1720, 34.2470), (-119.1540, 34.1970), (-119.2000, 34.1610), (-119.2370, 34.1760), and (-119.2450, 34.2320)",
-    "sql": "SELECT c.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(c.boundary, 2229), 4326)) AS boundary FROM cities c WHERE ST_Within(c.boundary, ST_GeomFromText('POLYGON((-119.2450 34.2320, -119.1720 34.2470, -119.1540 34.1970, -119.2000 34.1610, -119.2370 34.1760, -119.2450 34.2320))', 4326))"
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c WHERE ST_Within(c.boundary, ST_GeomFromText('POLYGON((-119.2450 34.2320, -119.1720 34.2470, -119.1540 34.1970, -119.2000 34.1610, -119.2370 34.1760, -119.2450 34.2320))', 4326))"
   },
   {
     "natural-language": "Find cities within the area bound by (-119.0610, 34.2360), (-119.0170, 34.2370), (-118.9870, 34.2110), (-119.0110, 34.1850), (-119.0480, 34.1980), and (-119.0610, 34.2360)",
-    "sql": "SELECT c.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(c.boundary, 2229), 4326)) AS boundary FROM cities c WHERE ST_Within(c.boundary, ST_GeomFromText('POLYGON((-119.0610 34.2360, -119.0170 34.2370, -118.9870 34.2110, -119.0110 34.1850, -119.0480 34.1980, -119.0610 34.2360))', 4326))"
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c WHERE ST_Within(c.boundary, ST_GeomFromText('POLYGON((-119.0610 34.2360, -119.0170 34.2370, -118.9870 34.2110, -119.0110 34.1850, -119.0480 34.1980, -119.0610 34.2360))', 4326))"
   },
   {
     "natural-language": "Find cities with a population greater than one hundred thousand",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 2229), 4326)) AS boundary FROM cities WHERE population > 100000"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 100000"
   },
   {
     "natural-language": "Find cities with more than one hundred thousand people",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 2229), 4326)) AS boundary FROM cities WHERE population > 100000"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 100000"
   },
   {
     "natural-language": "Find cities with a population greater than one hundred and fifty thousand",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 2229), 4326)) AS boundary FROM cities WHERE population > 150000"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 150000"
   },
   {
     "natural-language": "Find cities with more than one hundred and fifty thousand people",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 2229), 4326)) AS boundary FROM cities WHERE population > 150000"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 150000"
   },
   {
     "natural-language": "Find cities with a population greater than 200000",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 2229), 4326)) AS boundary FROM cities WHERE population > 200000"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 200000"
   },
   {
     "natural-language": "Find cities with more than 200000 people",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 2229), 4326)) AS boundary FROM cities WHERE population > 200000"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 200000"
   },
   {
     "natural-language": "Find cities with a population greater than 270,000",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 2229), 4326)) AS boundary FROM cities WHERE population > 270000"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 270000"
   },
   {
     "natural-language": "Find cities with more than 270,000 people",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 2229), 4326)) AS boundary FROM cities WHERE population > 270000"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 270000"
   },
   {
     "natural-language": "Find cities with a population of at least ten thousand",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 2229), 4326)) AS boundary FROM cities WHERE population >= 10000"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 10000"
   },
   {
     "natural-language": "Find cities with at least ten thousand people",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 2229), 4326)) AS boundary FROM cities WHERE population >= 10000"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 10000"
   },
   {
     "natural-language": "Find cities with a population of at least 76000",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 2229), 4326)) AS boundary FROM cities WHERE population >= 76000"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 76000"
   },
   {
     "natural-language": "Find cities with at least 76000 people",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 2229), 4326)) AS boundary FROM cities WHERE population >= 76000"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 76000"
   },
   {
     "natural-language": "Find cities with a population of at least forty five thousand and seven hundred",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 2229), 4326)) AS boundary FROM cities WHERE population >= 45700"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 45700"
   },
   {
     "natural-language": "Find cities with at least forty five thousand and seven hundred people",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 2229), 4326)) AS boundary FROM cities WHERE population >= 45700"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 45700"
   },
   {
     "natural-language": "Find cities with a population of at least 100,000",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 2229), 4326)) AS boundary FROM cities WHERE population >= 100000"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 100000"
   },
   {
     "natural-language": "Find cities with at least 100,000 people",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 2229), 4326)) AS boundary FROM cities WHERE population >= 100000"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 100000"
   },
   {
     "natural-language": "Find cities with a population less than one hundred thousand",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 2229), 4326)) AS boundary FROM cities WHERE population < 100000"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 100000"
   },
   {
     "natural-language": "Find cities with less than one hundred thousand people",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 2229), 4326)) AS boundary FROM cities WHERE population < 100000"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 100000"
   },
   {
     "natural-language": "List all cities and order by population, descending",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 2229), 4326)) AS boundary FROM cities ORDER BY population DESC"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities ORDER BY population DESC"
   },
   {
     "natural-language": "List all cities and order by size, descending",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 2229), 4326)) AS boundary FROM cities ORDER BY ST_Area(boundary) DESC"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities ORDER BY ST_Area(boundary) DESC"
   },
   {
     "natural-language": "Find cities that contain at least one intersection",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 2229), 4326)) AS boundary FROM cities WHERE ST_NumGeometries(boundary) >= 1"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE ST_NumGeometries(boundary) >= 1"
   },
   {
     "natural-language": "Find cities that contain at least 5 intersections",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 2229), 4326)) AS boundary FROM cities WHERE ST_NumGeometries(boundary) >= 5"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE ST_NumGeometries(boundary) >= 5"
   },
   {
     "natural-language": "Find cities that contain at least six intersections",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 2229), 4326)) AS boundary FROM cities WHERE ST_NumGeometries(boundary) >= 6"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE ST_NumGeometries(boundary) >= 6"
   },
   {
     "natural-language": "Find cities that contain at least 10 intersections",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 2229), 4326)) AS boundary FROM cities WHERE ST_NumGeometries(boundary) >= 10"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE ST_NumGeometries(boundary) >= 10"
   },
   {
     "natural-language": "Find cities that contain at least five buildings that are owned by individuals",
-    "sql": "SELECT c.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(c.boundary, 2229), 4326)) AS boundary FROM cities c JOIN buildings b ON ST_Within(b.location, c.boundary) JOIN owning_entities o ON b.owning_entity_id = o.id WHERE o.is_group = FALSE GROUP BY c.id HAVING COUNT(b.id) >= 5"
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN buildings b ON ST_Within(b.location, c.boundary) JOIN owning_entities o ON b.owning_entity_id = o.id WHERE o.is_group = FALSE GROUP BY c.id HAVING COUNT(b.id) >= 5"
   },
   {
     "natural-language": "Find cities where the majority of buildings are owned by groups",
-    "sql": "SELECT c.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(c.boundary, 2229), 4326)) AS boundary FROM cities c JOIN buildings b ON ST_Within(b.location, c.boundary) JOIN owning_entities o ON b.owning_entity_id = o.id GROUP BY c.id HAVING COUNT(CASE WHEN o.is_group = TRUE THEN 1 END) > COUNT(CASE WHEN o.is_group = FALSE THEN 1 END)"
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN buildings b ON ST_Within(b.location, c.boundary) JOIN owning_entities o ON b.owning_entity_id = o.id GROUP BY c.id HAVING COUNT(CASE WHEN o.is_group = TRUE THEN 1 END) > COUNT(CASE WHEN o.is_group = FALSE THEN 1 END)"
   },
   {
     "natural-language": "Find cities where the majority of buildings are owned by individuals",
-    "sql": "SELECT c.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(c.boundary, 2229), 4326)) AS boundary FROM cities c JOIN buildings b ON ST_Within(b.location, c.boundary) JOIN owning_entities o ON b.owning_entity_id = o.id GROUP BY c.id HAVING SUM(CASE WHEN o.is_group = FALSE THEN 1 ELSE 0 END) > SUM(CASE WHEN o.is_group = TRUE THEN 1 ELSE 0 END)"
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN buildings b ON ST_Within(b.location, c.boundary) JOIN owning_entities o ON b.owning_entity_id = o.id GROUP BY c.id HAVING SUM(CASE WHEN o.is_group = FALSE THEN 1 ELSE 0 END) > SUM(CASE WHEN o.is_group = TRUE THEN 1 ELSE 0 END)"
   },
   {
     "natural-language": "Find the city with the most number of parks",
-    "sql": "SELECT c.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(c.boundary, 2229), 4326)) AS boundary FROM cities c JOIN parks p ON ST_Within(p.boundary, c.boundary) GROUP BY c.id ORDER BY COUNT(p.id) DESC LIMIT 1"
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN parks p ON ST_Within(p.boundary, c.boundary) GROUP BY c.id ORDER BY COUNT(p.id) DESC LIMIT 1"
   },
   {
     "natural-language": "Find cities with no parks",
-    "sql": "SELECT c.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(c.boundary, 2229), 4326)) AS boundary FROM cities WHERE NOT EXISTS (SELECT 1 FROM parks p WHERE ST_Within(p.boundary, cities.boundary))"
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c WHERE NOT EXISTS (SELECT 1 FROM parks p WHERE ST_Within(p.boundary, c.boundary))"
   },
   {
     "natural-language": "Find cities with at least one park",
-    "sql": "SELECT c.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(c.boundary, 2229), 4326)) AS boundary FROM cities c JOIN parks p ON ST_Within(p.boundary, c.boundary) GROUP BY c.id HAVING COUNT(p.id) > 0 ORDER BY COUNT(p.id)"
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN parks p ON ST_Within(p.boundary, c.boundary) GROUP BY c.id HAVING COUNT(p.id) > 0 ORDER BY COUNT(p.id)"
   },
   {
     "natural-language": "Find the city with the most buildings",
-    "sql": "SELECT c.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(c.boundary, 2229), 4326)) AS boundary FROM cities c JOIN buildings b ON ST_Within(b.location, c.boundary) GROUP BY c.id ORDER BY COUNT(b.id) DESC LIMIT 1"
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN buildings b ON ST_Within(b.location, c.boundary) GROUP BY c.id ORDER BY COUNT(b.id) DESC LIMIT 1"
   },
   {
     "natural-language": "Find the city with the fewest number of buildings",
-    "sql": "SELECT c.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(c.boundary, 2229), 4326)) AS boundary FROM cities c JOIN buildings b ON ST_Within(b.location, c.boundary) GROUP BY c.id ORDER BY COUNT(b.id) ASC LIMIT 1"
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN buildings b ON ST_Within(b.location, c.boundary) GROUP BY c.id ORDER BY COUNT(b.id) ASC LIMIT 1"
   },
   {
     "natural-language": "Find the city with the least buildings",
-    "sql": "SELECT c.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(c.boundary, 2229), 4326)) AS boundary FROM cities c JOIN buildings b ON ST_Within(b.location, c.boundary) GROUP BY c.id ORDER BY COUNT(b.id) ASC LIMIT 1"
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN buildings b ON ST_Within(b.location, c.boundary) GROUP BY c.id ORDER BY COUNT(b.id) ASC LIMIT 1"
   },
   {
     "natural-language": "Find the city with the least amount of roads",
-    "sql": "SELECT c.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(c.boundary, 2229), 4326)) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
   },
   {
     "natural-language": "Find the city with the most roads",
-    "sql": "SELECT c.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(c.boundary, 2229), 4326)) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
   },
   {
     "natural-language": "Find the city with the most intersecting roads",
-    "sql": "SELECT c.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(c.boundary, 2229), 4326)) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) GROUP BY c.id ORDER BY COUNT(DISTINCT r.id) DESC LIMIT 1"
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) GROUP BY c.id ORDER BY COUNT(DISTINCT r.id) DESC LIMIT 1"
   },
   {
     "natural-language": "Find the city with the fewest roads and a population greater than 100000",
-    "sql": "SELECT c.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(c.boundary, 2229), 4326)) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population > 100000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population > 100000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
   },
   {
     "natural-language": "Find the city with the fewest roads and a population greater than 100,000",
-    "sql": "SELECT c.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(c.boundary, 2229), 4326)) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population > 100000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population > 100000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
   },
   {
     "natural-language": "Find the city with the fewest roads and a population less than ninety two thousand",
-    "sql": "SELECT c.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(c.boundary, 2229), 4326)) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population < 92000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population < 92000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
   },
   {
     "natural-language": "Find the city with the most roads and a population greater than forty five thousand",
-    "sql": "SELECT c.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(c.boundary, 2229), 4326)) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population > 45000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population > 45000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
   },
   {
     "natural-language": "Find the city with the most roads and a population less than one hundred and eighty five thousand",
-    "sql": "SELECT c.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(c.boundary, 2229), 4326)) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population < 185000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population < 185000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
   },
   {
     "natural-language": "Find the city with the most roads and a population of at least two hundred thousand",
-    "sql": "SELECT c.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(c.boundary, 2229), 4326)) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 200000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 200000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
   },
   {
     "natural-language": "Find cities with an area greater than one square kilometer",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 2229), 4326)) AS boundary FROM cities WHERE ST_Area(ST_Transform(boundary, 3857)) > 1000000"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE ST_Area(ST_Transform(boundary, 3857)) > 1000000"
   },
   {
     "natural-language": "Find cities with an area greater than fourty square kilometers",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 2229), 4326)) AS boundary FROM cities WHERE ST_Area(ST_Transform(boundary, 3857)) > 40000000"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE ST_Area(ST_Transform(boundary, 3857)) > 40000000"
   },
   {
     "natural-language": "Find cities with an area greater than 40 sq km",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 2229), 4326)) AS boundary FROM cities WHERE ST_Area(ST_Transform(boundary, 3857)) > 40000000"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE ST_Area(ST_Transform(boundary, 3857)) > 40000000"
   },
   {
     "natural-language": "Find the city with the smallest area and a population greater than 70,000",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 2229), 4326)) AS boundary FROM cities WHERE population > 70000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 70000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
   },
   {
     "natural-language": "Find the city with the smallest area and a population greater than eighty thousand",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 2229), 4326)) AS boundary FROM cities WHERE population > 80000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 80000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
   },
   {
     "natural-language": "Find the city with the smallest area and a population greater than 90000",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 2229), 4326)) AS boundary FROM cities WHERE population > 90000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 90000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
   },
   {
     "natural-language": "Find the city with the smallest area and a population greater than 100,000",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 2229), 4326)) AS boundary FROM cities WHERE population > 100000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 100000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
   },
   {
     "natural-language": "Find all cities that contain at least 3 sq km of park",
-    "sql": "SELECT c.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(c.boundary, 2229), 4326)) AS boundary, SUM(ST_Area(ST_Transform(p.boundary, 3857))) AS total_area FROM cities c JOIN parks p ON ST_Within(p.boundary, c.boundary) GROUP BY c.id HAVING SUM(ST_Area(ST_Transform(p.boundary, 3857))) >= 3000"
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary, SUM(ST_Area(ST_Transform(p.boundary, 3857))) AS total_area FROM cities c JOIN parks p ON ST_Within(p.boundary, c.boundary) GROUP BY c.id HAVING SUM(ST_Area(ST_Transform(p.boundary, 3857))) >= 3000"
   },
   {
     "natural-language": "Find all cities that contain at least two square kilometers of park",
-    "sql": "SELECT c.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(c.boundary, 2229), 4326)) AS boundary, SUM(ST_Area(ST_Transform(p.boundary, 3857))) AS total_area FROM cities c JOIN parks p ON ST_Within(p.boundary, c.boundary) GROUP BY c.id HAVING SUM(ST_Area(ST_Transform(p.boundary, 3857))) >= 2000"
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary, SUM(ST_Area(ST_Transform(p.boundary, 3857))) AS total_area FROM cities c JOIN parks p ON ST_Within(p.boundary, c.boundary) GROUP BY c.id HAVING SUM(ST_Area(ST_Transform(p.boundary, 3857))) >= 2000"
   },
   {
     "natural-language": "Find all cities that contain at least one square kilometer of park",
-    "sql": "SELECT c.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(c.boundary, 2229), 4326)) AS boundary, SUM(ST_Area(ST_Transform(p.boundary, 3857))) AS total_area FROM cities c JOIN parks p ON ST_Within(p.boundary, c.boundary) GROUP BY c.id HAVING SUM(ST_Area(ST_Transform(p.boundary, 3857))) >= 1000"
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary, SUM(ST_Area(ST_Transform(p.boundary, 3857))) AS total_area FROM cities c JOIN parks p ON ST_Within(p.boundary, c.boundary) GROUP BY c.id HAVING SUM(ST_Area(ST_Transform(p.boundary, 3857))) >= 1000"
   },
   {
     "natural-language": "Find the city where a majority of the buildings are owned by individuals",
-    "sql": "SELECT c.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(c.boundary, 2229), 4326)) AS boundary FROM cities c JOIN buildings b ON ST_Within(b.location, c.boundary) JOIN owning_entities o ON b.owning_entity_id = o.id GROUP BY c.id HAVING SUM(CASE WHEN o.is_group = FALSE THEN 1 ELSE 0 END) > SUM(CASE WHEN o.is_group = TRUE THEN 1 ELSE 0 END)"
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN buildings b ON ST_Within(b.location, c.boundary) JOIN owning_entities o ON b.owning_entity_id = o.id GROUP BY c.id HAVING SUM(CASE WHEN o.is_group = FALSE THEN 1 ELSE 0 END) > SUM(CASE WHEN o.is_group = TRUE THEN 1 ELSE 0 END)"
   },
   {
     "natural-language": "Find the northernmost city",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 2229), 4326)) AS boundary FROM cities ORDER BY ST_YMax(boundary) DESC LIMIT 1"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities ORDER BY ST_YMax(boundary) DESC LIMIT 1"
   },
    {
     "natural-language": "Find the southernmost city",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 2229), 4326)) AS boundary FROM cities ORDER BY ST_YMin(boundary) ASC LIMIT 1"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities ORDER BY ST_YMin(boundary) ASC LIMIT 1"
   },
   {
     "natural-language": "Find the easternmost city",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 2229), 4326)) AS boundary FROM cities ORDER BY ST_XMax(boundary) DESC LIMIT 1"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities ORDER BY ST_XMax(boundary) DESC LIMIT 1"
   },
   {
     "natural-language": "Find the westernmost city",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 2229), 4326)) AS boundary FROM cities ORDER BY ST_XMin(boundary) ASC LIMIT 1"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities ORDER BY ST_XMin(boundary) ASC LIMIT 1"
   },
   {
     "natural-language": "Find the city where most buildings are owned by individuals",
-    "sql": "SELECT c.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(c.boundary, 2229), 4326)) AS boundary FROM cities c JOIN buildings b ON ST_Within(b.location, c.boundary) JOIN owning_entities o ON b.owning_entity_id = o.id GROUP BY c.id HAVING SUM(CASE WHEN o.is_group = FALSE THEN 1 ELSE 0 END) > SUM(CASE WHEN o.is_group = TRUE THEN 1 ELSE 0 END)"
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN buildings b ON ST_Within(b.location, c.boundary) JOIN owning_entities o ON b.owning_entity_id = o.id GROUP BY c.id HAVING SUM(CASE WHEN o.is_group = FALSE THEN 1 ELSE 0 END) > SUM(CASE WHEN o.is_group = TRUE THEN 1 ELSE 0 END)"
   },
 
   {
     "natural-language": "Find roads with at least one kilometer crossing within the area bound by (-119.3047, 34.2805), (-119.2280, 34.2900), (-119.2265, 34.2400), (-119.2660, 34.2100), (-119.2940, 34.2385), and (-119.3047, 34.2805)",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(route, 2229), 4326)) AS route FROM roads WHERE ST_Intersects(route, ST_GeomFromText('POLYGON((-119.3047 34.2805, -119.2280 34.2900, -119.2265 34.2400, -119.2660 34.2100, -119.2940 34.2385, -119.3047 34.2805))', 4326)) AND ST_Length(ST_Transform(route, 3857)) >= 1000"
+    "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads WHERE ST_Intersects(route, ST_GeomFromText('POLYGON((-119.3047 34.2805, -119.2280 34.2900, -119.2265 34.2400, -119.2660 34.2100, -119.2940 34.2385, -119.3047 34.2805))', 4326)) AND ST_Length(ST_Transform(route, 3857)) >= 1000"
   },
   {
     "natural-language": "Find roads with at least one kilometer crossing within the area bound by (-119.3120, 34.4660), (-119.2630, 34.4720), (-119.2410, 34.4450), (-119.2690, 34.4260), (-119.2980, 34.4350), and (-119.3120, 34.4660)",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(route, 2229), 4326)) AS route FROM roads WHERE ST_Intersects(route, ST_GeomFromText('POLYGON((-119.3120 34.4660, -119.2630 34.4720, -119.2410 34.4450, -119.2690 34.4260, -119.2980 34.4350, -119.3120 34.4660))', 4326)) AND ST_Length(ST_Transform(route, 3857)) >= 1000"
+    "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads WHERE ST_Intersects(route, ST_GeomFromText('POLYGON((-119.3120 34.4660, -119.2630 34.4720, -119.2410 34.4450, -119.2690 34.4260, -119.2980 34.4350, -119.3120 34.4660))', 4326)) AND ST_Length(ST_Transform(route, 3857)) >= 1000"
   },
   {
     "natural-language": "Find roads with at least one kilometer crossing within the area bound by (-119.2450, 34.2320), (-119.1720, 34.2470), (-119.1540, 34.1970), (-119.2000, 34.1610), (-119.2370, 34.1760), and (-119.2450, 34.2320)",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(route, 2229), 4326)) AS route FROM roads WHERE ST_Intersects(route, ST_GeomFromText('POLYGON((-119.2450 34.2320, -119.1720 34.2470, -119.1540 34.1970, -119.2000 34.1610, -119.2370 34.1760, -119.2450 34.2320))', 4326)) AND ST_Length(ST_Transform(route, 3857)) >= 1000"
+    "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads WHERE ST_Intersects(route, ST_GeomFromText('POLYGON((-119.2450 34.2320, -119.1720 34.2470, -119.1540 34.1970, -119.2000 34.1610, -119.2370 34.1760, -119.2450 34.2320))', 4326)) AND ST_Length(ST_Transform(route, 3857)) >= 1000"
   },
   {
     "natural-language": "Find roads with at least one kilometer crossing within the area bound by (-119.0610, 34.2360), (-119.0170, 34.2370), (-118.9870, 34.2110), (-119.0110, 34.1850), (-119.0480, 34.1980), and (-119.0610, 34.2360)",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(route, 2229), 4326)) AS route FROM roads WHERE ST_Intersects(route, ST_GeomFromText('POLYGON((-119.0610 34.2360, -119.0170 34.2370, -118.9870 34.2110, -119.0110 34.1850, -119.0480 34.1980, -119.0610 34.2360))', 4326)) AND ST_Length(ST_Transform(route, 3857)) >= 1000"
+    "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads WHERE ST_Intersects(route, ST_GeomFromText('POLYGON((-119.0610 34.2360, -119.0170 34.2370, -118.9870 34.2110, -119.0110 34.1850, -119.0480 34.1980, -119.0610 34.2360))', 4326)) AND ST_Length(ST_Transform(route, 3857)) >= 1000"
   },
   {
     "natural-language": "Find roads that intersect at (-119.2700, 34.2600)",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(route, 2229), 4326)) AS route FROM roads WHERE ST_Intersects(route, ST_SetSRID(ST_Point(-119.2700, 34.2600), 4326))"
+    "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads WHERE ST_Intersects(route, ST_SetSRID(ST_Point(-119.2700, 34.2600), 4326))"
   },
   {
     "natural-language": "Find roads that intersect at (-119.2650, 34.2400)",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(route, 2229), 4326)) AS route FROM roads WHERE ST_Intersects(route, ST_SetSRID(ST_Point(-119.2650, 34.2400), 4326))"
+    "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads WHERE ST_Intersects(route, ST_SetSRID(ST_Point(-119.2650, 34.2400), 4326))"
   },
   {
     "natural-language": "Find roads that intersect at (-119.2700, 34.2600) or (-119.2450, 34.2700)",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(route, 2229), 4326)) AS route FROM roads WHERE ST_Intersects(route, ST_SetSRID(ST_Point(-119.2700, 34.2600), 4326)) OR ST_Intersects(route, ST_SetSRID(ST_Point(-119.2450, 34.2700), 4326))"
+    "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads WHERE ST_Intersects(route, ST_SetSRID(ST_Point(-119.2700, 34.2600), 4326)) OR ST_Intersects(route, ST_SetSRID(ST_Point(-119.2450, 34.2700), 4326))"
   },
   {
     "natural-language": "Find roads that span at least four kilometers through a city with a population of at least one hundred thousand",
-    "sql": "SELECT r.name AS road_name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(r.route, 2229), 4326)) AS route, c.name AS city_name, ST_Length(ST_Transform(r.route, 3857)) / 1000 AS road_length_km FROM roads r JOIN cities c ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 100000 AND ST_Length(ST_Transform(r.route, 3857)) >= 4000"
+    "sql": "SELECT r.id, r.name, ST_Length(ST_Intersection(r.route, c.boundary)::geography) AS intersect_length_km FROM roads r JOIN cities c ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 100000 AND ST_Length(ST_Intersection(r.route, c.boundary)::geography) >= 4000"
   },
   {
     "natural-language": "Find roads with at least 2 km through a city with a population less than one hundred thousand",
-    "sql": "SELECT r.name AS road_name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(r.route, 2229), 4326)) AS route, c.name AS city_name, ST_Length(ST_Transform(r.route, 3857)) / 1000 AS road_length_km FROM roads r JOIN cities c ON ST_Intersects(r.route, c.boundary) WHERE c.population < 100000 AND ST_Length(ST_Transform(r.route, 3857)) >= 2000"
+    "sql": "SELECT r.id, r.name, ST_Length(ST_Intersection(r.route, c.boundary)::geography) AS intersect_length_km FROM roads r JOIN cities c ON ST_Intersects(r.route, c.boundary) WHERE c.population < 100000 AND ST_Length(ST_Intersection(r.route, c.boundary)::geography) >= 2000"
   },
   {
     "natural-language": "Find roads that span at least one kilometer through a city with a population of at least one hundred thousand",
-    "sql": "SELECT r.name AS road_name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(r.route, 2229), 4326)) AS route, c.name AS city_name, ST_Length(ST_Transform(r.route, 3857)) / 1000 AS road_length_km FROM roads r JOIN cities c ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 100000 AND ST_Length(ST_Transform(r.route, 3857)) >= 1000"
+    "sql": "SELECT r.id, r.name, ST_Length(ST_Intersection(r.route, c.boundary)::geography) AS intersect_length_km FROM roads r JOIN cities c ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 100000 AND ST_Length(ST_Intersection(r.route, c.boundary)::geography) >= 1000"
   },
   {
     "natural-language": "Find roads with at least 1 km through a city with a population less than one hundred thousand",
-    "sql": "SELECT r.name AS road_name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(r.route, 2229), 4326)) AS route, c.name AS city_name, ST_Length(ST_Transform(r.route, 3857)) / 1000 AS road_length_km FROM roads r JOIN cities c ON ST_Intersects(r.route, c.boundary) WHERE c.population < 100000 AND ST_Length(ST_Transform(r.route, 3857)) >= 5000"
+    "sql": "SELECT r.id, r.name, ST_Length(ST_Intersection(r.route, c.boundary)::geography) AS intersect_length_km FROM roads r JOIN cities c ON ST_Intersects(r.route, c.boundary) WHERE c.population < 100000 AND ST_Length(ST_Intersection(r.route, c.boundary)::geography) >= 1000"
   },
   {
     "natural-language": "Find roads within two kilometers of a park",
-    "sql": "SELECT r.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(r.route, 2229), 4326)) AS route FROM roads r JOIN parks p ON ST_DWithin(r.route, p.boundary, 2000)"
+    "sql": "SELECT r.name, ST_AsGeoJSON(r.route) AS route FROM roads r JOIN parks p ON ST_DWithin(r.route, p.boundary, 2000)"
   },
   {
     "natural-language": "Find roads that go through a park",
-    "sql": "SELECT r.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(r.route, 2229), 4326)) AS route FROM roads r JOIN parks p ON ST_Intersects(r.route, p.boundary)"
+    "sql": "SELECT r.name, ST_AsGeoJSON(r.route) AS route FROM roads r JOIN parks p ON ST_Intersects(r.route, p.boundary)"
   },
   {
     "natural-language": "Find roads that are longer than 4 km",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(route, 2229), 4326)) AS route FROM roads WHERE ST_Length(ST_Transform(route, 3857)) > 4000"
+    "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads WHERE ST_Length(ST_Transform(route, 3857)) > 4000"
   },
   {
     "natural-language": "Find roads that are at least 4 km",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(route, 2229), 4326)) AS route FROM roads WHERE ST_Length(ST_Transform(route, 3857)) >= 4000"
+    "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads WHERE ST_Length(ST_Transform(route, 3857)) >= 4000"
   },
   {
     "natural-language": "Find roads that are shorter than 4 km",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(route, 2229), 4326)) AS route FROM roads WHERE ST_Length(ST_Transform(route, 3857)) < 4000"
+    "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads WHERE ST_Length(ST_Transform(route, 3857)) < 4000"
   },
   {
     "natural-language": "Find roads that are longer than two kilometers",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(route, 2229), 4326)) AS route FROM roads WHERE ST_Length(ST_Transform(route, 3857)) > 2000"
+    "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads WHERE ST_Length(ST_Transform(route, 3857)) > 2000"
   },
   {
     "natural-language": "Find roads that are at least two kilometers",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(route, 2229), 4326)) AS route FROM roads WHERE ST_Length(ST_Transform(route, 3857)) >= 2000"
+    "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads WHERE ST_Length(ST_Transform(route, 3857)) >= 2000"
   },
   {
     "natural-language": "Find roads that are shorter than two kilometers",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(route, 2229), 4326)) AS route FROM roads WHERE ST_Length(ST_Transform(route, 3857)) < 2000"
+    "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads WHERE ST_Length(ST_Transform(route, 3857)) < 2000"
   },
   {
     "natural-language": "Find roads that are longer than five kilometers",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(route, 2229), 4326)) AS route FROM roads WHERE ST_Length(ST_Transform(route, 3857)) > 5000"
+    "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads WHERE ST_Length(ST_Transform(route, 3857)) > 5000"
   },
   {
     "natural-language": "Find roads that are at least five kilometers",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(route, 2229), 4326)) AS route FROM roads WHERE ST_Length(ST_Transform(route, 3857)) >= 5000"
+    "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads WHERE ST_Length(ST_Transform(route, 3857)) >= 5000"
   },
   {
     "natural-language": "Find roads that are shorter than five kilometers",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(route, 2229), 4326)) AS route FROM roads WHERE ST_Length(ST_Transform(route, 3857)) < 5000"
+    "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads WHERE ST_Length(ST_Transform(route, 3857)) < 5000"
   },
   {
     "natural-language": "Find roads that are longer than 6 km",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(route, 2229), 4326)) AS route FROM roads WHERE ST_Length(ST_Transform(route, 3857)) > 6000"
+    "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads WHERE ST_Length(ST_Transform(route, 3857)) > 6000"
   },
   {
     "natural-language": "Find roads that are at least 6 km",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(route, 2229), 4326)) AS route FROM roads WHERE ST_Length(ST_Transform(route, 3857)) >= 6000"
+    "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads WHERE ST_Length(ST_Transform(route, 3857)) >= 6000"
   },
   {
     "natural-language": "Find roads that are shorter than 6 km",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(route, 2229), 4326)) AS route FROM roads WHERE ST_Length(ST_Transform(route, 3857)) < 6000"
+    "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads WHERE ST_Length(ST_Transform(route, 3857)) < 6000"
   },
   {
     "natural-language": "Find the longest road",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(route, 2229), 4326)) AS route FROM roads ORDER BY ST_Length(route) DESC LIMIT 1"
+    "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads ORDER BY ST_Length(route) DESC LIMIT 1"
   },
   {
     "natural-language": "Find the shortest road",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(route, 2229), 4326)) AS route FROM roads ORDER BY ST_Length(route) ASC LIMIT 1"
+    "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads ORDER BY ST_Length(route) ASC LIMIT 1"
   },
   {
     "natural-language": "Find the shortest road within Ventura",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(route, 2229), 4326)) AS route FROM roads WHERE ST_Intersects(route, (SELECT boundary FROM cities WHERE name = 'Ventura')) ORDER BY ST_Length(route) ASC LIMIT 1"
+    "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads WHERE ST_Intersects(route, (SELECT boundary FROM cities WHERE name = 'Ventura')) ORDER BY ST_Length(route) ASC LIMIT 1"
   },
   {
     "natural-language": "Find the shortest road in Ojai",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(route, 2229), 4326)) AS route FROM roads WHERE ST_Intersects(route, (SELECT boundary FROM cities WHERE name = 'Ojai')) ORDER BY ST_Length(route) ASC LIMIT 1"
+    "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads WHERE ST_Intersects(route, (SELECT boundary FROM cities WHERE name = 'Ojai')) ORDER BY ST_Length(route) ASC LIMIT 1"
   },
   {
     "natural-language": "Find the longest road within Oxnard",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(route, 2229), 4326)) AS route FROM roads WHERE ST_Intersects(route, (SELECT boundary FROM cities WHERE name = 'Oxnard')) ORDER BY ST_Length(route) DESC LIMIT 1"
+    "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads WHERE ST_Intersects(route, (SELECT boundary FROM cities WHERE name = 'Oxnard')) ORDER BY ST_Length(route) DESC LIMIT 1"
   },
   {
     "natural-language": "Find the longest road in Camarillo",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(route, 2229), 4326)) AS route FROM roads WHERE ST_Intersects(route, (SELECT boundary FROM cities WHERE name = 'Camarillo')) ORDER BY ST_Length(route) DESC LIMIT 1"
+    "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads WHERE ST_Intersects(route, (SELECT boundary FROM cities WHERE name = 'Camarillo')) ORDER BY ST_Length(route) DESC LIMIT 1"
   },
   {
     "natural-language": "Find the longest road within the busiest city",
-    "sql": "SELECT r.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(r.route, 2229), 4326)) AS route FROM roads r JOIN cities c ON ST_Intersects(r.route, c.boundary) WHERE c.population = (SELECT MAX(population) FROM cities) ORDER BY ST_Length(r.route) DESC LIMIT 1"
+    "sql": "SELECT r.name, ST_AsGeoJSON(r.route) AS route FROM roads r JOIN cities c ON ST_Intersects(r.route, c.boundary) WHERE c.population = (SELECT MAX(population) FROM cities) ORDER BY ST_Length(r.route) DESC LIMIT 1"
   },
   {
     "natural-language": "Find the longest road in the quietest city",
-    "sql": "SELECT r.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(r.route, 2229), 4326)) AS route FROM roads r JOIN cities c ON ST_Intersects(r.route, c.boundary) WHERE c.population = (SELECT MIN(population) FROM cities) ORDER BY ST_Length(r.route) DESC LIMIT 1"
+    "sql": "SELECT r.name, ST_AsGeoJSON(r.route) AS route FROM roads r JOIN cities c ON ST_Intersects(r.route, c.boundary) WHERE c.population = (SELECT MIN(population) FROM cities) ORDER BY ST_Length(r.route) DESC LIMIT 1"
   },
   {
     "natural-language": "Find the shortest road in the busiest city",
-    "sql": "SELECT r.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(r.route, 2229), 4326)) AS route FROM roads r JOIN cities c ON ST_Intersects(r.route, c.boundary) WHERE c.population = (SELECT MAX(population) FROM cities) ORDER BY ST_Length(r.route) ASC LIMIT 1"
+    "sql": "SELECT r.name, ST_AsGeoJSON(r.route) AS route FROM roads r JOIN cities c ON ST_Intersects(r.route, c.boundary) WHERE c.population = (SELECT MAX(population) FROM cities) ORDER BY ST_Length(r.route) ASC LIMIT 1"
   },
   {
     "natural-language": "Find the shortest road within the quietest city",
-    "sql": "SELECT r.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(r.route, 2229), 4326)) AS route FROM roads r JOIN cities c ON ST_Intersects(r.route, c.boundary) WHERE c.population = (SELECT MIN(population) FROM cities) ORDER BY ST_Length(r.route) ASC LIMIT 1"
+    "sql": "SELECT r.name, ST_AsGeoJSON(r.route) AS route FROM roads r JOIN cities c ON ST_Intersects(r.route, c.boundary) WHERE c.population = (SELECT MIN(population) FROM cities) ORDER BY ST_Length(r.route) ASC LIMIT 1"
   },
   {
     "natural-language": "Find all roads within ten kilometers of Camarillo",
@@ -425,313 +425,313 @@ BASE_QUERIES = [
   },
   {
     "natural-language": "List all roads in Ojai",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(route, 2229), 4326)) AS route FROM roads WHERE ST_Intersects(route, (SELECT boundary FROM cities WHERE name = 'Ojai'))"
+    "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads WHERE ST_Intersects(route, (SELECT boundary FROM cities WHERE name = 'Ojai'))"
   },
   {
     "natural-language": "List all roads in Camarillo",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(route, 2229), 4326)) AS route FROM roads WHERE ST_Intersects(route, (SELECT boundary FROM cities WHERE name = 'Camarillo'))"
+    "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads WHERE ST_Intersects(route, (SELECT boundary FROM cities WHERE name = 'Camarillo'))"
   },
   {
     "natural-language": "List roads in Oxnard",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(route, 2229), 4326)) AS route FROM roads WHERE ST_Intersects(route, (SELECT boundary FROM cities WHERE name = 'Oxnard'))"
+    "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads WHERE ST_Intersects(route, (SELECT boundary FROM cities WHERE name = 'Oxnard'))"
   },
   {
     "natural-language": "List roads in Ventura",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(route, 2229), 4326)) AS route FROM roads WHERE ST_Intersects(route, (SELECT boundary FROM cities WHERE name = 'Ventura'))"
+    "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads WHERE ST_Intersects(route, (SELECT boundary FROM cities WHERE name = 'Ventura'))"
   },
   {
     "natural-language": "List all roads that have multiple buildings that are owned by the same group",
-    "sql": "SELECT r.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(r.route, 2229), 4326)) AS route FROM roads r JOIN buildings b ON ST_Intersects(b.location, r.route) JOIN owning_entities o ON b.owning_entity_id = o.id WHERE o.is_group = TRUE GROUP BY r.id HAVING COUNT(DISTINCT b.id) > 1"
+    "sql": "SELECT r.name, ST_AsGeoJSON(r.route) AS route FROM roads r JOIN buildings b ON ST_Intersects(b.location, r.route) JOIN owning_entities o ON b.owning_entity_id = o.id WHERE o.is_group = TRUE GROUP BY r.id HAVING COUNT(DISTINCT b.id) > 1"
   },
   {
     "natural-language": "List all roads that have buildings that are not owned by groups",
-    "sql": "SELECT r.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(r.route, 2229), 4326)) AS route FROM roads r JOIN buildings b ON ST_Intersects(b.location, r.route) JOIN owning_entities o ON b.owning_entity_id = o.id WHERE o.is_group = FALSE"
+    "sql": "SELECT r.name, ST_AsGeoJSON(r.route) AS route FROM roads r JOIN buildings b ON ST_Intersects(b.location, r.route) JOIN owning_entities o ON b.owning_entity_id = o.id WHERE o.is_group = FALSE"
   },
   {
     "natural-language": "Find the road with the most buildings",
-    "sql": "SELECT r.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(r.route, 2229), 4326)) AS route FROM roads r JOIN buildings b ON ST_Intersects(b.location, r.route) GROUP BY r.id ORDER BY COUNT(b.id) DESC LIMIT 1"
+    "sql": "SELECT r.name, ST_AsGeoJSON(r.route) AS route FROM roads r JOIN buildings b ON ST_Intersects(b.location, r.route) GROUP BY r.id ORDER BY COUNT(b.id) DESC LIMIT 1"
   },
   {
     "natural-language": "Find the road with the least buildings",
-    "sql": "SELECT r.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(r.route, 2229), 4326)) AS route FROM roads r JOIN buildings b ON ST_Intersects(b.location, r.route) GROUP BY r.id ORDER BY COUNT(b.id) ASC LIMIT 1"
+    "sql": "SELECT r.name, ST_AsGeoJSON(r.route) AS route FROM roads r JOIN buildings b ON ST_Intersects(b.location, r.route) GROUP BY r.id ORDER BY COUNT(b.id) ASC LIMIT 1"
   },
   {
     "natural-language": "Find the road with the most individual owners",
-    "sql": "SELECT r.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(r.route, 2229), 4326)) AS route FROM roads r JOIN buildings b ON ST_Intersects(b.location, r.route) JOIN owning_entities o ON b.owning_entity_id = o.id WHERE o.is_group = FALSE GROUP BY r.id ORDER BY COUNT(DISTINCT b.owning_entity_id) DESC LIMIT 1"
+    "sql": "SELECT r.name, ST_AsGeoJSON(r.route) AS route FROM roads r JOIN buildings b ON ST_Intersects(b.location, r.route) JOIN owning_entities o ON b.owning_entity_id = o.id WHERE o.is_group = FALSE GROUP BY r.id ORDER BY COUNT(DISTINCT b.owning_entity_id) DESC LIMIT 1"
   },
   {
     "natural-language": "Find the road with the least individual owners",
-    "sql": "SELECT r.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(r.route, 2229), 4326)) AS route FROM roads r JOIN buildings b ON ST_Intersects(b.location, r.route) JOIN owning_entities o ON b.owning_entity_id = o.id WHERE o.is_group = FALSE GROUP BY r.id ORDER BY COUNT(DISTINCT b.owning_entity_id) ASC LIMIT 1"
+    "sql": "SELECT r.name, ST_AsGeoJSON(r.route) AS route FROM roads r JOIN buildings b ON ST_Intersects(b.location, r.route) JOIN owning_entities o ON b.owning_entity_id = o.id WHERE o.is_group = FALSE GROUP BY r.id ORDER BY COUNT(DISTINCT b.owning_entity_id) ASC LIMIT 1"
   },
   {
     "natural-language": "Find roads with no buildings",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(route, 2229), 4326)) AS route FROM roads WHERE NOT EXISTS (SELECT 1 FROM buildings b WHERE ST_Intersects(b.location, roads.route))"
+    "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads WHERE NOT EXISTS (SELECT 1 FROM buildings b WHERE ST_Intersects(b.location, roads.route))"
   },
   {
     "natural-language": "Find the easternmost road",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(route, 2229), 4326)) AS route FROM roads ORDER BY ST_X(ST_Transform(ST_StartPoint(route), 4326)) DESC LIMIT 1"
+    "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads ORDER BY ST_X(ST_Transform(ST_StartPoint(route), 4326)) DESC LIMIT 1"
   },
   {
     "natural-language": "Find the westernmost road",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(route, 2229), 4326)) AS route FROM roads ORDER BY ST_X(ST_Transform(ST_StartPoint(route), 4326)) ASC LIMIT 1"
+    "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads ORDER BY ST_X(ST_Transform(ST_StartPoint(route), 4326)) ASC LIMIT 1"
   },
   {
     "natural-language": "Find the southernmost road",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(route, 2229), 4326)) AS route FROM roads ORDER BY ST_Y(ST_Transform(ST_StartPoint(route), 4326)) ASC LIMIT 1"
+    "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads ORDER BY ST_Y(ST_Transform(ST_StartPoint(route), 4326)) ASC LIMIT 1"
   },
   {
     "natural-language": "Find the norhternmost road",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(route, 2229), 4326)) AS route FROM roads ORDER BY ST_Y(ST_Transform(ST_StartPoint(route), 4326)) DESC LIMIT 1"
+    "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads ORDER BY ST_Y(ST_Transform(ST_StartPoint(route), 4326)) DESC LIMIT 1"
   },
 
   {
     "natural-language": "Find parks within the area bound by (-119.3047, 34.2805), (-119.2280, 34.2900), (-119.2265, 34.2400), (-119.2660, 34.2100), (-119.2940, 34.2385), and (-119.3047, 34.2805)",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 3857), 4326)) AS boundary FROM parks p WHERE ST_Within(p.boundary, ST_GeomFromText('POLYGON((-119.3047 34.2805, -119.2280 34.2900, -119.2265 34.2400, -119.2660 34.2100, -119.2940 34.2385, -119.3047 34.2805))', 4326))"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM parks p WHERE ST_Within(p.boundary, ST_GeomFromText('POLYGON((-119.3047 34.2805, -119.2280 34.2900, -119.2265 34.2400, -119.2660 34.2100, -119.2940 34.2385, -119.3047 34.2805))', 4326))"
   },
   {
     "natural-language": "Find parks within the area bound by (-119.2450, 34.2320), (-119.1720, 34.2470), (-119.1540, 34.1970), (-119.2000, 34.1610), (-119.2370, 34.1760), and (-119.2450, 34.2320)",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 3857), 4326)) AS boundary FROM parks p WHERE ST_Within(p.boundary, ST_GeomFromText('POLYGON((-119.2450 34.2320, -119.1720 34.2470, -119.1540 34.1970, -119.2000 34.1610, -119.2370 34.1760, -119.2450 34.2320))', 4326))"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM parks p WHERE ST_Within(p.boundary, ST_GeomFromText('POLYGON((-119.2450 34.2320, -119.1720 34.2470, -119.1540 34.1970, -119.2000 34.1610, -119.2370 34.1760, -119.2450 34.2320))', 4326))"
   },
   {
     "natural-language": "Find parks with an area less than ten square kilometers",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 3857), 4326)) AS boundary FROM parks WHERE ST_Area(ST_Transform(boundary, 3857)) < 10000000"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM parks WHERE ST_Area(ST_Transform(boundary, 3857)) < 10000000"
   },
   {
     "natural-language": "Find parks with an area of at least ten square kilometers",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 3857), 4326)) AS boundary FROM parks WHERE ST_Area(ST_Transform(boundary, 3857)) >= 10000000"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM parks WHERE ST_Area(ST_Transform(boundary, 3857)) >= 10000000"
   },
   {
     "natural-language": "Find parks with an area greater than ten square kilometers",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 3857), 4326)) AS boundary FROM parks WHERE ST_Area(ST_Transform(boundary, 3857)) > 10000000"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM parks WHERE ST_Area(ST_Transform(boundary, 3857)) > 10000000"
   },
   {
     "natural-language": "Find parks with an area less than nine square kilometers",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 3857), 4326)) AS boundary FROM parks WHERE ST_Area(ST_Transform(boundary, 3857)) < 9000000"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM parks WHERE ST_Area(ST_Transform(boundary, 3857)) < 9000000"
   },
   {
     "natural-language": "Find parks with an area of at least nine square kilometers",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 3857), 4326)) AS boundary FROM parks WHERE ST_Area(ST_Transform(boundary, 3857)) >= 9000000"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM parks WHERE ST_Area(ST_Transform(boundary, 3857)) >= 9000000"
   },
   {
     "natural-language": "Find parks with an area greater than nine square kilometers",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 3857), 4326)) AS boundary FROM parks WHERE ST_Area(ST_Transform(boundary, 3857)) > 9000000"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM parks WHERE ST_Area(ST_Transform(boundary, 3857)) > 9000000"
   },
   {
     "natural-language": "Find parks with an area less than 8 sq km",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 3857), 4326)) AS boundary FROM parks WHERE ST_Area(ST_Transform(boundary, 3857)) < 8000000"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM parks WHERE ST_Area(ST_Transform(boundary, 3857)) < 8000000"
   },
   {
     "natural-language": "Find parks with an area of at least 8 sq km",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 3857), 4326)) AS boundary FROM parks WHERE ST_Area(ST_Transform(boundary, 3857)) >= 8000000"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM parks WHERE ST_Area(ST_Transform(boundary, 3857)) >= 8000000"
   },
   {
     "natural-language": "Find parks with an area greater than 8 sq km",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 3857), 4326)) AS boundary FROM parks WHERE ST_Area(ST_Transform(boundary, 3857)) > 8000000"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM parks WHERE ST_Area(ST_Transform(boundary, 3857)) > 8000000"
   },
   {
     "natural-language": "Find parks with an area less than 7 sq km",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 3857), 4326)) AS boundary FROM parks WHERE ST_Area(ST_Transform(boundary, 3857)) < 7000000"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM parks WHERE ST_Area(ST_Transform(boundary, 3857)) < 7000000"
   },
   {
     "natural-language": "Find parks with an area of at least 7 sq km",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 3857), 4326)) AS boundary FROM parks WHERE ST_Area(ST_Transform(boundary, 3857)) >= 7000000"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM parks WHERE ST_Area(ST_Transform(boundary, 3857)) >= 7000000"
   },
   {
     "natural-language": "Find parks with an area greater than 7 sq km",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 3857), 4326)) AS boundary FROM parks WHERE ST_Area(ST_Transform(boundary, 3857)) > 7000000"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM parks WHERE ST_Area(ST_Transform(boundary, 3857)) > 7000000"
   },
   {
     "natural-language": "Find parks containing a road that is at least 2 km",
-    "sql": "SELECT p.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(p.boundary, 3857), 4326)) AS boundary FROM parks p JOIN roads r ON ST_Intersects(p.boundary, r.route) WHERE ST_Length(ST_Transform(r.route, 3857)) >= 2000"
+    "sql": "SELECT p.id, p.name FROM parks p JOIN roads r ON ST_Contains(p.boundary, r.route) WHERE ST_Length(r.route::geography) >= 2000"
   },
   {
     "natural-language": "Find parks containing a road that is at least 5 km",
-    "sql": "SELECT p.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(p.boundary, 3857), 4326)) AS boundary FROM parks p JOIN roads r ON ST_Intersects(p.boundary, r.route) WHERE ST_Length(ST_Transform(r.route, 3857)) >= 5000"
+    "sql": "SELECT p.id, p.name FROM parks p JOIN roads r ON ST_Contains(p.boundary, r.route) WHERE ST_Length(r.route::geography) >= 5000"
   },
   {
     "natural-language": "Find parks containing a road that is less than 4 km",
-    "sql": "SELECT p.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(p.boundary, 3857), 4326)) AS boundary FROM parks p JOIN roads r ON ST_Intersects(p.boundary, r.route) WHERE ST_Length(ST_Transform(r.route, 3857)) < 4000"
+    "sql": "SELECT p.id, p.name FROM parks p JOIN roads r ON ST_Contains(p.boundary, r.route) WHERE ST_Length(r.route::geography) < 4000"
   },
   {
     "natural-language": "Find parks containing a road that is at least nineteen kilometers",
-    "sql": "SELECT p.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(p.boundary, 3857), 4326)) AS boundary FROM parks p JOIN roads r ON ST_Intersects(p.boundary, r.route) WHERE ST_Length(ST_Transform(r.route, 3857)) >= 19000"
+    "sql": "SELECT p.id, p.name FROM parks p JOIN roads r ON ST_Contains(p.boundary, r.route) WHERE ST_Length(r.route::geography) >= 19000"
   },
   {
     "natural-language": "Find parks containing a road that is less than three hundred kilometers",
-    "sql": "SELECT p.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(p.boundary, 3857), 4326)) AS boundary FROM parks p JOIN roads r ON ST_Intersects(p.boundary, r.route) WHERE ST_Length(ST_Transform(r.route, 3857)) < 300000"
+    "sql": "SELECT p.id, p.name FROM parks p JOIN roads r ON ST_Contains(p.boundary, r.route) WHERE ST_Length(r.route::geography) < 300000"
   },
   {
     "natural-language": "Find parks containing a road that is shorter than five kilometers",
-    "sql": "SELECT p.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(p.boundary, 3857), 4326)) AS boundary FROM parks p JOIN roads r ON ST_Intersects(p.boundary, r.route) WHERE ST_Length(ST_Transform(r.route, 3857)) < 5000"
+    "sql": "SELECT p.id, p.name FROM parks p JOIN roads r ON ST_Contains(p.boundary, r.route) WHERE ST_Length(r.route::geography) < 5000"
   },
   {
     "natural-language": "Find parks containing a road that is greater than six kilometers",
-    "sql": "SELECT p.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(p.boundary, 3857), 4326)) AS boundary FROM parks p JOIN roads r ON ST_Intersects(p.boundary, r.route) WHERE ST_Length(ST_Transform(r.route, 3857)) > 6000"
+    "sql": "SELECT p.id, p.name FROM parks p JOIN roads r ON ST_Contains(p.boundary, r.route) WHERE ST_Length(r.route::geography) >= 6000"
   },
   {
     "natural-language": "Find all parks within 10 km of Oxnard",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 3857), 4326)) AS boundary FROM parks p WHERE ST_DWithin(ST_Transform(p.boundary, 3857), (SELECT ST_Transform(boundary, 3857) FROM cities WHERE name = 'Oxnard' LIMIT 1), 10000)"
+    "sql": "SELECT p.id, p.name FROM parks p JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(p.boundary::geography, c.boundary::geography, 10000)"
   },
   {
     "natural-language": "Find parks within fifteen kilometers of Ojai",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 3857), 4326)) AS boundary FROM parks p WHERE ST_DWithin(ST_Transform(p.boundary, 3857), (SELECT ST_Transform(boundary, 3857) FROM cities WHERE name = 'Ojai' LIMIT 1), 15000)"
+    "sql": "SELECT p.id, p.name FROM parks p JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(p.boundary::geography, c.boundary::geography, 15000)"
   },
   {
     "natural-language": "Find all parks within 8 km of Camarillo",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 3857), 4326)) AS boundary FROM parks p WHERE ST_DWithin(ST_Transform(p.boundary, 3857), (SELECT ST_Transform(boundary, 3857) FROM cities WHERE name = 'Camarillo' LIMIT 1), 8000)"
+    "sql": "SELECT p.id, p.name FROM parks p JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(p.boundary::geography, c.boundary::geography, 8000)"
   },
   {
     "natural-language": "Find parks within 6 km of Ventura",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 3857), 4326)) AS boundary FROM parks p WHERE ST_DWithin(ST_Transform(p.boundary, 3857), (SELECT ST_Transform(boundary, 3857) FROM cities WHERE name = 'Ventura' LIMIT 1), 6000)"
+    "sql": "SELECT p.id, p.name FROM parks p JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(p.boundary::geography, c.boundary::geography, 000)"
   },
   {
     "natural-language": "Find parks in Ventura",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 3857), 4326)) AS boundary FROM parks p WHERE ST_Within(p.boundary, (SELECT boundary FROM cities WHERE name = 'Ventura' LIMIT 1))"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM parks p WHERE ST_Within(p.boundary, (SELECT boundary FROM cities WHERE name = 'Ventura' LIMIT 1))"
   },
   {
     "natural-language": "Find all parks in Ojai",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 3857), 4326)) AS boundary FROM parks p WHERE ST_Within(p.boundary, (SELECT boundary FROM cities WHERE name = 'Ojai' LIMIT 1))"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM parks p WHERE ST_Within(p.boundary, (SELECT boundary FROM cities WHERE name = 'Ojai' LIMIT 1))"
   },
   {
     "natural-language": "Find parks in Oxnard",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 3857), 4326)) AS boundary FROM parks p WHERE ST_Within(p.boundary, (SELECT boundary FROM cities WHERE name = 'Oxnard' LIMIT 1))"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM parks p WHERE ST_Within(p.boundary, (SELECT boundary FROM cities WHERE name = 'Oxnard' LIMIT 1))"
   },
   {
     "natural-language": "Find all parks in Camarillo",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 3857), 4326)) AS boundary FROM parks p WHERE ST_Within(p.boundary, (SELECT boundary FROM cities WHERE name = 'Camarillo' LIMIT 1))"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM parks p WHERE ST_Within(p.boundary, (SELECT boundary FROM cities WHERE name = 'Camarillo' LIMIT 1))"
   },
   {
     "natural-language": "Find parks within a city that has a population of less than two hundred thousand",
-    "sql": "SELECT p.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(p.boundary, 3857), 4326)) AS boundary FROM parks p JOIN cities c ON ST_Within(p.boundary, c.boundary) WHERE c.population < 200000"
+    "sql": "SELECT p.name, ST_AsGeoJSON(p.boundary) AS boundary FROM parks p JOIN cities c ON ST_Within(p.boundary, c.boundary) WHERE c.population < 200000"
   },
   {
     "natural-language": "Find parks within a city that has a population of less than 300,000",
-    "sql": "SELECT p.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(p.boundary, 3857), 4326)) AS boundary FROM parks p JOIN cities c ON ST_Within(p.boundary, c.boundary) WHERE c.population < 300000"
+    "sql": "SELECT p.name, ST_AsGeoJSON(p.boundary) AS boundary FROM parks p JOIN cities c ON ST_Within(p.boundary, c.boundary) WHERE c.population < 300000"
   },
   {
     "natural-language": "Find parks within a city that has a population of at least one hundred thousand",
-    "sql": "SELECT p.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(p.boundary, 3857), 4326)) AS boundary FROM parks p JOIN cities c ON ST_Within(p.boundary, c.boundary) WHERE c.population >= 100000"
+    "sql": "SELECT p.name, ST_AsGeoJSON(p.boundary) AS boundary FROM parks p JOIN cities c ON ST_Within(p.boundary, c.boundary) WHERE c.population >= 100000"
   },
   {
     "natural-language": "Find parks within a city that has a population of at least 50,000",
-    "sql": "SELECT p.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(p.boundary, 3857), 4326)) AS boundary FROM parks p JOIN cities c ON ST_Within(p.boundary, c.boundary) WHERE c.population >= 50000"
+    "sql": "SELECT p.name, ST_AsGeoJSON(p.boundary) AS boundary FROM parks p JOIN cities c ON ST_Within(p.boundary, c.boundary) WHERE c.population >= 50000"
   },
   {
     "natural-language": "Find parks within a city that has a population greater than ninety thousand",
-    "sql": "SELECT p.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(p.boundary, 3857), 4326)) AS boundary FROM parks p JOIN cities c ON ST_Within(p.boundary, c.boundary) WHERE c.population > 90000"
+    "sql": "SELECT p.name, ST_AsGeoJSON(p.boundary) AS boundary FROM parks p JOIN cities c ON ST_Within(p.boundary, c.boundary) WHERE c.population > 90000"
   },
   {
     "natural-language": "Find parks within a city that has a population greater than 115,000",
-    "sql": "SELECT p.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(p.boundary, 3857), 4326)) AS boundary FROM parks p JOIN cities c ON ST_Within(p.boundary, c.boundary) WHERE c.population > 115000"
+    "sql": "SELECT p.name, ST_AsGeoJSON(p.boundary) AS boundary FROM parks p JOIN cities c ON ST_Within(p.boundary, c.boundary) WHERE c.population > 115000"
   },
   {
     "natural-language": "Find parks in a city with a population that is greater than 200,000",
-    "sql": "SELECT p.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(p.boundary, 3857), 4326)) AS boundary FROM parks p JOIN cities c ON ST_Within(p.boundary, c.boundary) WHERE c.population > 200000"
+    "sql": "SELECT p.name, ST_AsGeoJSON(p.boundary) AS boundary FROM parks p JOIN cities c ON ST_Within(p.boundary, c.boundary) WHERE c.population > 200000"
   },
   {
     "natural-language": "Find parks within the city that has the highest population",
-    "sql": "SELECT p.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(p.boundary, 3857), 4326)) AS boundary FROM parks p JOIN cities c ON ST_Within(p.boundary, c.boundary) WHERE c.population = (SELECT MAX(population) FROM cities)"
+    "sql": "SELECT p.name, ST_AsGeoJSON(p.boundary) AS boundary FROM parks p JOIN cities c ON ST_Within(p.boundary, c.boundary) WHERE c.population = (SELECT MAX(population) FROM cities)"
   },
   {
     "natural-language": "Find the largest park",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 3857), 4326)) AS boundary FROM parks ORDER BY ST_Area(ST_Transform(boundary, 3857)) DESC LIMIT 1"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM parks ORDER BY ST_Area(ST_Transform(boundary, 3857)) DESC LIMIT 1"
   },
   {
     "natural-language": "Find the smallest park",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 3857), 4326)) AS boundary FROM parks ORDER BY ST_Area(ST_Transform(boundary, 3857)) ASC LIMIT 1"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM parks ORDER BY ST_Area(ST_Transform(boundary, 3857)) ASC LIMIT 1"
   },
   {
     "natural-language": "Find parks that are within one kilometer of a building that is owned by a group who owns multiple buildings",
-    "sql": "SELECT DISTINCT ON (p.name) p.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(p.boundary, 3857), 4326)) AS boundary, b.street_number, ST_Distance(ST_Transform(b.location, 3857), ST_Transform(p.boundary, 3857)) AS distance_in_meters FROM parks p JOIN buildings b ON ST_DWithin(ST_Transform(b.location, 3857), ST_Transform(p.boundary, 3857), 1000) JOIN owning_entities oe ON b.owning_entity_id = oe.id WHERE oe.is_group = TRUE ORDER BY p.name, distance_in_meters"
+    "sql": "SELECT DISTINCT ON (p.name) p.name, ST_AsGeoJSON(p.boundary) AS boundary, b.street_number, ST_Distance(ST_Transform(b.location, 3857), ST_Transform(p.boundary, 3857)) AS distance_in_meters FROM parks p JOIN buildings b ON ST_DWithin(ST_Transform(b.location, 3857), ST_Transform(p.boundary, 3857), 1000) JOIN owning_entities oe ON b.owning_entity_id = oe.id WHERE oe.is_group = TRUE ORDER BY p.name, distance_in_meters"
   },
   {
     "natural-language": "Find parks that are within two kilometers of a building that is owned by a group who owns multiple buildings",
-    "sql": "SELECT DISTINCT ON (p.name) p.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(p.boundary, 3857), 4326)) AS boundary, b.street_number, ST_Distance(ST_Transform(b.location, 3857), ST_Transform(p.boundary, 3857)) AS distance_in_meters FROM parks p JOIN buildings b ON ST_DWithin(ST_Transform(b.location, 3857), ST_Transform(p.boundary, 3857), 2000) JOIN owning_entities oe ON b.owning_entity_id = oe.id WHERE oe.is_group = TRUE ORDER BY p.name, distance_in_meters"
+    "sql": "SELECT DISTINCT ON (p.name) p.name, ST_AsGeoJSON(p.boundary) AS boundary, b.street_number, ST_Distance(ST_Transform(b.location, 3857), ST_Transform(p.boundary, 3857)) AS distance_in_meters FROM parks p JOIN buildings b ON ST_DWithin(ST_Transform(b.location, 3857), ST_Transform(p.boundary, 3857), 2000) JOIN owning_entities oe ON b.owning_entity_id = oe.id WHERE oe.is_group = TRUE ORDER BY p.name, distance_in_meters"
   },
   {
     "natural-language": "Find parks that are within 3 km of a building that is owned by a group who owns multiple buildings",
-    "sql": "SELECT DISTINCT ON (p.name) p.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(p.boundary, 3857), 4326)) AS boundary, b.street_number, ST_Distance(ST_Transform(b.location, 3857), ST_Transform(p.boundary, 3857)) AS distance_in_meters FROM parks p JOIN buildings b ON ST_DWithin(ST_Transform(b.location, 3857), ST_Transform(p.boundary, 3857), 3000) JOIN owning_entities oe ON b.owning_entity_id = oe.id WHERE oe.is_group = TRUE ORDER BY p.name, distance_in_meters"
+    "sql": "SELECT DISTINCT ON (p.name) p.name, ST_AsGeoJSON(p.boundary) AS boundary, b.street_number, ST_Distance(ST_Transform(b.location, 3857), ST_Transform(p.boundary, 3857)) AS distance_in_meters FROM parks p JOIN buildings b ON ST_DWithin(ST_Transform(b.location, 3857), ST_Transform(p.boundary, 3857), 3000) JOIN owning_entities oe ON b.owning_entity_id = oe.id WHERE oe.is_group = TRUE ORDER BY p.name, distance_in_meters"
   },
   {
     "natural-language": "Find parks with no roads running through them",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 3857), 4326)) AS boundary FROM parks p WHERE NOT EXISTS (SELECT 1 FROM roads r WHERE ST_Intersects(p.boundary, r.route))"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM parks p WHERE NOT EXISTS (SELECT 1 FROM roads r WHERE ST_Intersects(p.boundary, r.route))"
   },
   {
     "natural-language": "Find all parks with at least one road running through them",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 3857), 4326)) AS boundary FROM parks p WHERE EXISTS (SELECT 1 FROM roads r WHERE ST_Intersects(p.boundary, r.route))"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM parks p WHERE EXISTS (SELECT 1 FROM roads r WHERE ST_Intersects(p.boundary, r.route))"
   },
   {
     "natural-language": "Find the westernmost park",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 3857), 4326)) AS boundary FROM parks ORDER BY ST_X(ST_PointN(ST_ExteriorRing(boundary), (SELECT i FROM generate_series(1, ST_NumPoints(ST_ExteriorRing(boundary))) AS i ORDER BY ST_X(ST_PointN(ST_ExteriorRing(boundary), i)) LIMIT 1))) ASC LIMIT 1"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM parks ORDER BY ST_X(ST_PointN(ST_ExteriorRing(boundary), (SELECT i FROM generate_series(1, ST_NumPoints(ST_ExteriorRing(boundary))) AS i ORDER BY ST_X(ST_PointN(ST_ExteriorRing(boundary), i)) LIMIT 1))) ASC LIMIT 1"
   },
   {
     "natural-language": "Find the easternmost park",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 3857), 4326)) AS boundary FROM parks ORDER BY ST_X(ST_PointN(ST_ExteriorRing(boundary), (SELECT i FROM generate_series(1, ST_NumPoints(ST_ExteriorRing(boundary))) AS i ORDER BY ST_X(ST_PointN(ST_ExteriorRing(boundary), i)) DESC LIMIT 1))) DESC LIMIT 1"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM parks ORDER BY ST_X(ST_PointN(ST_ExteriorRing(boundary), (SELECT i FROM generate_series(1, ST_NumPoints(ST_ExteriorRing(boundary))) AS i ORDER BY ST_X(ST_PointN(ST_ExteriorRing(boundary), i)) DESC LIMIT 1))) DESC LIMIT 1"
   },
   {
     "natural-language": "Find the northernmost park",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 3857), 4326)) AS boundary FROM parks ORDER BY ST_Y(ST_PointN(ST_ExteriorRing(boundary), (SELECT i FROM generate_series(1, ST_NumPoints(ST_ExteriorRing(boundary))) AS i ORDER BY ST_Y(ST_PointN(ST_ExteriorRing(boundary), i)) DESC LIMIT 1))) DESC LIMIT 1"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM parks ORDER BY ST_Y(ST_PointN(ST_ExteriorRing(boundary), (SELECT i FROM generate_series(1, ST_NumPoints(ST_ExteriorRing(boundary))) AS i ORDER BY ST_Y(ST_PointN(ST_ExteriorRing(boundary), i)) DESC LIMIT 1))) DESC LIMIT 1"
   },
   {
     "natural-language": "Find the southernmost park",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 3857), 4326)) AS boundary FROM parks ORDER BY ST_Y(ST_PointN(ST_ExteriorRing(boundary), (SELECT i FROM generate_series(1, ST_NumPoints(ST_ExteriorRing(boundary))) AS i ORDER BY ST_Y(ST_PointN(ST_ExteriorRing(boundary), i)) LIMIT 1))) ASC LIMIT 1"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM parks ORDER BY ST_Y(ST_PointN(ST_ExteriorRing(boundary), (SELECT i FROM generate_series(1, ST_NumPoints(ST_ExteriorRing(boundary))) AS i ORDER BY ST_Y(ST_PointN(ST_ExteriorRing(boundary), i)) LIMIT 1))) ASC LIMIT 1"
   },
   {
     "natural-language": "Find parks north of Ventura",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 3857), 4326)) AS boundary FROM parks p WHERE ST_Y(ST_Centroid(p.boundary)) > (SELECT ST_Y(ST_Centroid(boundary)) FROM cities WHERE name = 'Ventura' LIMIT 1)"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM parks p WHERE ST_Y(ST_Centroid(p.boundary)) > (SELECT ST_Y(ST_Centroid(boundary)) FROM cities WHERE name = 'Ventura' LIMIT 1)"
   },
   {
     "natural-language": "Find parks south of Ojai",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 3857), 4326)) AS boundary FROM parks p WHERE ST_Y(ST_Centroid(p.boundary)) < (SELECT ST_Y(ST_Centroid(boundary)) FROM cities WHERE name = 'Ojai' LIMIT 1)"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM parks p WHERE ST_Y(ST_Centroid(p.boundary)) < (SELECT ST_Y(ST_Centroid(boundary)) FROM cities WHERE name = 'Ojai' LIMIT 1)"
   },
   {
     "natural-language": "Find parks south of Ventura",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 3857), 4326)) AS boundary FROM parks p WHERE ST_Y(ST_Centroid(p.boundary)) < (SELECT ST_Y(ST_Centroid(boundary)) FROM cities WHERE name = 'Ventura' LIMIT 1)"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM parks p WHERE ST_Y(ST_Centroid(p.boundary)) < (SELECT ST_Y(ST_Centroid(boundary)) FROM cities WHERE name = 'Ventura' LIMIT 1)"
   },
   {
     "natural-language": "Find parks within one kilometer of a building",
-    "sql": "SELECT DISTINCT p.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(p.boundary, 3857), 4326)) AS boundary FROM parks p JOIN buildings b ON ST_DWithin(ST_Transform(p.boundary, 3857), ST_Transform(b.location, 3857), 1000)"
+    "sql": "SELECT DISTINCT p.name, ST_AsGeoJSON(p.boundary) AS boundary FROM parks p JOIN buildings b ON ST_DWithin(ST_Transform(p.boundary, 3857), ST_Transform(b.location, 3857), 1000)"
   },
   {
     "natural-language": "Find parks within 2 km of a building",
-    "sql": "SELECT DISTINCT p.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(p.boundary, 3857), 4326)) AS boundary FROM parks p JOIN buildings b ON ST_DWithin(ST_Transform(p.boundary, 3857), ST_Transform(b.location, 3857), 2000)"
+    "sql": "SELECT DISTINCT p.name, ST_AsGeoJSON(p.boundary) AS boundary FROM parks p JOIN buildings b ON ST_DWithin(ST_Transform(p.boundary, 3857), ST_Transform(b.location, 3857), 2000)"
   },
   {
     "natural-language": "Find parks within three kilometers of a building",
-    "sql": "SELECT DISTINCT p.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(p.boundary, 3857), 4326)) AS boundary FROM parks p JOIN buildings b ON ST_DWithin(ST_Transform(p.boundary, 3857), ST_Transform(b.location, 3857), 3000)"
+    "sql": "SELECT DISTINCT p.name, ST_AsGeoJSON(p.boundary) AS boundary FROM parks p JOIN buildings b ON ST_DWithin(ST_Transform(p.boundary, 3857), ST_Transform(b.location, 3857), 3000)"
   },
   {
     "natural-language": "Find parks within 4 km of a building",
-    "sql": "SELECT DISTINCT p.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(p.boundary, 3857), 4326)) AS boundary FROM parks p JOIN buildings b ON ST_DWithin(ST_Transform(p.boundary, 3857), ST_Transform(b.location, 3857), 4000)"
+    "sql": "SELECT DISTINCT p.name, ST_AsGeoJSON(p.boundary) AS boundary FROM parks p JOIN buildings b ON ST_DWithin(ST_Transform(p.boundary, 3857), ST_Transform(b.location, 3857), 4000)"
   },
   {
     "natural-language": "Find parks that are at least one kilometer from the nearest building",
-    "sql": "SELECT p.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(p.boundary, 3857), 4326)) AS boundary FROM parks p WHERE NOT EXISTS (SELECT 1 FROM buildings b WHERE ST_DWithin(ST_Transform(p.boundary, 3857), ST_Transform(b.location, 3857), 1000))"
+    "sql": "SELECT p.name, ST_AsGeoJSON(p.boundary) AS boundary FROM parks p WHERE NOT EXISTS (SELECT 1 FROM buildings b WHERE ST_DWithin(ST_Transform(p.boundary, 3857), ST_Transform(b.location, 3857), 1000))"
   },
   {
     "natural-language": "Find the park with the most buildings within two kilometers",
-    "sql": "SELECT p.name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(p.boundary, 3857), 4326)) AS boundary, COUNT(b.id) AS building_count FROM parks p JOIN buildings b ON ST_DWithin(p.boundary, b.location, 2000) GROUP BY p.id ORDER BY building_count DESC LIMIT 1"
+    "sql": "SELECT p.name, ST_AsGeoJSON(p.boundary) AS boundary, COUNT(b.id) AS building_count FROM parks p JOIN buildings b ON ST_DWithin(p.boundary, b.location, 2000) GROUP BY p.id ORDER BY building_count DESC LIMIT 1"
   },
   {
     "natural-language": "Find parks that are not in Ojai",
-    "sql": "SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 3857), 4326)) AS boundary FROM parks p WHERE NOT ST_Within(p.boundary, (SELECT boundary FROM cities WHERE name = 'Ojai' LIMIT 1))"
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM parks p WHERE NOT ST_Within(p.boundary, (SELECT boundary FROM cities WHERE name = 'Ojai' LIMIT 1))"
   },
 
   {
     "natural-language": "Find buildings within 10 km of Ventura",
-    "sql": "SELECT street_number, ST_AsGeoJSON(location) AS location FROM buildings WHERE ST_DWithin(ST_Transform(location, 3857), (SELECT ST_Transform(boundary, 3857) FROM cities WHERE name = 'Ventura'), 10000)"
+    "sql": "SELECT b.id, b.street_number, b.location FROM buildings b JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(b.location::geography, c.boundary::geography, 10000)"
   },
   {
     "natural-language": "Find buildings within 10 km of Ojai",
-    "sql": "SELECT street_number, ST_AsGeoJSON(location) AS location FROM buildings WHERE ST_DWithin(ST_Transform(location, 3857), (SELECT ST_Transform(boundary, 3857) FROM cities WHERE name = 'Ojai'), 10000)"
+    "sql": "SELECT b.id, b.street_number, b.location FROM buildings b JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(b.location::geography, c.boundary::geography, 10000)"
   },
   {
     "natural-language": "Find buildings within 10 km of Camarillo",
-    "sql": "SELECT street_number, ST_AsGeoJSON(location) AS location FROM buildings WHERE ST_DWithin(ST_Transform(location, 3857), (SELECT ST_Transform(boundary, 3857) FROM cities WHERE name = 'Camarillo'), 10000)"
+    "sql": "SELECT b.id, b.street_number, b.location FROM buildings b JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(b.location::geography, c.boundary::geography, 10000)"
   },
   {
     "natural-language": "Find buildings within 10 km of Oxnard",
-    "sql": "SELECT street_number, ST_AsGeoJSON(location) AS location FROM buildings WHERE ST_DWithin(ST_Transform(location, 3857), (SELECT ST_Transform(boundary, 3857) FROM cities WHERE name = 'Oxnard'), 10000)"
+    "sql": "SELECT b.id, b.street_number, b.location FROM buildings b JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(b.location::geography, c.boundary::geography, 10000)"
   },
   {
     "natural-language": "Find buildings within the area bound by (-119.3047, 34.2805), (-119.2280, 34.2900), (-119.2265, 34.2400), (-119.2660, 34.2100), (-119.2940, 34.2385), and (-119.3047, 34.2805)",

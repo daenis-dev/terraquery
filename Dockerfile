@@ -8,6 +8,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY controller/app.py .
+COPY scripts/config.py .
 COPY terraquery_model/config.json \
      terraquery_model/generation_config.json \
      terraquery_model/model.safetensors \
