@@ -2,8 +2,14 @@ from datasets import load_dataset
 
 from transformers import GPT2LMHeadModel, GPT2Tokenizer, Trainer, TrainingArguments
 
-model = GPT2LMHeadModel.from_pretrained("./terraquery_model_spider")
-tokenizer = GPT2Tokenizer.from_pretrained("./terraquery_model_spider")
+# TODO: Train a version without the owner queries
+
+model_path = "C:/Users/dkala/projects/terraquery/distilgpt2"
+tokenizer = GPT2Tokenizer.from_pretrained(model_path)
+model = GPT2LMHeadModel.from_pretrained(model_path)
+
+if tokenizer.pad_token is None:
+    tokenizer.pad_token = tokenizer.eos_token
 
 dataset = load_dataset("json", data_files="scripts/terraquery_dataset.json")
 

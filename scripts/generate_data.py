@@ -18,18 +18,42 @@ cur = conn.cursor()
 
 query_variations = {
         "Find": ["Find", "Search", "Retrieve", "Get", "List"],
-        "greater than": ["greater than", "exceeding", "above", "more than"],
-        "less than": ["less than", "below", "under", "fewer than"],
-        "within the area bound by": ["in the area of", "within the region", "inside the boundary", "inside the boundary of", "nearby", "in", "in the area bound by"],
+
         "cities": ["cities", "towns", "municipalities", "urban areas"],
         "city": ["city", "town", "municipality", "urban area"],
+        "a population greater than": ["a population greater than", "a population that is greater than", "more than", "a population larger than", "a population that is larger than", "over"], # TODO: If 'population', the word 'people' at the end is optional
+        "a poulation less than": ["a poulation less than", "a poulation that is less than", "less than", "a population smaller than", "a population that is smaller than", "under"], # TODO: If 'population', the word 'people' at the end is optional
+        "a population of at least": ["a population of at least", "at least", "a population of no less than", "no less than"], # TODO: If 'population', the word 'people' at the end is optional
+        "a population of at most": ["a population of at most", "at most", "a population of no more than", "no more than"], # TODO: If 'population', the word 'people' at the end is optional
+        "square kilometer": ["square kilometer", "sq km"],
+        "square kilometers": ["square kilometers", "sq km"],
+        "an area greater than": ["an area greater than", "an area larger than", "greater than", "larger than"],
+        "an area less than": ["an area less than", "an area smaller than", "less than", "smaller than"],
+        "an area of at least": ["an area of at least", "an area no less than", "at least", "no less than"],
+        "an area of at most": ["an area of at most", "an area no more than", "at most", "no more than"],
+        
+        "building that is owned by an individual": ["building that is owned by an individual", "building that belongs to an individual", "building that is not owned by a group", "building that does not belong to a group"],
+        "buildings that are owned by individuals": ["buildings that are owned by individuals", "buildings that belong to individuals", "buildings that are not owned by groups", "buildings that do not belong to groups"],
+        "building that is owned by a group": ["building that is owned by a group", "building that belongs to a group", "building that is not owned by an individual", "building that does not belong to an individual"],
+        "buildings that are owned by groups": ["buildings that are owned by groups", "buildings that belong to groups", "buildings that are not owned by individuals", "buildings that do not belong to individuals"],
+        "buildings": ["buildings", "structures", "facilities", "establishments"],
+        "building": ["building", "structure", "facility", "establishment"],
+
+        "intersections": ["intersections", "roads that intersect", "intersecting roads", "roads that cross each other"],
+        "fewest roads": ["fewest roads", "least number of roads"],
+
+        "greatest number of parks": ["greatest number of parks", "most parks", "highest number of parks"],
+        "fewest number of parks" : ["fewest number of parks", "fewest parks", "lowest number of parks"],
         "parks": ["parks", "green spaces", "recreational areas", "natural reserves"],
         "park": ["park", "green space", "recreational area", "natural reserve"],
+
+        "within the area bound by": ["in the area of", "within the region", "inside the boundary", "inside the boundary of", "nearby", "in", "in the area bound by"],
+        
+        
         "roads": ["roads", "streets", "highways", "routes", "ways"],
         "road": ["road", "street", "highway", "route", "way"],
         "people": ["people", "residents", "inhabitants"],
-        "buildings": ["buildings", "structures", "facilities", "establishments"],
-        "building": ["building", "structure", "facility", "establishment"],
+        
         "owners": ["owners", "proprietors", "landlords", "holders"],
         "owner": ["owner", "proprietor", "landlord", "holder"]
     }

@@ -19,6 +19,7 @@ def get_schema():
     return "Assume the schema: CREATE EXTENSION postgis; CREATE TABLE cities (id SERIAL PRIMARY KEY, name VARCHAR(255), population INTEGER, boundary GEOMETRY(Polygon, 4326)); CREATE TABLE roads (id SERIAL PRIMARY KEY, name VARCHAR(255), route GEOMETRY(LineString, 4326)); CREATE TABLE parks (id SERIAL PRIMARY KEY, name VARCHAR(255), boundary GEOMETRY(Polygon, 4326)); CREATE TABLE owning_entities (id SERIAL PRIMARY KEY, name VARCHAR(255), is_group BOOLEAN); CREATE TABLE buildings (id SERIAL PRIMARY KEY, street_number VARCHAR(10), location GEOMETRY(Point, 4326), road_id INTEGER REFERENCES roads(id), owning_entity_id INTEGER REFERENCES owning_entities(id)) - "
 
 def generate_sql_for_natural_language_query(natural_language_query):
+    print('Natural Language query: ' + str(natural_language_query), flush=True)
     input_query = natural_language_query + ". " + get_schema()
     prompt = f"Query: {input_query}\nSQL:"
     inputs = tokenizer(prompt, return_tensors="pt")
@@ -41,8 +42,6 @@ def generate_sql_for_natural_language_query(natural_language_query):
 def get_webmap_for_spatial_query(sql_query):
     """Execute the SQL query, render a webmap, and return HTML."""
     print('SQL query: ' + str(sql_query), flush=True)
-    # TODO: Hard coding for test
-    sql_query = 'SELECT name, ST_AsGeoJSON(ST_Transform(ST_SetSRID(boundary, 2229), 4326)) AS boundary FROM cities WHERE population > 100000 ORDER BY ST_Area(boundary)'
     try:
         conn = psycopg2.connect(
             dbname=DB_NAME,
@@ -83,14 +82,11 @@ def get_webmap_for_spatial_query(sql_query):
                 continue
 
             try:
-                print('GeoJSON: ' + str(json.dumps(geom_geojson)))
                 geom = json.loads(geom_geojson)
-                print('Successfully loaded', flush=True)
             except Exception as e:
                 print(f"Error loading GeoJSON for {name}: {e}")
                 continue
 
-            print('Geom object: ' + str(json.dumps(geom)), flush=True)
             if geom["type"] == "Point":
                 folium.Marker(
                     location=[geom["coordinates"][1], geom["coordinates"][0]],
@@ -98,7 +94,6 @@ def get_webmap_for_spatial_query(sql_query):
                     icon=folium.Icon(color="red")
                 ).add_to(m)
             elif geom["type"] in ["Polygon", "MultiPolygon"]:
-                print('Adding polygon to map: ' + str(geom), flush=True) # TOOD: Check this next
                 folium.GeoJson(
                     geom,
                     name=name,
