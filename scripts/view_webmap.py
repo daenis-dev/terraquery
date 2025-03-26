@@ -12,7 +12,7 @@ conn = psycopg2.connect(
 )
 cursor = conn.cursor()
 
-m = folium.Map(location=[34.2746, -119.2290], zoom_start=10)
+m = folium.Map(location=[34.2490, -118.9651], zoom_start=11)
 
 def add_layer(query, geom_type, color, fill_color=None, point_radius=5):
     """Add a layer to the map using the given query and geometry type."""
@@ -58,9 +58,9 @@ def add_layer(query, geom_type, color, fill_color=None, point_radius=5):
 
 # TOOD: Execute one of these depending on the table being selected from in the SQL script
 add_layer("SELECT name, ST_AsGeoJSON(boundary) FROM cities WHERE boundary IS NOT NULL", "polygon", "blue", "#0000ff")
-add_layer("SELECT name, ST_AsGeoJSON(route) FROM roads WHERE route IS NOT NULL", "line", "red")
-add_layer("SELECT name, ST_AsGeoJSON(boundary) FROM parks WHERE boundary IS NOT NULL", "polygon", "green", "#00FF00")
-add_layer("SELECT street_number, ST_AsGeoJSON(location) FROM buildings WHERE location IS NOT NULL", "point", "red")
+# add_layer("SELECT name, ST_AsGeoJSON(route) FROM roads WHERE route IS NOT NULL", "line", "red")
+# add_layer("SELECT name, ST_AsGeoJSON(boundary) FROM parks WHERE boundary IS NOT NULL", "polygon", "green", "#00FF00")
+# add_layer("SELECT street_number, ST_AsGeoJSON(location) FROM buildings WHERE location IS NOT NULL", "point", "red")
 
 
 
