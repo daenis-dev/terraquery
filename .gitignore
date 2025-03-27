@@ -9,3 +9,4 @@ spider/
 county-data/
 terraquery_dataset.json
 webmap.html
+scripts/base_queries.py
