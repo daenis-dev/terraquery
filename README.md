@@ -16,7 +16,18 @@ GIS powered by natural language based SQL generation, implemented with Ventura C
   >> pip install -r local_requirements.txt
   ```
 
-- **TODO: Pip Dependencies!!!**
+- Add a *scripts/config.py* file:
+
+  ```
+  DB_NAME = "terraquery"
+  DB_USER = "postgres"
+  DB_PASSWORD = "changeit"
+  DB_HOST = "host.docker.internal"
+  DB_HOST_LOCAL = "localhost"
+  DB_PORT = "5432"
+  ```
+
+  
 
 - Generate the training data
 
