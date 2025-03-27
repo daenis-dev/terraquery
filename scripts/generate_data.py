@@ -27,6 +27,8 @@ query_variations = {
         "a population of at most": ["a population of at most", "at most", "a population of no more than", "no more than"], # TODO: If 'population', the word 'people' at the end is optional
         "square kilometer": ["square kilometer", "sq km"],
         "square kilometers": ["square kilometers", "sq km"],
+        "kilometer": ["kilometer", "km"],
+        "kilometers": ["kilometers", "km"],
         "an area greater than": ["an area greater than", "an area larger than", "greater than", "larger than"],
         "an area less than": ["an area less than", "an area smaller than", "less than", "smaller than"],
         "an area of at least": ["an area of at least", "an area no less than", "at least", "no less than"],
@@ -42,6 +44,13 @@ query_variations = {
 
         "intersections": ["intersections", "roads that intersect", "intersecting roads", "roads that cross each other"],
         "fewest roads": ["fewest roads", "least number of roads"],
+        "that intersect the point": ["that intersect the point", "that intersect", "that intersect the point at", "that cross"],
+        "roads that are longer than": ["roads that are longer than"],
+        "roads that are at least": ["roads that are at least"],
+        "roads that are shorter than": ["roads that are shorter than"],
+        "roads that are at most": ["roads that are at most"],
+        "roads that span at least": ["roads that span at least"],
+        "roads that span at most": ["roads that span at most"],
 
         "greatest number of parks": ["greatest number of parks", "most parks", "highest number of parks"],
         "fewest number of parks" : ["fewest number of parks", "fewest parks", "lowest number of parks"],
