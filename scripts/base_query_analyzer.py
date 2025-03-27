@@ -1,4 +1,3 @@
-from base_queries import BASE_QUERIES
 from city_queries import CITY_QUERIES
 from road_queries import ROAD_QUERIES
 
@@ -27,26 +26,6 @@ for query in ROAD_QUERIES:
         'Find the easternmost road' in query['natural-language'] or 
         'Find the westernmost road' in query['natural-language']):
         road_queries += 1
-for query in BASE_QUERIES:
-    if ('Find parks' in query['natural-language'] or 
-        'Find the park' in query['natural-language'] or 
-        'Find all parks' in query['natural-language'] or
-        'Find the largest park' in query['natural-language'] or 
-        'Find the smallest park' in query['natural-language'] or 
-        'Find the northernmost park' in query['natural-language'] or 
-        'Find the southernmost park' in query['natural-language'] or 
-        'Find the easternmost park' in query['natural-language'] or 
-        'Find the westernmost park' in query['natural-language']):
-        park_queries += 1
-
-    if ('Find buildings' in query['natural-language'] or 
-        'Find the building' in query['natural-language'] or 
-        'Find all buildings' in query['natural-language'] or
-        'Find the northernmost building' in query['natural-language'] or 
-        'Find the southernmost building' in query['natural-language'] or 
-        'Find the easternmost building' in query['natural-language'] or 
-        'Find the westernmost building' in query['natural-language']):
-        building_queries += 1
 
 print('Number of city queries: ' + str(city_queries), flush=True)
 print('Number of road queries: ' + str(road_queries), flush=True)

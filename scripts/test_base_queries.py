@@ -1,7 +1,6 @@
 import json
 import psycopg2
 from config import DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT
-from base_queries import BASE_QUERIES
 from city_queries import CITY_QUERIES
 from road_queries import ROAD_QUERIES
 
@@ -30,8 +29,6 @@ def test_query(query):
         print(f"Error executing query '{query['natural-language']}': {str(e)}")
         return False
 
-for query in BASE_QUERIES:
-    test_query(query)
 for query in CITY_QUERIES:
     test_query(query)
 for query in ROAD_QUERIES:
