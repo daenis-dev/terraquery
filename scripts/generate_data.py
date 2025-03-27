@@ -31,6 +31,7 @@ query_variations = {
         "an area less than": ["an area less than", "an area smaller than", "less than", "smaller than"],
         "an area of at least": ["an area of at least", "an area no less than", "at least", "no less than"],
         "an area of at most": ["an area of at most", "an area no more than", "at most", "no more than"],
+        "the largest area": ["the largest area", "the greatest area"],
         
         "building that is owned by an individual": ["building that is owned by an individual", "building that belongs to an individual", "building that is not owned by a group", "building that does not belong to a group"],
         "buildings that are owned by individuals": ["buildings that are owned by individuals", "buildings that belong to individuals", "buildings that are not owned by groups", "buildings that do not belong to groups"],

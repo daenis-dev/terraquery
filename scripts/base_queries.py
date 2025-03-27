@@ -1,20 +1,5 @@
 BASE_QUERIES = [
-  {
-    "natural-language": "Find cities within the area bound by (-119.3047, 34.2805), (-119.2280, 34.2900), (-119.2265, 34.2400), (-119.2660, 34.2100), (-119.2940, 34.2385), and (-119.3047, 34.2805)",
-    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c WHERE ST_Within(c.boundary, ST_GeomFromText('POLYGON((-119.3047 34.2805, -119.2280 34.2900, -119.2265 34.2400, -119.2660 34.2100, -119.2940 34.2385, -119.3047 34.2805))', 4326))"
-  },
-  {
-    "natural-language": "Find cities within the area bound by (-119.3120, 34.4660), (-119.2630, 34.4720), (-119.2410, 34.4450), (-119.2690, 34.4260), (-119.2980, 34.4350), and (-119.3120, 34.4660)",
-    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c WHERE ST_Within(c.boundary, ST_GeomFromText('POLYGON((-119.3120 34.4660, -119.2630 34.4720, -119.2410 34.4450, -119.2690 34.4260, -119.2980 34.4350, -119.3120 34.4660))', 4326))"
-  },
-  {
-    "natural-language": "Find cities within the area bound by (-119.2450, 34.2320), (-119.1720, 34.2470), (-119.1540, 34.1970), (-119.2000, 34.1610), (-119.2370, 34.1760), and (-119.2450, 34.2320)",
-    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c WHERE ST_Within(c.boundary, ST_GeomFromText('POLYGON((-119.2450 34.2320, -119.1720 34.2470, -119.1540 34.1970, -119.2000 34.1610, -119.2370 34.1760, -119.2450 34.2320))', 4326))"
-  },
-  {
-    "natural-language": "Find cities within the area bound by (-119.0610, 34.2360), (-119.0170, 34.2370), (-118.9870, 34.2110), (-119.0110, 34.1850), (-119.0480, 34.1980), and (-119.0610, 34.2360)",
-    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c WHERE ST_Within(c.boundary, ST_GeomFromText('POLYGON((-119.0610 34.2360, -119.0170 34.2370, -118.9870 34.2110, -119.0110 34.1850, -119.0480 34.1980, -119.0610 34.2360))', 4326))"
-  },
+  # Cities
   # Find cities by matching criteria around population (0 - 400000)
   {
     "natural-language": "Find cities with a population greater than one hundred thousand people",
@@ -7301,6 +7286,198 @@ BASE_QUERIES = [
     "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population > 400000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
   },
   {
+    "natural-language": "Find the city with the fewest roads and a population of at least 10000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 10000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least 20000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 20000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least 30000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 30000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least 40000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 40000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least 45000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 45000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least 50000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 50000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least 55000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 55000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least 60000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 60000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least 65000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 65000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least 70000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 70000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least 75000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 75000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least 80000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 80000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least 85000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 85000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least 90000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 90000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least 95000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 95000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least 100000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 100000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least 110000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 110000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least 120000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 120000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least 150000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 150000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least 180000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 180000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least 200000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 200000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least 250000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 250000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least 300000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 300000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least 400000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 400000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least ten thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 10000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least twenty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 20000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least thirty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 30000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least forty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 40000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least forty five thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 45000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least fifty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 50000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least fifty five thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 55000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least sixty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 60000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least sixty five thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 65000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least seventy thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 70000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least seventy five thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 75000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least eighty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 80000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least eighty five thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 85000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least ninety thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 90000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least ninety five thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 95000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least one hundred thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 100000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least one hundred ten thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 110000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least one hundred twenty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 120000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least one hundred fifty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 150000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least one hundred eighty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 180000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least two hundred thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 200000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least two hundred fifty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 250000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least three hundred thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 300000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at least four hundred thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 400000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
     "natural-language": "Find the city with the fewest roads and a population less than 10000 people",
     "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population < 10000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
   },
@@ -7491,6 +7668,198 @@ BASE_QUERIES = [
   {
     "natural-language": "Find the city with the fewest roads and a population less than four hundred thousand people",
     "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population < 400000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most 10000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 10000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most 20000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 20000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most 30000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 30000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most 40000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 40000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most 45000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 45000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most 50000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 50000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most 55000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 55000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most 60000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 60000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most 65000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 65000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most 70000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 70000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most 75000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 75000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most 80000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 80000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most 85000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 85000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most 90000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 90000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most 95000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 95000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most 100000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 100000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most 110000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 110000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most 120000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 120000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most 150000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 150000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most 180000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 180000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most 200000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 200000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most 250000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 250000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most 300000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 300000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most 400000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 400000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most ten thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 10000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most twenty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 20000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most thirty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 30000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most forty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 40000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most forty five thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 45000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most fifty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 50000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most fifty five thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 55000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most sixty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 60000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most sixty five thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 65000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most seventy thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 70000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most seventy five thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 75000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most eighty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 80000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most eighty five thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 85000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most ninety thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 90000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most ninety five thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 95000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most one hundred thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 100000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most one hundred ten thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 110000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most one hundred twenty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 120000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most one hundred fifty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 150000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most one hundred eighty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 180000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most two hundred thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 200000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most two hundred fifty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 250000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most three hundred thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 300000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the fewest roads and a population of at most four hundred thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 400000 GROUP BY c.id ORDER BY COUNT(r.id) ASC LIMIT 1"
   },
   {
     "natural-language": "Find the city with the most roads and a population greater than 10000 people",
@@ -7685,6 +8054,198 @@ BASE_QUERIES = [
     "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population > 400000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
   },
   {
+    "natural-language": "Find the city with the most roads and a population of at least 10000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 10000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least 20000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 20000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least 30000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 30000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least 40000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 40000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least 45000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 45000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least 50000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 50000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least 55000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 55000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least 60000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 60000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least 65000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 65000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least 70000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 70000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least 75000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 75000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least 80000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 80000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least 85000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 85000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least 90000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 90000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least 95000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 95000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least 100000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 100000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least 110000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 110000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least 120000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 120000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least 150000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 150000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least 180000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 180000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least 200000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 200000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least 250000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 250000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least 300000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 300000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least 400000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 400000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least ten thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 10000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least twenty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 20000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least thirty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 30000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least forty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 40000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least forty five thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 45000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least fifty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 50000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least fifty five thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 55000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least sixty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 60000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least sixty five thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 65000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least seventy thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 70000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least seventy five thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 75000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least eighty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 80000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least eighty five thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 85000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least ninety thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 90000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least ninety five thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 95000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least one hundred thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 100000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least one hundred ten thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 110000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least one hundred twenty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 120000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least one hundred fifty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 150000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least one hundred eighty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 180000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least two hundred thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 200000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least two hundred fifty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 250000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least three hundred thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 300000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at least four hundred thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population >= 400000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
     "natural-language": "Find the city with the most roads and a population less than 10000 people",
     "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population < 10000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
   },
@@ -7876,28 +8437,5608 @@ BASE_QUERIES = [
     "natural-language": "Find the city with the most roads and a population less than four hundred thousand people",
     "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population < 400000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
   },
-
-  # Find cities by matching criteria around area and population TODO: Add queries
   {
-    "natural-language": "Find the city with the smallest area and a population greater than 70,000",
+    "natural-language": "Find the city with the most roads and a population of at most 10000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 10000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most 20000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 20000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most 30000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 30000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most 40000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 40000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most 45000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 45000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most 50000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 50000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most 55000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 55000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most 60000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 60000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most 65000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 65000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most 70000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 70000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most 75000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 75000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most 80000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 80000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most 85000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 85000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most 90000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 90000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most 95000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 95000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most 100000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 100000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most 110000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 110000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most 120000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 120000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most 150000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 150000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most 180000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 180000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most 200000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 200000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most 250000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 250000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most 300000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 300000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most 400000 people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 400000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most ten thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 10000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most twenty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 20000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most thirty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 30000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most forty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 40000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most forty five thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 45000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most fifty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 50000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most fifty five thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 55000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most sixty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 60000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most sixty five thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 65000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most seventy thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 70000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most seventy five thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 75000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most eighty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 80000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most eighty five thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 85000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most ninety thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 90000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most ninety five thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 95000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most one hundred thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 100000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most one hundred ten thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 110000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most one hundred twenty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 120000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most one hundred fifty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 150000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most one hundred eighty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 180000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most two hundred thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 200000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most two hundred fifty thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 250000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most three hundred thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 300000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the most roads and a population of at most four hundred thousand people",
+    "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary FROM cities c JOIN roads r ON ST_Intersects(r.route, c.boundary) WHERE c.population <= 400000 GROUP BY c.id ORDER BY COUNT(r.id) DESC LIMIT 1"
+  },
+  # Find cities by matching criteria around area and population TODO: Add for specific area and largest / smallest population
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 5000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than ten thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 10000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than fifteen thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 15000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than twenty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 20000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than twenty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 25000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than thirty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 30000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than thirty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 35000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than forty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 40000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than forty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 45000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than fifty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 50000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than fifty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 55000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than sixty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 60000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than sixty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 65000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than seventy thousand people",
     "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 70000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
   },
   {
-    "natural-language": "Find the city with the smallest area and a population greater than eighty thousand",
+    "natural-language": "Find the city with the smallest area and a population greater than seventy five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 75000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than eighty thousand people",
     "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 80000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
   },
   {
-    "natural-language": "Find the city with the smallest area and a population greater than 90000",
+    "natural-language": "Find the city with the smallest area and a population greater than eighty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 85000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than ninety thousand people",
     "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 90000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
   },
   {
-    "natural-language": "Find the city with the smallest area and a population greater than 100,000",
+    "natural-language": "Find the city with the smallest area and a population greater than ninety five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 95000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than one hundred thousand people",
     "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 100000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
   },
-
-  # Find cities by matching criteria around area and roads TODO: Add queries
-
-
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than one hundred five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 105000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than one hundred ten thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 110000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than one hundred fifteen thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 115000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than one hundred twenty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 120000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than one hundred twenty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 125000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than one hundred thirty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 130000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than one hundred forty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 140000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than one hundred fifty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 150000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than two hundred thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 200000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than two hundred five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 205000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than two hundred ten thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 210000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than two hundred fifteen thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 215000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than two hundred twenty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 220000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than two hundred twenty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 225000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than two hundred thirty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 230000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than three hundred thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 300000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than three hundred five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 305000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than three hundred ten thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 310000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than three hundred fifteen thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 315000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than three hundred twenty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 320000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than three hundred twenty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 325000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than three hundred thirty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 330000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than four hundred thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 400000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 5000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 5000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 10000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 10000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 15000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 15000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 20000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 20000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 25000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 25000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 30000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 30000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 35000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 35000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 40000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 40000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 45000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 45000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 50000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 50000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 55000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 55000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 60000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 60000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 65000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 65000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 70000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 70000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 75000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 75000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 80000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 80000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 85000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 85000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 90000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 90000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 95000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 95000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 100000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 100000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 105000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 105000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 110000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 110000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 115000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 115000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 120000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 120000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 125000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 125000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 130000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 130000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 140000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 140000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 150000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 150000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 200000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 200000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 205000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 205000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 210000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 210000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 215000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 215000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 220000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 220000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 225000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 225000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 230000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 230000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 300000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 300000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 305000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 305000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 310000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 310000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 315000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 315000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 320000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 320000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 325000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 325000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 330000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 330000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 400000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 400000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 5,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 5000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 10,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 10000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 15,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 15000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 20,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 20000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 25,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 25000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 30,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 30000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 35,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 35000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 40,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 40000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 45,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 45000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 50,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 50000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 55,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 55000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 60,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 60000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 65,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 65000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 70,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 70000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 75,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 75000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 80,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 80000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 85,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 85000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 90,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 90000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 95,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 95000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 100,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 100000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 105,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 105000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 110,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 110000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 115,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 115000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 120,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 120000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 125,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 125000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 130,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 130000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 140,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 140000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 150,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 150000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 200,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 200000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 205,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 205000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 210,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 210000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 215,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 215000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 220,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 220000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 225,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 225000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 230,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 230000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 300,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 300000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 305,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 305000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 310,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 310000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 315,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 315000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 320,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 320000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 325,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 325000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 330,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 330000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population greater than 400,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 400000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 5000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least ten thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 10000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least fifteen thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 15000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least twenty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 20000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least twenty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 25000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least thirty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 30000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least thirty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 35000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least forty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 40000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least forty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 45000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least fifty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 50000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least fifty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 55000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least sixty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 60000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least sixty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 65000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least seventy thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 70000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least seventy five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 75000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least eighty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 80000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least eighty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 85000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least ninety thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 90000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least ninety five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 95000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least one hundred thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 100000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least one hundred five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 105000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least one hundred ten thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 110000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least one hundred fifteen thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 115000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least one hundred twenty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 120000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least one hundred twenty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 125000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least one hundred thirty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 130000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least one hundred forty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 140000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least one hundred fifty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 150000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least two hundred thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 200000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least two hundred five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 205000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least two hundred ten thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 210000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least two hundred fifteen thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 215000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least two hundred twenty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 220000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least two hundred twenty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 225000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least two hundred thirty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 230000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least three hundred thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 300000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least three hundred five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 305000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least three hundred ten thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 310000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least three hundred fifteen thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 315000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least three hundred twenty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 320000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least three hundred twenty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 325000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least three hundred thirty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 330000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least four hundred thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 400000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 5000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 5000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 10000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 10000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 15000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 15000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 20000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 20000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 25000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 25000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 30000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 30000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 35000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 35000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 40000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 40000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 45000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 45000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 50000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 50000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 55000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 55000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 60000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 60000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 65000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 65000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 70000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 70000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 75000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 75000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 80000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 80000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 85000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 85000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 90000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 90000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 95000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 95000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 100000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 100000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 105000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 105000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 110000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 110000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 115000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 115000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 120000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 120000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 125000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 125000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 130000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 130000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 140000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 140000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 150000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 150000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 200000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 200000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 205000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 205000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 210000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 210000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 215000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 215000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 220000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 220000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 225000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 225000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 230000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 230000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 300000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 300000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 305000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 305000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 310000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 310000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 315000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 315000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 320000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 320000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 325000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 325000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 330000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 330000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 400000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 400000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 5,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 5000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 10,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 10000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 15,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 15000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 20,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 20000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 25,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 25000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 30,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 30000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 35,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 35000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 40,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 40000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 45,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 45000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 50,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 50000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 55,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 55000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 60,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 60000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 65,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 65000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 70,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 70000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 75,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 75000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 80,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 80000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 85,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 85000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 90,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 90000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 95,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 95000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 100,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 100000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 105,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 105000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 110,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 110000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 115,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 115000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 120,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 120000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 125,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 125000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 130,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 130000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 140,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 140000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 150,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 150000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 200,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 200000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 205,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 205000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 210,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 210000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 215,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 215000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 220,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 220000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 225,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 225000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 230,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 230000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 300,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 300000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 305,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 305000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 310,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 310000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 315,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 315000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 320,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 320000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 325,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 325000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 330,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 330000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at least 400,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 400000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 5000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than ten thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 10000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than fifteen thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 15000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than twenty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 20000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than twenty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 25000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than thirty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 30000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than thirty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 35000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than forty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 40000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than forty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 45000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than fifty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 50000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than fifty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 55000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than sixty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 60000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than sixty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 65000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than seventy thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 70000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than seventy five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 75000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than eighty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 80000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than eighty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 85000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than ninety thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 90000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than ninety five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 95000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than one hundred thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 100000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than one hundred five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 105000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than one hundred ten thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 110000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than one hundred fifteen thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 115000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than one hundred twenty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 120000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than one hundred twenty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 125000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than one hundred thirty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 130000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than one hundred forty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 140000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than one hundred fifty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 150000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than two hundred thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 200000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than two hundred five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 205000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than two hundred ten thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 210000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than two hundred fifteen thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 215000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than two hundred twenty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 220000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than two hundred twenty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 225000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than two hundred thirty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 230000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than three hundred thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 300000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than three hundred five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 305000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than three hundred ten thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 310000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than three hundred fifteen thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 315000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than three hundred twenty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 320000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than three hundred twenty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 325000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than three hundred thirty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 330000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than four hundred thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 400000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 5000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 5000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 10000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 10000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 15000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 15000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 20000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 20000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 25000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 25000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 30000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 30000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 35000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 35000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 40000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 40000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 45000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 45000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 50000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 50000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 55000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 55000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 60000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 60000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 65000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 65000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 70000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 70000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 75000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 75000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 80000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 80000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 85000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 85000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 90000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 90000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 95000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 95000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 100000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 100000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 105000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 105000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 110000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 110000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 115000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 115000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 120000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 120000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 125000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 125000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 130000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 130000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 140000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 140000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 150000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 150000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 200000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 200000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 205000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 205000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 210000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 210000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 215000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 215000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 220000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 220000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 225000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 225000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 230000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 230000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 300000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 300000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 305000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 305000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 310000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 310000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 315000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 315000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 320000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 320000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 325000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 325000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 330000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 330000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 400000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 400000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 5,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 5000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 10,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 10000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 15,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 15000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 20,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 20000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 25,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 25000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 30,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 30000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 35,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 35000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 40,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 40000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 45,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 45000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 50,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 50000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 55,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 55000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 60,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 60000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 65,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 65000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 70,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 70000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 75,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 75000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 80,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 80000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 85,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 85000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 90,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 90000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 95,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 95000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 100,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 100000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 105,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 105000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 110,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 110000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 115,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 115000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 120,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 120000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 125,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 125000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 130,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 130000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 140,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 140000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 150,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 150000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 200,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 200000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 205,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 205000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 210,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 210000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 215,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 215000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 220,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 220000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 225,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 225000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 230,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 230000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 300,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 300000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 305,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 305000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 310,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 310000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 315,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 315000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 320,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 320000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 325,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 325000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 330,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 330000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population less than 400,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 400000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 5000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most ten thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 10000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most fifteen thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 15000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most twenty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 20000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most twenty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 25000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most thirty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 30000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most thirty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 35000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most forty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 40000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most forty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 45000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most fifty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 50000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most fifty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 55000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most sixty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 60000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most sixty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 65000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most seventy thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 70000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most seventy five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 75000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most eighty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 80000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most eighty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 85000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most ninety thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 90000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most ninety five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 95000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most one hundred thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 100000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most one hundred five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 105000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most one hundred ten thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 110000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most one hundred fifteen thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 115000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most one hundred twenty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 120000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most one hundred twenty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 125000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most one hundred thirty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 130000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most one hundred forty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 140000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most one hundred fifty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 150000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most two hundred thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 200000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most two hundred five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 205000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most two hundred ten thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 210000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most two hundred fifteen thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 215000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most two hundred twenty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 220000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most two hundred twenty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 225000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most two hundred thirty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 230000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most three hundred thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 300000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most three hundred five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 305000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most three hundred ten thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 310000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most three hundred fifteen thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 315000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most three hundred twenty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 320000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most three hundred twenty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 325000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most three hundred thirty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 330000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most four hundred thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 400000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 5000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 5000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 10000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 10000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 15000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 15000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 20000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 20000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 25000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 25000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 30000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 30000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 35000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 35000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 40000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 40000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 45000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 45000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 50000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 50000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 55000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 55000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 60000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 60000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 65000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 65000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 70000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 70000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 75000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 75000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 80000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 80000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 85000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 85000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 90000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 90000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 95000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 95000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 100000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 100000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 105000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 105000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 110000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 110000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 115000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 115000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 120000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 120000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 125000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 125000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 130000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 130000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 140000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 140000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 150000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 150000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 200000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 200000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 205000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 205000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 210000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 210000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 215000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 215000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 220000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 220000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 225000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 225000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 230000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 230000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 300000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 300000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 305000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 305000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 310000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 310000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 315000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 315000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 320000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 320000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 325000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 325000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 330000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 330000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 400000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 400000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 5,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 5000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 10,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 10000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 15,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 15000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 20,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 20000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 25,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 25000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 30,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 30000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 35,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 35000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 40,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 40000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 45,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 45000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 50,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 50000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 55,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 55000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 60,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 60000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 65,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 65000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 70,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 70000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 75,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 75000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 80,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 80000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 85,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 85000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 90,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 90000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 95,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 95000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 100,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 100000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 105,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 105000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 110,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 110000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 115,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 115000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 120,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 120000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 125,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 125000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 130,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 130000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 140,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 140000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 150,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 150000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 200,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 200000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 205,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 205000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 210,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 210000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 215,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 215000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 220,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 220000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 225,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 225000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 230,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 230000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 300,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 300000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 305,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 305000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 310,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 310000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 315,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 315000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 320,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 320000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 325,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 325000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 330,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 330000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and a population of at most 400,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 400000 ORDER BY ST_Area(boundary) ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 5000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than ten thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 10000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than fifteen thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 15000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than twenty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 20000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than twenty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 25000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than thirty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 30000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than thirty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 35000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than forty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 40000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than forty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 45000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than fifty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 50000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than fifty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 55000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than sixty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 60000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than sixty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 65000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than seventy thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 70000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than seventy five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 75000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than eighty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 80000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than eighty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 85000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than ninety thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 90000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than ninety five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 95000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than one hundred thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 100000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than one hundred five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 105000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than one hundred ten thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 110000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than one hundred fifteen thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 115000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than one hundred twenty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 120000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than one hundred twenty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 125000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than one hundred thirty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 130000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than one hundred forty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 140000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than one hundred fifty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 150000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than two hundred thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 200000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than two hundred five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 205000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than two hundred ten thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 210000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than two hundred fifteen thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 215000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than two hundred twenty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 220000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than two hundred twenty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 225000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than two hundred thirty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 230000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than three hundred thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 300000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than three hundred five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 305000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than three hundred ten thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 310000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than three hundred fifteen thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 315000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than three hundred twenty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 320000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than three hundred twenty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 325000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than three hundred thirty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 330000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than four hundred thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 400000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 5000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 5000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 10000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 10000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 15000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 15000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 20000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 20000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 25000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 25000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 30000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 30000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 35000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 35000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 40000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 40000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 45000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 45000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 50000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 50000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 55000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 55000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 60000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 60000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 65000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 65000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 70000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 70000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 75000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 75000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 80000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 80000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 85000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 85000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 90000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 90000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 95000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 95000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 100000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 100000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 105000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 105000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 110000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 110000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 115000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 115000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 120000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 120000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 125000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 125000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 130000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 130000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 140000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 140000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 150000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 150000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 200000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 200000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 205000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 205000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 210000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 210000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 215000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 215000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 220000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 220000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 225000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 225000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 230000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 230000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 300000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 300000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 305000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 305000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 310000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 310000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 315000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 315000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 320000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 320000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 325000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 325000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 330000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 330000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 400000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 400000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 5,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 5000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 10,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 10000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 15,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 15000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 20,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 20000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 25,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 25000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 30,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 30000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 35,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 35000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 40,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 40000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 45,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 45000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 50,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 50000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 55,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 55000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 60,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 60000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 65,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 65000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 70,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 70000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 75,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 75000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 80,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 80000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 85,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 85000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 90,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 90000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 95,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 95000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 100,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 100000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 105,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 105000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 110,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 110000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 115,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 115000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 120,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 120000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 125,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 125000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 130,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 130000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 140,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 140000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 150,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 150000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 200,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 200000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 205,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 205000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 210,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 210000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 215,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 215000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 220,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 220000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 225,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 225000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 230,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 230000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 300,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 300000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 305,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 305000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 310,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 310000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 315,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 315000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 320,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 320000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 325,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 325000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 330,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 330000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population greater than 400,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population > 400000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 5000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least ten thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 10000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least fifteen thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 15000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least twenty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 20000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least twenty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 25000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least thirty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 30000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least thirty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 35000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least forty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 40000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least forty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 45000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least fifty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 50000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least fifty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 55000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least sixty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 60000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least sixty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 65000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least seventy thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 70000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least seventy five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 75000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least eighty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 80000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least eighty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 85000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least ninety thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 90000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least ninety five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 95000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least one hundred thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 100000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least one hundred five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 105000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least one hundred ten thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 110000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least one hundred fifteen thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 115000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least one hundred twenty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 120000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least one hundred twenty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 125000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least one hundred thirty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 130000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least one hundred forty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 140000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least one hundred fifty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 150000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least two hundred thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 200000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least two hundred five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 205000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least two hundred ten thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 210000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least two hundred fifteen thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 215000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least two hundred twenty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 220000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least two hundred twenty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 225000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least two hundred thirty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 230000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least three hundred thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 300000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least three hundred five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 305000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least three hundred ten thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 310000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least three hundred fifteen thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 315000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least three hundred twenty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 320000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least three hundred twenty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 325000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least three hundred thirty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 330000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least four hundred thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 400000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 5000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 5000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 10000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 10000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 15000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 15000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 20000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 20000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 25000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 25000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 30000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 30000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 35000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 35000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 40000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 40000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 45000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 45000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 50000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 50000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 55000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 55000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 60000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 60000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 65000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 65000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 70000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 70000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 75000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 75000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 80000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 80000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 85000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 85000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 90000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 90000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 95000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 95000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 100000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 100000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 105000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 105000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 110000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 110000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 115000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 115000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 120000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 120000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 125000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 125000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 130000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 130000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 140000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 140000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 150000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 150000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 200000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 200000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 205000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 205000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 210000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 210000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 215000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 215000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 220000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 220000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 225000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 225000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 230000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 230000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 300000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 300000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 305000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 305000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 310000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 310000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 315000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 315000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 320000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 320000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 325000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 325000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 330000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 330000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 400000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 400000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 5,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 5000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 10,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 10000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 15,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 15000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 20,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 20000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 25,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 25000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 30,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 30000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 35,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 35000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 40,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 40000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 45,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 45000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 50,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 50000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 55,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 55000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 60,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 60000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 65,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 65000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 70,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 70000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 75,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 75000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 80,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 80000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 85,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 85000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 90,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 90000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 95,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 95000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 100,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 100000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 105,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 105000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 110,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 110000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 115,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 115000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 120,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 120000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 125,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 125000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 130,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 130000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 140,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 140000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 150,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 150000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 200,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 200000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 205,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 205000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 210,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 210000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 215,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 215000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 220,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 220000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 225,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 225000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 230,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 230000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 300,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 300000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 305,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 305000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 310,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 310000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 315,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 315000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 320,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 320000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 325,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 325000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 330,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 330000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at least 400,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population >= 400000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 5000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than ten thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 10000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than fifteen thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 15000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than twenty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 20000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than twenty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 25000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than thirty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 30000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than thirty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 35000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than forty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 40000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than forty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 45000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than fifty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 50000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than fifty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 55000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than sixty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 60000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than sixty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 65000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than seventy thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 70000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than seventy five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 75000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than eighty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 80000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than eighty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 85000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than ninety thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 90000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than ninety five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 95000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than one hundred thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 100000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than one hundred five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 105000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than one hundred ten thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 110000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than one hundred fifteen thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 115000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than one hundred twenty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 120000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than one hundred twenty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 125000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than one hundred thirty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 130000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than one hundred forty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 140000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than one hundred fifty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 150000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than two hundred thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 200000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than two hundred five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 205000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than two hundred ten thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 210000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than two hundred fifteen thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 215000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than two hundred twenty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 220000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than two hundred twenty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 225000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than two hundred thirty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 230000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than three hundred thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 300000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than three hundred five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 305000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than three hundred ten thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 310000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than three hundred fifteen thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 315000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than three hundred twenty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 320000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than three hundred twenty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 325000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than three hundred thirty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 330000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than four hundred thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 400000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 5000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 5000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 10000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 10000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 15000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 15000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 20000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 20000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 25000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 25000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 30000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 30000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 35000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 35000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 40000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 40000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 45000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 45000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 50000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 50000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 55000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 55000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 60000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 60000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 65000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 65000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 70000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 70000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 75000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 75000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 80000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 80000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 85000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 85000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 90000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 90000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 95000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 95000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 100000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 100000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 105000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 105000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 110000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 110000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 115000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 115000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 120000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 120000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 125000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 125000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 130000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 130000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 140000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 140000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 150000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 150000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 200000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 200000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 205000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 205000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 210000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 210000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 215000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 215000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 220000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 220000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 225000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 225000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 230000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 230000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 300000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 300000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 305000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 305000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 310000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 310000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 315000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 315000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 320000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 320000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 325000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 325000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 330000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 330000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 400000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 400000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 5,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 5000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 10,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 10000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 15,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 15000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 20,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 20000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 25,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 25000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 30,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 30000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 35,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 35000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 40,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 40000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 45,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 45000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 50,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 50000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 55,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 55000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 60,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 60000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 65,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 65000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 70,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 70000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 75,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 75000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 80,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 80000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 85,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 85000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 90,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 90000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 95,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 95000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 100,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 100000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 105,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 105000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 110,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 110000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 115,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 115000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 120,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 120000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 125,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 125000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 130,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 130000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 140,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 140000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 150,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 150000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 200,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 200000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 205,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 205000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 210,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 210000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 215,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 215000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 220,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 220000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 225,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 225000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 230,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 230000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 300,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 300000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 305,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 305000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 310,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 310000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 315,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 315000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 320,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 320000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 325,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 325000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 330,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 330000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population less than 400,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population < 400000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 5000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most ten thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 10000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most fifteen thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 15000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most twenty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 20000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most twenty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 25000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most thirty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 30000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most thirty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 35000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most forty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 40000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most forty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 45000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most fifty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 50000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most fifty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 55000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most sixty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 60000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most sixty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 65000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most seventy thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 70000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most seventy five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 75000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most eighty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 80000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most eighty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 85000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most ninety thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 90000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most ninety five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 95000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most one hundred thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 100000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most one hundred five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 105000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most one hundred ten thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 110000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most one hundred fifteen thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 115000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most one hundred twenty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 120000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most one hundred twenty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 125000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most one hundred thirty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 130000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most one hundred forty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 140000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most one hundred fifty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 150000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most two hundred thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 200000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most two hundred five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 205000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most two hundred ten thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 210000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most two hundred fifteen thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 215000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most two hundred twenty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 220000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most two hundred twenty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 225000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most two hundred thirty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 230000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most three hundred thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 300000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most three hundred five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 305000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most three hundred ten thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 310000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most three hundred fifteen thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 315000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most three hundred twenty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 320000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most three hundred twenty five thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 325000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most three hundred thirty thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 330000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most four hundred thousand people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 400000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 5000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 5000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 10000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 10000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 15000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 15000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 20000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 20000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 25000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 25000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 30000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 30000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 35000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 35000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 40000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 40000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 45000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 45000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 50000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 50000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 55000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 55000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 60000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 60000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 65000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 65000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 70000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 70000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 75000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 75000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 80000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 80000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 85000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 85000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 90000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 90000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 95000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 95000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 100000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 100000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 105000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 105000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 110000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 110000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 115000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 115000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 120000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 120000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 125000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 125000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 130000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 130000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 140000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 140000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 150000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 150000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 200000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 200000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 205000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 205000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 210000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 210000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 215000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 215000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 220000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 220000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 225000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 225000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 230000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 230000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 300000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 300000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 305000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 305000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 310000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 310000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 315000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 315000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 320000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 320000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 325000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 325000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 330000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 330000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 400000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 400000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 5,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 5000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 10,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 10000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 15,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 15000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 20,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 20000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 25,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 25000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 30,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 30000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 35,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 35000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 40,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 40000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 45,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 45000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 50,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 50000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 55,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 55000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 60,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 60000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 65,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 65000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 70,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 70000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 75,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 75000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 80,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 80000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 85,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 85000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 90,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 90000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 95,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 95000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 100,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 100000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 105,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 105000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 110,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 110000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 115,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 115000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 120,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 120000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 125,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 125000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 130,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 130000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 140,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 140000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 150,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 150000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 200,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 200000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 205,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 205000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 210,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 210000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 215,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 215000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 220,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 220000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 225,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 225000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 230,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 230000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 300,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 300000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 305,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 305000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 310,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 310000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 315,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 315000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 320,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 320000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 325,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 325000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 330,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 330000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and a population of at most 400,000 people",
+    "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM cities WHERE population <= 400000 ORDER BY ST_Area(boundary) DESC LIMIT 1"
+  },
+  # Find cities by matching criteria around area and roads TODO: Add queries for specific area and general roads (most or least roads)
+  {
+    "natural-language": "Find the city with the largest area and at least one road",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 1) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least two roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 2) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least three roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 3) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least four roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 4) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least five roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 5) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least six roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 6) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least seven roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 7) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least eight roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 8) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least nine roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 9) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least ten roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 10) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least eleven road",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 11) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least twelve roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 12) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least thirteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 13) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least fourteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 14) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least fifteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 15) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least sixteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 16) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least seventeen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 17) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least eighteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 18) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least nineteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 19) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least twenty roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 20) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least 1 road",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 1) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least 2 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 2) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least 3 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 3) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least 4 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 4) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least 5 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 5) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least 6 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 6) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least 7 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 7) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least 8 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 8) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least 9 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 9) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least 10 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 10) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least 11 road",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 11) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least 12 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 12) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least 13 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 13) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least 14 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 14) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least 15 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 15) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least 16 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 16) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least 17 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 17) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least 18 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 18) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least 19 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 19) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and at least 20 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 20) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than one road",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 1) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than two roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 2) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than three roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 3) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than four roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 4) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than five roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 5) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than six roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 6) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than seven roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 7) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than eight roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 8) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than nine roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 9) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than ten roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 10) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than eleven road",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 11) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than twelve roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 12) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than thirteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 13) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than fourteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 14) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than fifteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 15) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than sixteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 16) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than seventeen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 17) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than eighteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 18) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than nineteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 19) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than twenty roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 20) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than 1 road",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 1) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than 2 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 2) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than 3 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 3) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than 4 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 4) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than 5 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 5) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than 6 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 6) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than 7 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 7) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than 8 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 8) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than 9 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 9) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than 10 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 10) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than 11 road",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 11) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than 12 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 12) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than 13 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 13) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than 14 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 14) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than 15 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 15) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than 16 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 16) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than 17 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 17) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than 18 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 18) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than 19 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 19) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and more than 20 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 20) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than one road",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 1) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than two roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 2) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than three roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 3) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than four roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 4) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than five roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 5) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than six roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 6) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than seven roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 7) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than eight roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 8) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than nine roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 9) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than ten roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 10) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than eleven road",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 11) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than twelve roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 12) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than thirteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 13) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than fourteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 14) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than fifteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 15) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than sixteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 16) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than seventeen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 17) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than eighteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 18) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than nineteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 19) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than twenty roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 20) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than 1 road",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 1) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than 2 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 2) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than 3 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 3) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than 4 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 4) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than 5 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 5) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than 6 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 6) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than 7 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 7) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than 8 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 8) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than 9 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 9) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than 10 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 10) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than 11 road",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 11) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than 12 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 12) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than 13 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 13) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than 14 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 14) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than 15 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 15) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than 16 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 16) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than 17 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 17) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than 18 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 18) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than 19 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 19) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and no more than 20 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 20) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than one road",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 1) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than two roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 2) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than three roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 3) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than four roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 4) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than five roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 5) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than six roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 6) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than seven roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 7) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than eight roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 8) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than nine roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 9) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than ten roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 10) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than eleven road",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 11) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than twelve roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 12) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than thirteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 13) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than fourteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 14) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than fifteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 15) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than sixteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 16) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than seventeen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 17) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than eighteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 18) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than nineteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 19) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than twenty roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 20) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than 1 road",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 1) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than 2 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 2) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than 3 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 3) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than 4 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 4) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than 5 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 5) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than 6 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 6) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than 7 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 7) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than 8 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 8) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than 9 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 9) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than 10 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 10) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than 11 road",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 11) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than 12 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 12) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than 13 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 13) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than 14 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 14) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than 15 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 15) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than 16 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 16) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than 17 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 17) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than 18 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 18) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than 19 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 19) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the largest area and less than 20 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 20) SELECT name FROM city_road_counts ORDER BY area DESC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least one road",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 1) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least two roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 2) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least three roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 3) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least four roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 4) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least five roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 5) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least six roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 6) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least seven roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 7) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least eight roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 8) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least nine roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 9) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least ten roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 10) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least eleven road",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 11) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least twelve roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 12) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least thirteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 13) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least fourteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 14) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least fifteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 15) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least sixteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 16) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least seventeen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 17) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least eighteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 18) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least nineteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 19) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least twenty roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 20) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least 1 road",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 1) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least 2 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 2) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least 3 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 3) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least 4 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 4) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least 5 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 5) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least 6 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 6) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least 7 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 7) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least 8 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 8) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least 9 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 9) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least 10 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 10) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least 11 road",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 11) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least 12 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 12) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least 13 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 13) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least 14 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 14) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least 15 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 15) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least 16 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 16) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least 17 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 17) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least 18 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 18) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least 19 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 19) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and at least 20 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) >= 20) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than one road",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 1) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than two roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 2) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than three roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 3) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than four roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 4) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than five roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 5) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than six roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 6) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than seven roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 7) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than eight roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 8) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than nine roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 9) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than ten roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 10) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than eleven road",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 11) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than twelve roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 12) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than thirteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 13) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than fourteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 14) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than fifteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 15) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than sixteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 16) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than seventeen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 17) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than eighteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 18) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than nineteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 19) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than twenty roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 20) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than 1 road",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 1) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than 2 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 2) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than 3 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 3) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than 4 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 4) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than 5 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 5) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than 6 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 6) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than 7 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 7) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than 8 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 8) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than 9 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 9) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than 10 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 10) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than 11 road",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 11) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than 12 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 12) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than 13 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 13) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than 14 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 14) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than 15 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 15) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than 16 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 16) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than 17 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 17) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than 18 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 18) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than 19 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 19) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and more than 20 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) > 20) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than one road",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 1) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than two roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 2) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than three roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 3) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than four roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 4) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than five roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 5) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than six roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 6) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than seven roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 7) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than eight roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 8) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than nine roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 9) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than ten roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 10) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than eleven road",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 11) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than twelve roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 12) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than thirteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 13) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than fourteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 14) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than fifteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 15) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than sixteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 16) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than seventeen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 17) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than eighteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 18) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than nineteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 19) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than twenty roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 20) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than 1 road",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 1) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than 2 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 2) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than 3 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 3) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than 4 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 4) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than 5 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 5) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than 6 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 6) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than 7 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 7) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than 8 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 8) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than 9 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 9) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than 10 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 10) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than 11 road",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 11) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than 12 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 12) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than 13 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 13) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than 14 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 14) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than 15 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 15) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than 16 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 16) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than 17 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 17) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than 18 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 18) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than 19 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 19) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and no more than 20 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) <= 20) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than one road",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 1) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than two roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 2) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than three roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 3) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than four roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 4) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than five roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 5) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than six roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 6) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than seven roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 7) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than eight roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 8) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than nine roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 9) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than ten roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 10) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than eleven road",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 11) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than twelve roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 12) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than thirteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 13) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than fourteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 14) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than fifteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 15) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than sixteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 16) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than seventeen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 17) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than eighteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 18) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than nineteen roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 19) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than twenty roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 20) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than 1 road",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 1) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than 2 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 2) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than 3 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 3) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than 4 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 4) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than 5 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 5) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than 6 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 6) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than 7 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 7) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than 8 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 8) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than 9 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 9) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than 10 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 10) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than 11 road",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 11) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than 12 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 12) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than 13 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 13) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than 14 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 14) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than 15 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 15) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than 16 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 16) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than 17 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 17) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than 18 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 18) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than 19 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 19) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
+  {
+    "natural-language": "Find the city with the smallest area and less than 20 roads",
+    "sql": "WITH city_areas AS (SELECT id, name, ST_Area(boundary::geography) AS area FROM cities), city_road_counts AS (SELECT c.id, c.name, COUNT(r.id) AS road_count, ca.area FROM cities c JOIN roads r ON ST_Intersects(c.boundary, r.route) JOIN city_areas ca ON c.id = ca.id GROUP BY c.id, c.name, ca.area HAVING COUNT(r.id) < 20) SELECT name FROM city_road_counts ORDER BY area ASC LIMIT 1"
+  },
   # Northernmost city, southermost city, etc.
   {
     "natural-language": "Find the northernmost city",
@@ -7917,22 +14058,6 @@ BASE_QUERIES = [
   },
 
   # Roads
-  {
-    "natural-language": "Find roads with at least one kilometer crossing within the area bound by (-119.3047, 34.2805), (-119.2280, 34.2900), (-119.2265, 34.2400), (-119.2660, 34.2100), (-119.2940, 34.2385), and (-119.3047, 34.2805)",
-    "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads WHERE ST_Intersects(route, ST_GeomFromText('POLYGON((-119.3047 34.2805, -119.2280 34.2900, -119.2265 34.2400, -119.2660 34.2100, -119.2940 34.2385, -119.3047 34.2805))', 4326)) AND ST_Length(ST_Transform(route, 3857)) >= 1000"
-  },
-  {
-    "natural-language": "Find roads with at least one kilometer crossing within the area bound by (-119.3120, 34.4660), (-119.2630, 34.4720), (-119.2410, 34.4450), (-119.2690, 34.4260), (-119.2980, 34.4350), and (-119.3120, 34.4660)",
-    "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads WHERE ST_Intersects(route, ST_GeomFromText('POLYGON((-119.3120 34.4660, -119.2630 34.4720, -119.2410 34.4450, -119.2690 34.4260, -119.2980 34.4350, -119.3120 34.4660))', 4326)) AND ST_Length(ST_Transform(route, 3857)) >= 1000"
-  },
-  {
-    "natural-language": "Find roads with at least one kilometer crossing within the area bound by (-119.2450, 34.2320), (-119.1720, 34.2470), (-119.1540, 34.1970), (-119.2000, 34.1610), (-119.2370, 34.1760), and (-119.2450, 34.2320)",
-    "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads WHERE ST_Intersects(route, ST_GeomFromText('POLYGON((-119.2450 34.2320, -119.1720 34.2470, -119.1540 34.1970, -119.2000 34.1610, -119.2370 34.1760, -119.2450 34.2320))', 4326)) AND ST_Length(ST_Transform(route, 3857)) >= 1000"
-  },
-  {
-    "natural-language": "Find roads with at least one kilometer crossing within the area bound by (-119.0610, 34.2360), (-119.0170, 34.2370), (-118.9870, 34.2110), (-119.0110, 34.1850), (-119.0480, 34.1980), and (-119.0610, 34.2360)",
-    "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads WHERE ST_Intersects(route, ST_GeomFromText('POLYGON((-119.0610 34.2360, -119.0170 34.2370, -118.9870 34.2110, -119.0110 34.1850, -119.0480 34.1980, -119.0610 34.2360))', 4326)) AND ST_Length(ST_Transform(route, 3857)) >= 1000"
-  },
   {
     "natural-language": "Find roads that intersect at (-119.2700, 34.2600)",
     "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads WHERE ST_Intersects(route, ST_SetSRID(ST_Point(-119.2700, 34.2600), 4326))"
@@ -8150,6 +14275,7 @@ BASE_QUERIES = [
     "sql": "SELECT name, ST_AsGeoJSON(route) AS route FROM roads ORDER BY ST_Y(ST_Transform(ST_StartPoint(route), 4326)) DESC LIMIT 1"
   },
 
+  # Parks
   {
     "natural-language": "Find parks within the area bound by (-119.3047, 34.2805), (-119.2280, 34.2900), (-119.2265, 34.2400), (-119.2660, 34.2100), (-119.2940, 34.2385), and (-119.3047, 34.2805)",
     "sql": "SELECT name, ST_AsGeoJSON(boundary) AS boundary FROM parks p WHERE ST_Within(p.boundary, ST_GeomFromText('POLYGON((-119.3047 34.2805, -119.2280 34.2900, -119.2265 34.2400, -119.2660 34.2100, -119.2940 34.2385, -119.3047 34.2805))', 4326))"
