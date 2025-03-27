@@ -1,4 +1,4 @@
-# Terraquery API
+# Terraquery
 
 GIS powered by natural language based SQL generation, implemented with Ventura County geospatial data. Current version allows clients to query for city and road data.
 
@@ -26,6 +26,8 @@ GIS powered by natural language based SQL generation, implemented with Ventura C
   DB_HOST_LOCAL = "localhost"
   DB_PORT = "5432"
   ```
+
+- Create a Postgres database according to the *config.py* file, and run the *database/schema.sql* script
 
 - Generate the training data
 

@@ -85,6 +85,10 @@ def get_webmap_for_spatial_query(sql_query):
         m = folium.Map(location=[34.2746, -119.2290], zoom_start=11)
 
         for row in cursor.fetchall():
+            columns = [desc[0] for desc in cursor.description]
+            row_dict = dict(zip(columns, row))
+            name = row_dict.get(name_field, "Unnamed")
+
             geom = get_geom_for_row(row, cursor.description, name_field, geom_field)
 
             if geom["type"] == "Point":
