@@ -27,8 +27,6 @@ GIS powered by natural language based SQL generation, implemented with Ventura C
   DB_PORT = "5432"
   ```
 
-  
-
 - Generate the training data
 
   ```
