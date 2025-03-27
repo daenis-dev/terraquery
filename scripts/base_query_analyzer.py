@@ -50,5 +50,4 @@ for query in BASE_QUERIES:
 
 print('Number of city queries: ' + str(city_queries), flush=True)
 print('Number of road queries: ' + str(road_queries), flush=True)
-print('Number of park queries: ' + str(park_queries), flush=True)
-print('Number of building queries: ' + str(building_queries), flush=True)
+print('Total: ' + str(city_queries + road_queries), flush=True)

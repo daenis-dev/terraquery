@@ -2,7 +2,8 @@ import psycopg2
 import json
 import random
 from config import DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT
-from base_queries import BASE_QUERIES
+from city_queries import CITY_QUERIES
+from road_queries import ROAD_QUERIES
 import random
 import re
 
@@ -16,15 +17,19 @@ conn = psycopg2.connect(
 
 cur = conn.cursor()
 
-query_variations = {
-        "Find": ["Find", "Search", "Retrieve", "Get", "List"],
+BASE_QUERIES = CITY_QUERIES + ROAD_QUERIES
 
+query_variations = {
+        "Find": ["Find", "Search for", "Retrieve", "Get", "List"],
+
+        "city with the highest population": ["city with the highest population", "city with the most people", "busiest city"],
+        "city with the lowest population": ["city with the lowest population", "city with the least people", "slowest city"],
         "cities": ["cities", "towns", "municipalities", "urban areas"],
         "city": ["city", "town", "municipality", "urban area"],
-        "a population greater than": ["a population greater than", "a population that is greater than", "more than", "a population larger than", "a population that is larger than", "over"], # TODO: If 'population', the word 'people' at the end is optional
-        "a poulation less than": ["a poulation less than", "a poulation that is less than", "less than", "a population smaller than", "a population that is smaller than", "under"], # TODO: If 'population', the word 'people' at the end is optional
-        "a population of at least": ["a population of at least", "at least", "a population of no less than", "no less than"], # TODO: If 'population', the word 'people' at the end is optional
-        "a population of at most": ["a population of at most", "at most", "a population of no more than", "no more than"], # TODO: If 'population', the word 'people' at the end is optional
+        "a population greater than": ["a population greater than", "a population that is greater than", "more than", "a population larger than", "a population that is larger than", "a population that is over", "over"],
+        "a poulation less than": ["a poulation less than", "a population that is less than", "less than", "a population smaller than", "a population that is smaller than", "a population that is under", "under"],
+        "a population of at least": ["a population of at least", "at least", "a population of no less than", "no less than"],
+        "a population of at most": ["a population of at most", "at most", "a population of no more than", "no more than"],
         "square kilometer": ["square kilometer", "sq km"],
         "square kilometers": ["square kilometers", "sq km"],
         "kilometer": ["kilometer", "km"],
@@ -44,6 +49,7 @@ query_variations = {
 
         "intersections": ["intersections", "roads that intersect", "intersecting roads", "roads that cross each other"],
         "fewest roads": ["fewest roads", "least number of roads"],
+        "most roads": ["most roads", "greatest number of roads"],
         "that intersect the point": ["that intersect the point", "that intersect", "that intersect the point at", "that cross"],
         "roads that are longer than": ["roads that are longer than"],
         "roads that are at least": ["roads that are at least"],
@@ -51,6 +57,7 @@ query_variations = {
         "roads that are at most": ["roads that are at most"],
         "roads that span at least": ["roads that span at least"],
         "roads that span at most": ["roads that span at most"],
+        "roads within": ["roads within", "all roads within"],
 
         "greatest number of parks": ["greatest number of parks", "most parks", "highest number of parks"],
         "fewest number of parks" : ["fewest number of parks", "fewest parks", "lowest number of parks"],
@@ -82,28 +89,29 @@ def generate_query_variation(query):
 def get_schema():
     return "Assume the schema: CREATE EXTENSION postgis; CREATE TABLE cities (id SERIAL PRIMARY KEY, name VARCHAR(255), population INTEGER, boundary GEOMETRY(Polygon, 4326)); CREATE TABLE roads (id SERIAL PRIMARY KEY, name VARCHAR(255), route GEOMETRY(LineString, 4326)); CREATE TABLE parks (id SERIAL PRIMARY KEY, name VARCHAR(255), boundary GEOMETRY(Polygon, 4326)); CREATE TABLE owning_entities (id SERIAL PRIMARY KEY, name VARCHAR(255), is_group BOOLEAN); CREATE TABLE buildings (id SERIAL PRIMARY KEY, street_number VARCHAR(10), location GEOMETRY(Point, 4326), road_id INTEGER REFERENCES roads(id), owning_entity_id INTEGER REFERENCES owning_entities(id))"
 
-def generate_dynamic_queries(num_new_queries=100):
-    for _ in range(num_new_queries):
-        new_query = get_random_query_from_base_queries()
+def generate_dynamic_queries():
+    index = 0
+    for _ in range(len(BASE_QUERIES)):
+        new_query = get_next_query_from_base_queries(index)
         new_query["natural-language"] = generate_query_variation(new_query["natural-language"]) + ". " + get_schema()
-
-        while new_query["natural-language"] in generated_queries_set:
-            new_query = get_random_query_from_base_queries()
-            new_query["natural-language"] = generate_query_variation(new_query["natural-language"]) + ". " + get_schema()
-
         new_queries.append(new_query)
         generated_queries_set.add(new_query["natural-language"])
+        index += 1
+        print('Query number: ' + str(index), flush=True)
     
     return new_queries
 
-def get_random_query_from_base_queries():
-    return random.choice(BASE_QUERIES).copy()
+def get_next_query_from_base_queries(index):
+    query = BASE_QUERIES[index]
+    index += 1
+    print('query number: ' + str(index), flush=True)
+    return query
 
 
 def test_query(query):
     try:
         cur.execute(query["sql"])
-        result = cur.fetchall()
+        result = cur.fetchall() # TODO: Gets hung up on last entry
         if len(result) > 0:
             # print(f"Query '{query['natural-language']}' returned {len(result)} results.")
             return True
@@ -115,34 +123,13 @@ def test_query(query):
         # print(f"Error executing query '{query['natural-language']}': {str(e)}")
         return False
 
-def retry_failed_query(query):
-    # print(f"Retrying query '{query['natural-language']}' after failure.")
-    new_query = get_random_query_from_base_queries()
-    new_query["natural-language"] = generate_query_variation(new_query["natural-language"]) + ". " + get_schema()
-    
-    while new_query["natural-language"] in generated_queries_set:
-        new_query = get_random_query_from_base_queries()
-        new_query["natural-language"] = generate_query_variation(new_query["natural-language"]) + ". " + get_schema()
-        
-    return new_query
-
-def reset_transaction():
-    # print("Rolling back the transaction due to an error...")
-    conn.rollback()
-
-new_queries = generate_dynamic_queries(3600)
+new_queries = generate_dynamic_queries()
 
 with open('scripts/terraquery_dataset.json', 'w') as f:
     json.dump(new_queries, f, indent=4)
 
 for query in new_queries:
-    passed = test_query(query)
-    retries = 0
-    while not passed and retries < 3:
-        reset_transaction()
-        query = retry_failed_query(query)
-        passed = test_query(query)
-        retries += 1
+    test_query(query)
 
 cur.close()
 conn.close()

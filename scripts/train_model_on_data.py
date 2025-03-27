@@ -2,8 +2,6 @@ from datasets import load_dataset
 
 from transformers import GPT2LMHeadModel, GPT2Tokenizer, Trainer, TrainingArguments
 
-# TODO: Train a version without the owner queries
-
 model_path = "C:/Users/dkala/projects/terraquery/distilgpt2"
 tokenizer = GPT2Tokenizer.from_pretrained(model_path)
 model = GPT2LMHeadModel.from_pretrained(model_path)
@@ -23,7 +21,7 @@ dataset = dataset["train"].train_test_split(test_size=0.2)
 tokenized_datasets = dataset.map(preprocess_function, batched=True)
 
 training_args = TrainingArguments(
-    output_dir="./terraquery_model",
+    output_dir="./terraquery_model_v2",
     per_device_train_batch_size=2,
     evaluation_strategy="epoch",
     save_strategy="epoch",
@@ -41,5 +39,5 @@ trainer = Trainer(
 
 trainer.train()
 
-model.save_pretrained("./terraquery_model")
-tokenizer.save_pretrained("./terraquery_model")
+model.save_pretrained("./terraquery_model_v2")
+tokenizer.save_pretrained("./terraquery_model_v2")
