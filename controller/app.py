@@ -80,7 +80,7 @@ def get_webmap_for_spatial_query(sql_query):
         cursor = conn.cursor()
         cursor.execute(sql_query)
 
-        name_field, geom_field = execute_and_get_result_set_for_results(cursor.description) # TODO: here
+        name_field, geom_field = execute_and_get_result_set_for_results(cursor.description)
 
         m = folium.Map(location=[34.2746, -119.2290], zoom_start=11)
 
