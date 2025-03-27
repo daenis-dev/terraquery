@@ -1,4 +1,4 @@
-# Terraquery
+# Terraquery API
 
 GIS powered by natural language based SQL generation, implemented with Ventura County geospatial data. Current version allows clients to query for city and road data.
 
