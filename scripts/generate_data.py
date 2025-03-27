@@ -11,7 +11,7 @@ conn = psycopg2.connect(
     dbname=DB_NAME,
     user=DB_USER,
     password=DB_PASSWORD,
-    host=DB_HOST,
+    host=DB_HOST_LOCAL,
     port=DB_PORT
 )
 

@@ -1,6 +1,6 @@
 import json
 import psycopg2
-from config import DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT
+from config import DB_NAME, DB_USER, DB_PASSWORD, DB_HOST_LOCAL, DB_PORT
 from city_queries import CITY_QUERIES
 from road_queries import ROAD_QUERIES
 
@@ -8,7 +8,7 @@ conn = psycopg2.connect(
     dbname=DB_NAME,
     user=DB_USER,
     password=DB_PASSWORD,
-    host=DB_HOST,
+    host=DB_HOST_LOCAL,
     port=DB_PORT
 )
 

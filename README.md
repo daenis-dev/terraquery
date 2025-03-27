@@ -12,7 +12,11 @@ GIS powered by natural language based SQL generation, implemented with Ventura C
   >> virtualenv env
   
   >> source env/Scripts/activate
+  
+  >> pip install -r local_requirements.txt
   ```
+
+- **TODO: Pip Dependencies!!!**
 
 - Generate the training data
 

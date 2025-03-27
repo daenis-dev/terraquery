@@ -19,7 +19,6 @@ def get_schema():
     return "Assume the schema: CREATE EXTENSION postgis; CREATE TABLE cities (id SERIAL PRIMARY KEY, name VARCHAR(255), population INTEGER, boundary GEOMETRY(Polygon, 4326)); CREATE TABLE roads (id SERIAL PRIMARY KEY, name VARCHAR(255), route GEOMETRY(LineString, 4326)); CREATE TABLE parks (id SERIAL PRIMARY KEY, name VARCHAR(255), boundary GEOMETRY(Polygon, 4326)); CREATE TABLE owning_entities (id SERIAL PRIMARY KEY, name VARCHAR(255), is_group BOOLEAN); CREATE TABLE buildings (id SERIAL PRIMARY KEY, street_number VARCHAR(10), location GEOMETRY(Point, 4326), road_id INTEGER REFERENCES roads(id), owning_entity_id INTEGER REFERENCES owning_entities(id)) - "
 
 def generate_sql_for_natural_language_query(natural_language_query):
-    print('Natural Language query: ' + str(natural_language_query), flush=True)
     input_query = natural_language_query + ". " + get_schema()
     prompt = f"Query: {input_query}\nSQL:"
     inputs = tokenizer(prompt, return_tensors="pt")
@@ -39,9 +38,37 @@ def generate_sql_for_natural_language_query(natural_language_query):
     
     return sql_query
 
+def execute_and_get_result_set_for_results(description):
+    columns = [desc[0] for desc in description]
+    allowed_pairs = [
+        ("name", "boundary"),
+        ("name", "route"),
+        ("street_number", "location"),
+    ]
+
+    selected_pair = next(
+        ((name_field, geom_field) for name_field, geom_field in allowed_pairs if name_field in columns and geom_field in columns),
+        None
+    )
+
+    if not selected_pair:
+        return "Error: Query must return one of the following field pairs: (name, boundary), (name, route), or (street_number, location)."
+
+    return selected_pair
+
+def get_geom_for_row(row, description, name_field, geom_field):
+    columns = [desc[0] for desc in description]
+    row_dict = dict(zip(columns, row))
+    name = row_dict.get(name_field, "Unnamed")
+    geom_geojson = row_dict.get(geom_field)
+
+    if geom_geojson:
+        try:
+            return json.loads(geom_geojson)
+        except Exception as e:
+            print(f"Error loading GeoJSON for {name}: {e}")
+
 def get_webmap_for_spatial_query(sql_query):
-    """Execute the SQL query, render a webmap, and return HTML."""
-    print('SQL query: ' + str(sql_query), flush=True)
     try:
         conn = psycopg2.connect(
             dbname=DB_NAME,
@@ -53,39 +80,12 @@ def get_webmap_for_spatial_query(sql_query):
         cursor = conn.cursor()
         cursor.execute(sql_query)
 
-        columns = [desc[0] for desc in cursor.description]
-
-        allowed_pairs = [
-            ("name", "boundary"),
-            ("name", "route"),
-            ("street_number", "location"),
-        ]
-
-        selected_pair = next(
-            ((name_field, geom_field) for name_field, geom_field in allowed_pairs if name_field in columns and geom_field in columns),
-            None
-        )
-
-        if not selected_pair:
-            return "Error: Query must return one of the following field pairs: (name, boundary), (name, route), or (street_number, location)."
-
-        name_field, geom_field = selected_pair
+        name_field, geom_field = execute_and_get_result_set_for_results(cursor.description) # TODO: here
 
         m = folium.Map(location=[34.2746, -119.2290], zoom_start=11)
 
         for row in cursor.fetchall():
-            row_dict = dict(zip(columns, row))
-            name = row_dict.get(name_field, "Unnamed")
-            geom_geojson = row_dict.get(geom_field)
-
-            if not geom_geojson:
-                continue
-
-            try:
-                geom = json.loads(geom_geojson)
-            except Exception as e:
-                print(f"Error loading GeoJSON for {name}: {e}")
-                continue
+            geom = get_geom_for_row(row, cursor.description, name_field, geom_field)
 
             if geom["type"] == "Point":
                 folium.Marker(
