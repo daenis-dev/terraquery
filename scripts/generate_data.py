@@ -1,7 +1,7 @@
 import psycopg2
 import json
 import random
-from config import DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT
+from config import DB_NAME, DB_USER, DB_PASSWORD, DB_PORT, DB_HOST_LOCAL
 from city_queries import CITY_QUERIES
 from road_queries import ROAD_QUERIES
 import random
