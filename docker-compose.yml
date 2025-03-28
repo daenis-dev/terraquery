@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  terraquery-api:
+    build:
+      context: ./terraquery
+      dockerfile: Dockerfile
+    ports:
+      - "9090:9090"
+    networks:
+      - terraquery-net
+
+  terraquery-ui:
+    build:
+      context: ./terraquery
+      dockerfile: UI_Dockerfile
+    ports:
+      - "8080:80"
+    depends_on:
+      - terraquery-api
+    networks:
+      - terraquery-net
+
+networks:
+  terraquery-net:
+    driver: bridge
