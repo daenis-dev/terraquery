@@ -3,7 +3,6 @@ version: "3.8"
 services:
   terraquery-api:
     build:
-      context: ./terraquery
       dockerfile: Dockerfile
     ports:
       - "9090:9090"
@@ -12,7 +11,6 @@ services:
 
   terraquery-ui:
     build:
-      context: ./terraquery
       dockerfile: UI_Dockerfile
     ports:
       - "8080:80"

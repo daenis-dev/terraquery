@@ -1,32 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SQL Query Generator</title>
-    <script>
-        async function submitQuery(event) {
-            event.preventDefault();
-            const queryInput = document.getElementById("query").value;
-            const response = await fetch("http://terraquery-api:9090/v1/generated-sql-queries?natural-language-query=" + encodeURIComponent(queryInput));
-            const data = await response.json();
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SQL Query Generator</title>
+        <style>
+            #query {
+                width: 90%;
+                padding: 15px 50px 30px 15px;
+                font-size: 16px;
+                border-radius: 25px;
+                border: 1px solid #ccc;
+                outline: none;
+            }
 
-            document.getElementById("sql-query").textContent = data.sql_query;
-            document.getElementById("webmap").innerHTML = data.webmap;
-        }
-    </script>
-</head>
-<body>
-    <h1>Enter a Natural Language Query</h1>
-    <form onsubmit="submitQuery(event)">
-        <input type="text" id="query" required placeholder="Enter your query">
-        <button type="submit">Submit</button>
-    </form>
-    
-    <h2>Generated SQL Query:</h2>
-    <pre id="sql-query"></pre>
-    
-    <h2>Generated Web Map:</h2>
-    <div id="webmap"></div>
-</body>
+            .button-container {
+                position: relative;
+                display: inline-block;
+                width: 50%;
+            }
+
+            .button-container button {
+                position: absolute;
+                right: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 40px;
+                height: 40px;
+                background-color: #4CAF50;
+                border: none;
+                color: white;
+                font-size: 18px;
+                border-radius: 50%;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .button-container button:hover {
+                background-color: #45a049;
+            }
+        </style>
+        <script>
+            async function submitQuery(event) {
+                event.preventDefault();
+                const queryInput = document.getElementById("query").value;
+                const response = await fetch("http://localhost:9090/v1/generated-sql-queries?natural-language-query=" + encodeURIComponent(queryInput));
+                const data = await response.json();
+
+                document.getElementById("sql-query").textContent = data.sql_query;
+                document.getElementById("webmap").innerHTML = data.webmap;
+            }
+        </script>
+    </head>
+    <body>
+        <div style="text-align: center;">
+            <h1>Terraquery</h1>
+        </div>
+        <div style="text-align: center;">
+            <form onsubmit="submitQuery(event)">
+                <div class="button-container">
+                    <input type="text" id="query" required placeholder="Type request here">
+                    <button type="submit">↩</button>
+                </div>
+            </form>
+        </div>
+
+        <div style="text-align: center;">
+            <pre id="sql-query"></pre>
+            <div id="webmap" style="width: 50%; margin: 0 auto;"></div>
+        </div>
+    </body>
 </html>

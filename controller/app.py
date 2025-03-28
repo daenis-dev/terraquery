@@ -1,6 +1,7 @@
 import psycopg2
 import folium
-from flask import Flask, request, render_template_string
+from flask import Flask, request, render_template_string, jsonify
+from flask_cors import CORS
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
 import torch
 import json
@@ -9,6 +10,7 @@ from config import DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT
 # TODO: Refactor, update HTML
 
 app = Flask(__name__)
+CORS(app)
 
 model_path = "./terraquery_model"
 tokenizer = GPT2Tokenizer.from_pretrained(model_path)
@@ -60,7 +62,7 @@ def get_webmap_for_spatial_query(sql_query):
 
         name_field, geom_field = execute_and_get_result_set_for_results(cursor.description)
 
-        m = folium.Map(location=[34.2490, -118.9651], zoom_start=11)
+        m = folium.Map(location=[34.2490, -118.9651], zoom_start=10)
 
         for row in cursor.fetchall():
             name = get_name_for_row(row, cursor.description, name_field)
@@ -139,21 +141,6 @@ def get_generated_sql():
         "sql_query": sql_query,
         "webmap": webmap_html
     })
-    
-    # return render_template_string("""
-    #     <html>
-    #         <head>
-    #             <title>Generated Web Map</title>
-    #         </head>
-    #         <body>
-    #             <h2>Natural Language Query: {{ query }}</h2>
-    #             <h3>Generated SQL Query:</h3>
-    #             <pre>{{ sql }}</pre>
-    #             <h3>Generated Web Map:</h3>
-    #             {{ webmap|safe }}
-    #         </body>
-    #     </html>
-    # """, query=natural_language_query, sql=sql_query, webmap=webmap_html)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=9090, debug=True)
