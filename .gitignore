@@ -4,7 +4,7 @@ __pycache__/
 .env
 distilgpt2/
 terraquery_model/
-terraquery_model_spider/
+terraquery_model_v2/
 spider/
 county-data/
 terraquery_dataset.json

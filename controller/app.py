@@ -12,7 +12,7 @@ from config import DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT
 app = Flask(__name__)
 CORS(app)
 
-model_path = "./terraquery_model"
+model_path = "./terraquery_model_v2"
 tokenizer = GPT2Tokenizer.from_pretrained(model_path)
 model = GPT2LMHeadModel.from_pretrained(model_path)
 

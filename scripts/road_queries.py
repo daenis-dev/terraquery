@@ -3399,2724 +3399,2725 @@ ROAD_QUERIES = [
   },  
 
   # Roads by distance to city (.25 -20 km)
+  
   {
-    "natural-language": "Find all roads within a quarter of a kilometer of Ventura",
+    "natural-language": "Find roads within a quarter of a kilometer of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 250)"
   },
   {
-    "natural-language": "Find all roads within half of a kilometer of Ventura",
+    "natural-language": "Find roads within half of a kilometer of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 500)"
   },
   {
-    "natural-language": "Find all roads within one kilometer of Ventura",
+    "natural-language": "Find roads within one kilometer of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1000)"
   },
   {
-    "natural-language": "Find all roads within one and a half kilometers of Ventura",
+    "natural-language": "Find roads within one and a half kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1500)"
   },
   {
-    "natural-language": "Find all roads within two kilometers of Ventura",
+    "natural-language": "Find roads within two kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2000)"
   },
   {
-    "natural-language": "Find all roads within two and a half kilometers of Ventura",
+    "natural-language": "Find roads within two and a half kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2500)"
   },
   {
-    "natural-language": "Find all roads within three kilometers of Ventura",
+    "natural-language": "Find roads within three kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3000)"
   },
   {
-    "natural-language": "Find all roads within three and a half kilometers of Ventura",
+    "natural-language": "Find roads within three and a half kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3500)"
   },
   {
-    "natural-language": "Find all roads within four kilometers of Ventura",
+    "natural-language": "Find roads within four kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4000)"
   },
   {
-    "natural-language": "Find all roads within four and a half kilometers of Ventura",
+    "natural-language": "Find roads within four and a half kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4500)"
   },
   {
-    "natural-language": "Find all roads within five kilometers of Ventura",
+    "natural-language": "Find roads within five kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5000)"
   },
   {
-    "natural-language": "Find all roads within five and a half kilometers of Ventura",
+    "natural-language": "Find roads within five and a half kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5500)"
   },
   {
-    "natural-language": "Find all roads within six kilometers of Ventura",
+    "natural-language": "Find roads within six kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6000)"
   },
   {
-    "natural-language": "Find all roads within six and a half kilometers of Ventura",
+    "natural-language": "Find roads within six and a half kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6500)"
   },
   {
-    "natural-language": "Find all roads within seven kilometers of Ventura",
+    "natural-language": "Find roads within seven kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7000)"
   },
   {
-    "natural-language": "Find all roads within seven and a half kilometers of Ventura",
+    "natural-language": "Find roads within seven and a half kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7500)"
   },
   {
-    "natural-language": "Find all roads within eight kilometers of Ventura",
+    "natural-language": "Find roads within eight kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8000)"
   },
   {
-    "natural-language": "Find all roads within eight and a half kilometers of Ventura",
+    "natural-language": "Find roads within eight and a half kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8500)"
   },
   {
-    "natural-language": "Find all roads within nine kilometers of Ventura",
+    "natural-language": "Find roads within nine kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9000)"
   },
   {
-    "natural-language": "Find all roads within nine and a half kilometers of Ventura",
+    "natural-language": "Find roads within nine and a half kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9500)"
   },
   {
-    "natural-language": "Find all roads within ten kilometers of Ventura",
+    "natural-language": "Find roads within ten kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10000)"
   },
   {
-    "natural-language": "Find all roads within ten and a half kilometers of Ventura",
+    "natural-language": "Find roads within ten and a half kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10500)"
   },
   {
-    "natural-language": "Find all roads within eleven kilometers of Ventura",
+    "natural-language": "Find roads within eleven kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11000)"
   },
   {
-    "natural-language": "Find all roads within eleven and a half kilometers of Ventura",
+    "natural-language": "Find roads within eleven and a half kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11500)"
   },
   {
-    "natural-language": "Find all roads within twelve kilometers of Ventura",
+    "natural-language": "Find roads within twelve kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12000)"
   },
   {
-    "natural-language": "Find all roads within twelve and a half kilometers of Ventura",
+    "natural-language": "Find roads within twelve and a half kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12500)"
   },
   {
-    "natural-language": "Find all roads within thirteen kilometers of Ventura",
+    "natural-language": "Find roads within thirteen kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 13000)"
   },
   {
-    "natural-language": "Find all roads within fourteen kilometers of Ventura",
+    "natural-language": "Find roads within fourteen kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 14000)"
   },
   {
-    "natural-language": "Find all roads within fifteen kilometers of Ventura",
+    "natural-language": "Find roads within fifteen kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 15000)"
   },
   {
-    "natural-language": "Find all roads within sixteen kilometers of Ventura",
+    "natural-language": "Find roads within sixteen kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 16000)"
   },
   {
-    "natural-language": "Find all roads within seventeen kilometers of Ventura",
+    "natural-language": "Find roads within seventeen kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 17000)"
   },
   {
-    "natural-language": "Find all roads within eighteen kilometers of Ventura",
+    "natural-language": "Find roads within eighteen kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 18000)"
   },
   {
-    "natural-language": "Find all roads within nineteen kilometers of Ventura",
+    "natural-language": "Find roads within nineteen kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 19000)"
   },
   {
-    "natural-language": "Find all roads within twenty kilometers of Ventura",
+    "natural-language": "Find roads within twenty kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 20000)"
   },
   {
-    "natural-language": "Find all roads within .25 kilometers of Ventura",
+    "natural-language": "Find roads within .25 kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 250)"
   },
   {
-    "natural-language": "Find all roads within .5 kilometers of Ventura",
+    "natural-language": "Find roads within .5 kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 500)"
   },
   {
-    "natural-language": "Find all roads within 1 kilometer of Ventura",
+    "natural-language": "Find roads within 1 kilometer of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1000)"
   },
   {
-    "natural-language": "Find all roads within 1.5 kilometers of Ventura",
+    "natural-language": "Find roads within 1.5 kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1500)"
   },
   {
-    "natural-language": "Find all roads within 2 kilometers of Ventura",
+    "natural-language": "Find roads within 2 kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2000)"
   },
   {
-    "natural-language": "Find all roads within 2.5 kilometers of Ventura",
+    "natural-language": "Find roads within 2.5 kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2500)"
   },
   {
-    "natural-language": "Find all roads within 3 kilometers of Ventura",
+    "natural-language": "Find roads within 3 kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3000)"
   },
   {
-    "natural-language": "Find all roads within 3.5 kilometers of Ventura",
+    "natural-language": "Find roads within 3.5 kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3500)"
   },
   {
-    "natural-language": "Find all roads within 4 kilometers of Ventura",
+    "natural-language": "Find roads within 4 kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4000)"
   },
   {
-    "natural-language": "Find all roads within 4.5 kilometers of Ventura",
+    "natural-language": "Find roads within 4.5 kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4500)"
   },
   {
-    "natural-language": "Find all roads within 5 kilometers of Ventura",
+    "natural-language": "Find roads within 5 kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5000)"
   },
   {
-    "natural-language": "Find all roads within 5.5 kilometers of Ventura",
+    "natural-language": "Find roads within 5.5 kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5500)"
   },
   {
-    "natural-language": "Find all roads within 6 kilometers of Ventura",
+    "natural-language": "Find roads within 6 kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6000)"
   },
   {
-    "natural-language": "Find all roads within 6.5 kilometers of Ventura",
+    "natural-language": "Find roads within 6.5 kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6500)"
   },
   {
-    "natural-language": "Find all roads within 7 kilometers of Ventura",
+    "natural-language": "Find roads within 7 kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7000)"
   },
   {
-    "natural-language": "Find all roads within 7.5 kilometers of Ventura",
+    "natural-language": "Find roads within 7.5 kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7500)"
   },
   {
-    "natural-language": "Find all roads within 8 kilometers of Ventura",
+    "natural-language": "Find roads within 8 kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8000)"
   },
   {
-    "natural-language": "Find all roads within 8.5 kilometers of Ventura",
+    "natural-language": "Find roads within 8.5 kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8500)"
   },
   {
-    "natural-language": "Find all roads within 9 kilometers of Ventura",
+    "natural-language": "Find roads within 9 kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9000)"
   },
   {
-    "natural-language": "Find all roads within 9.5 kilometers of Ventura",
+    "natural-language": "Find roads within 9.5 kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9500)"
   },
   {
-    "natural-language": "Find all roads within 10 kilometers of Ventura",
+    "natural-language": "Find roads within 10 kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10000)"
   },
   {
-    "natural-language": "Find all roads within 10.5 kilometers of Ventura",
+    "natural-language": "Find roads within 10.5 kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10500)"
   },
   {
-    "natural-language": "Find all roads within 11 kilometers of Ventura",
+    "natural-language": "Find roads within 11 kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11000)"
   },
   {
-    "natural-language": "Find all roads within 11.5 kilometers of Ventura",
+    "natural-language": "Find roads within 11.5 kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11500)"
   },
   {
-    "natural-language": "Find all roads within 12 kilometers of Ventura",
+    "natural-language": "Find roads within 12 kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12000)"
   },
   {
-    "natural-language": "Find all roads within 12.5 kilometers of Ventura",
+    "natural-language": "Find roads within 12.5 kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12500)"
   },
   {
-    "natural-language": "Find all roads within 13 kilometers of Ventura",
+    "natural-language": "Find roads within 13 kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 13000)"
   },
   {
-    "natural-language": "Find all roads within 14 kilometers of Ventura",
+    "natural-language": "Find roads within 14 kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 14000)"
   },
   {
-    "natural-language": "Find all roads within 15 kilometers of Ventura",
+    "natural-language": "Find roads within 15 kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 15000)"
   },
   {
-    "natural-language": "Find all roads within 16 kilometers of Ventura",
+    "natural-language": "Find roads within 16 kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 16000)"
   },
   {
-    "natural-language": "Find all roads within 17 kilometers of Ventura",
+    "natural-language": "Find roads within 17 kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 17000)"
   },
   {
-    "natural-language": "Find all roads within 18 kilometers of Ventura",
+    "natural-language": "Find roads within 18 kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 18000)"
   },
   {
-    "natural-language": "Find all roads within 19 kilometers of Ventura",
+    "natural-language": "Find roads within 19 kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 19000)"
   },
   {
-    "natural-language": "Find all roads within 20 kilometers of Ventura",
+    "natural-language": "Find roads within 20 kilometers of Ventura",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ventura' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 20000)"
   },
   {
-    "natural-language": "Find all roads within a quarter of a kilometer of Ojai",
+    "natural-language": "Find roads within a quarter of a kilometer of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 250)"
   },
   {
-    "natural-language": "Find all roads within half of a kilometer of Ojai",
+    "natural-language": "Find roads within half of a kilometer of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 500)"
   },
   {
-    "natural-language": "Find all roads within one kilometer of Ojai",
+    "natural-language": "Find roads within one kilometer of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1000)"
   },
   {
-    "natural-language": "Find all roads within one and a half kilometers of Ojai",
+    "natural-language": "Find roads within one and a half kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1500)"
   },
   {
-    "natural-language": "Find all roads within two kilometers of Ojai",
+    "natural-language": "Find roads within two kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2000)"
   },
   {
-    "natural-language": "Find all roads within two and a half kilometers of Ojai",
+    "natural-language": "Find roads within two and a half kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2500)"
   },
   {
-    "natural-language": "Find all roads within three kilometers of Ojai",
+    "natural-language": "Find roads within three kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3000)"
   },
   {
-    "natural-language": "Find all roads within three and a half kilometers of Ojai",
+    "natural-language": "Find roads within three and a half kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3500)"
   },
   {
-    "natural-language": "Find all roads within four kilometers of Ojai",
+    "natural-language": "Find roads within four kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4000)"
   },
   {
-    "natural-language": "Find all roads within four and a half kilometers of Ojai",
+    "natural-language": "Find roads within four and a half kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4500)"
   },
   {
-    "natural-language": "Find all roads within five kilometers of Ojai",
+    "natural-language": "Find roads within five kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5000)"
   },
   {
-    "natural-language": "Find all roads within five and a half kilometers of Ojai",
+    "natural-language": "Find roads within five and a half kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5500)"
   },
   {
-    "natural-language": "Find all roads within six kilometers of Ojai",
+    "natural-language": "Find roads within six kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6000)"
   },
   {
-    "natural-language": "Find all roads within six and a half kilometers of Ojai",
+    "natural-language": "Find roads within six and a half kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6500)"
   },
   {
-    "natural-language": "Find all roads within seven kilometers of Ojai",
+    "natural-language": "Find roads within seven kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7000)"
   },
   {
-    "natural-language": "Find all roads within seven and a half kilometers of Ojai",
+    "natural-language": "Find roads within seven and a half kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7500)"
   },
   {
-    "natural-language": "Find all roads within eight kilometers of Ojai",
+    "natural-language": "Find roads within eight kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8000)"
   },
   {
-    "natural-language": "Find all roads within eight and a half kilometers of Ojai",
+    "natural-language": "Find roads within eight and a half kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8500)"
   },
   {
-    "natural-language": "Find all roads within nine kilometers of Ojai",
+    "natural-language": "Find roads within nine kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9000)"
   },
   {
-    "natural-language": "Find all roads within nine and a half kilometers of Ojai",
+    "natural-language": "Find roads within nine and a half kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9500)"
   },
   {
-    "natural-language": "Find all roads within ten kilometers of Ojai",
+    "natural-language": "Find roads within ten kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10000)"
   },
   {
-    "natural-language": "Find all roads within ten and a half kilometers of Ojai",
+    "natural-language": "Find roads within ten and a half kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10500)"
   },
   {
-    "natural-language": "Find all roads within eleven kilometers of Ojai",
+    "natural-language": "Find roads within eleven kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11000)"
   },
   {
-    "natural-language": "Find all roads within eleven and a half kilometers of Ojai",
+    "natural-language": "Find roads within eleven and a half kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11500)"
   },
   {
-    "natural-language": "Find all roads within twelve kilometers of Ojai",
+    "natural-language": "Find roads within twelve kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12000)"
   },
   {
-    "natural-language": "Find all roads within twelve and a half kilometers of Ojai",
+    "natural-language": "Find roads within twelve and a half kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12500)"
   },
   {
-    "natural-language": "Find all roads within thirteen kilometers of Ojai",
+    "natural-language": "Find roads within thirteen kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 13000)"
   },
   {
-    "natural-language": "Find all roads within fourteen kilometers of Ojai",
+    "natural-language": "Find roads within fourteen kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 14000)"
   },
   {
-    "natural-language": "Find all roads within fifteen kilometers of Ojai",
+    "natural-language": "Find roads within fifteen kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 15000)"
   },
   {
-    "natural-language": "Find all roads within sixteen kilometers of Ojai",
+    "natural-language": "Find roads within sixteen kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 16000)"
   },
   {
-    "natural-language": "Find all roads within seventeen kilometers of Ojai",
+    "natural-language": "Find roads within seventeen kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 17000)"
   },
   {
-    "natural-language": "Find all roads within eighteen kilometers of Ojai",
+    "natural-language": "Find roads within eighteen kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 18000)"
   },
   {
-    "natural-language": "Find all roads within nineteen kilometers of Ojai",
+    "natural-language": "Find roads within nineteen kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 19000)"
   },
   {
-    "natural-language": "Find all roads within twenty kilometers of Ojai",
+    "natural-language": "Find roads within twenty kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 20000)"
   },
   {
-    "natural-language": "Find all roads within .25 kilometers of Ojai",
+    "natural-language": "Find roads within .25 kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 250)"
   },
   {
-    "natural-language": "Find all roads within .5 kilometers of Ojai",
+    "natural-language": "Find roads within .5 kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 500)"
   },
   {
-    "natural-language": "Find all roads within 1 kilometer of Ojai",
+    "natural-language": "Find roads within 1 kilometer of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1000)"
   },
   {
-    "natural-language": "Find all roads within 1.5 kilometers of Ojai",
+    "natural-language": "Find roads within 1.5 kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1500)"
   },
   {
-    "natural-language": "Find all roads within 2 kilometers of Ojai",
+    "natural-language": "Find roads within 2 kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2000)"
   },
   {
-    "natural-language": "Find all roads within 2.5 kilometers of Ojai",
+    "natural-language": "Find roads within 2.5 kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2500)"
   },
   {
-    "natural-language": "Find all roads within 3 kilometers of Ojai",
+    "natural-language": "Find roads within 3 kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3000)"
   },
   {
-    "natural-language": "Find all roads within 3.5 kilometers of Ojai",
+    "natural-language": "Find roads within 3.5 kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3500)"
   },
   {
-    "natural-language": "Find all roads within 4 kilometers of Ojai",
+    "natural-language": "Find roads within 4 kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4000)"
   },
   {
-    "natural-language": "Find all roads within 4.5 kilometers of Ojai",
+    "natural-language": "Find roads within 4.5 kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4500)"
   },
   {
-    "natural-language": "Find all roads within 5 kilometers of Ojai",
+    "natural-language": "Find roads within 5 kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5000)"
   },
   {
-    "natural-language": "Find all roads within 5.5 kilometers of Ojai",
+    "natural-language": "Find roads within 5.5 kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5500)"
   },
   {
-    "natural-language": "Find all roads within 6 kilometers of Ojai",
+    "natural-language": "Find roads within 6 kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6000)"
   },
   {
-    "natural-language": "Find all roads within 6.5 kilometers of Ojai",
+    "natural-language": "Find roads within 6.5 kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6500)"
   },
   {
-    "natural-language": "Find all roads within 7 kilometers of Ojai",
+    "natural-language": "Find roads within 7 kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7000)"
   },
   {
-    "natural-language": "Find all roads within 7.5 kilometers of Ojai",
+    "natural-language": "Find roads within 7.5 kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7500)"
   },
   {
-    "natural-language": "Find all roads within 8 kilometers of Ojai",
+    "natural-language": "Find roads within 8 kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8000)"
   },
   {
-    "natural-language": "Find all roads within 8.5 kilometers of Ojai",
+    "natural-language": "Find roads within 8.5 kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8500)"
   },
   {
-    "natural-language": "Find all roads within 9 kilometers of Ojai",
+    "natural-language": "Find roads within 9 kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9000)"
   },
   {
-    "natural-language": "Find all roads within 9.5 kilometers of Ojai",
+    "natural-language": "Find roads within 9.5 kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9500)"
   },
   {
-    "natural-language": "Find all roads within 10 kilometers of Ojai",
+    "natural-language": "Find roads within 10 kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10000)"
   },
   {
-    "natural-language": "Find all roads within 10.5 kilometers of Ojai",
+    "natural-language": "Find roads within 10.5 kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10500)"
   },
   {
-    "natural-language": "Find all roads within 11 kilometers of Ojai",
+    "natural-language": "Find roads within 11 kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11000)"
   },
   {
-    "natural-language": "Find all roads within 11.5 kilometers of Ojai",
+    "natural-language": "Find roads within 11.5 kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11500)"
   },
   {
-    "natural-language": "Find all roads within 12 kilometers of Ojai",
+    "natural-language": "Find roads within 12 kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12000)"
   },
   {
-    "natural-language": "Find all roads within 12.5 kilometers of Ojai",
+    "natural-language": "Find roads within 12.5 kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12500)"
   },
   {
-    "natural-language": "Find all roads within 13 kilometers of Ojai",
+    "natural-language": "Find roads within 13 kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 13000)"
   },
   {
-    "natural-language": "Find all roads within 14 kilometers of Ojai",
+    "natural-language": "Find roads within 14 kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 14000)"
   },
   {
-    "natural-language": "Find all roads within 15 kilometers of Ojai",
+    "natural-language": "Find roads within 15 kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 15000)"
   },
   {
-    "natural-language": "Find all roads within 16 kilometers of Ojai",
+    "natural-language": "Find roads within 16 kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 16000)"
   },
   {
-    "natural-language": "Find all roads within 17 kilometers of Ojai",
+    "natural-language": "Find roads within 17 kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 17000)"
   },
   {
-    "natural-language": "Find all roads within 18 kilometers of Ojai",
+    "natural-language": "Find roads within 18 kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 18000)"
   },
   {
-    "natural-language": "Find all roads within 19 kilometers of Ojai",
+    "natural-language": "Find roads within 19 kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 19000)"
   },
   {
-    "natural-language": "Find all roads within 20 kilometers of Ojai",
+    "natural-language": "Find roads within 20 kilometers of Ojai",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Ojai' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 20000)"
   },
   {
-    "natural-language": "Find all roads within a quarter of a kilometer of Oxnard",
+    "natural-language": "Find roads within a quarter of a kilometer of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 250)"
   },
   {
-    "natural-language": "Find all roads within half of a kilometer of Oxnard",
+    "natural-language": "Find roads within half of a kilometer of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 500)"
   },
   {
-    "natural-language": "Find all roads within one kilometer of Oxnard",
+    "natural-language": "Find roads within one kilometer of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1000)"
   },
   {
-    "natural-language": "Find all roads within one and a half kilometers of Oxnard",
+    "natural-language": "Find roads within one and a half kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1500)"
   },
   {
-    "natural-language": "Find all roads within two kilometers of Oxnard",
+    "natural-language": "Find roads within two kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2000)"
   },
   {
-    "natural-language": "Find all roads within two and a half kilometers of Oxnard",
+    "natural-language": "Find roads within two and a half kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2500)"
   },
   {
-    "natural-language": "Find all roads within three kilometers of Oxnard",
+    "natural-language": "Find roads within three kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3000)"
   },
   {
-    "natural-language": "Find all roads within three and a half kilometers of Oxnard",
+    "natural-language": "Find roads within three and a half kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3500)"
   },
   {
-    "natural-language": "Find all roads within four kilometers of Oxnard",
+    "natural-language": "Find roads within four kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4000)"
   },
   {
-    "natural-language": "Find all roads within four and a half kilometers of Oxnard",
+    "natural-language": "Find roads within four and a half kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4500)"
   },
   {
-    "natural-language": "Find all roads within five kilometers of Oxnard",
+    "natural-language": "Find roads within five kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5000)"
   },
   {
-    "natural-language": "Find all roads within five and a half kilometers of Oxnard",
+    "natural-language": "Find roads within five and a half kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5500)"
   },
   {
-    "natural-language": "Find all roads within six kilometers of Oxnard",
+    "natural-language": "Find roads within six kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6000)"
   },
   {
-    "natural-language": "Find all roads within six and a half kilometers of Oxnard",
+    "natural-language": "Find roads within six and a half kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6500)"
   },
   {
-    "natural-language": "Find all roads within seven kilometers of Oxnard",
+    "natural-language": "Find roads within seven kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7000)"
   },
   {
-    "natural-language": "Find all roads within seven and a half kilometers of Oxnard",
+    "natural-language": "Find roads within seven and a half kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7500)"
   },
   {
-    "natural-language": "Find all roads within eight kilometers of Oxnard",
+    "natural-language": "Find roads within eight kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8000)"
   },
   {
-    "natural-language": "Find all roads within eight and a half kilometers of Oxnard",
+    "natural-language": "Find roads within eight and a half kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8500)"
   },
   {
-    "natural-language": "Find all roads within nine kilometers of Oxnard",
+    "natural-language": "Find roads within nine kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9000)"
   },
   {
-    "natural-language": "Find all roads within nine and a half kilometers of Oxnard",
+    "natural-language": "Find roads within nine and a half kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9500)"
   },
   {
-    "natural-language": "Find all roads within ten kilometers of Oxnard",
+    "natural-language": "Find roads within ten kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10000)"
   },
   {
-    "natural-language": "Find all roads within ten and a half kilometers of Oxnard",
+    "natural-language": "Find roads within ten and a half kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10500)"
   },
   {
-    "natural-language": "Find all roads within eleven kilometers of Oxnard",
+    "natural-language": "Find roads within eleven kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11000)"
   },
   {
-    "natural-language": "Find all roads within eleven and a half kilometers of Oxnard",
+    "natural-language": "Find roads within eleven and a half kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11500)"
   },
   {
-    "natural-language": "Find all roads within twelve kilometers of Oxnard",
+    "natural-language": "Find roads within twelve kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12000)"
   },
   {
-    "natural-language": "Find all roads within twelve and a half kilometers of Oxnard",
+    "natural-language": "Find roads within twelve and a half kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12500)"
   },
   {
-    "natural-language": "Find all roads within thirteen kilometers of Oxnard",
+    "natural-language": "Find roads within thirteen kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 13000)"
   },
   {
-    "natural-language": "Find all roads within fourteen kilometers of Oxnard",
+    "natural-language": "Find roads within fourteen kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 14000)"
   },
   {
-    "natural-language": "Find all roads within fifteen kilometers of Oxnard",
+    "natural-language": "Find roads within fifteen kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 15000)"
   },
   {
-    "natural-language": "Find all roads within sixteen kilometers of Oxnard",
+    "natural-language": "Find roads within sixteen kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 16000)"
   },
   {
-    "natural-language": "Find all roads within seventeen kilometers of Oxnard",
+    "natural-language": "Find roads within seventeen kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 17000)"
   },
   {
-    "natural-language": "Find all roads within eighteen kilometers of Oxnard",
+    "natural-language": "Find roads within eighteen kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 18000)"
   },
   {
-    "natural-language": "Find all roads within nineteen kilometers of Oxnard",
+    "natural-language": "Find roads within nineteen kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 19000)"
   },
   {
-    "natural-language": "Find all roads within twenty kilometers of Oxnard",
+    "natural-language": "Find roads within twenty kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 20000)"
   },
   {
-    "natural-language": "Find all roads within .25 kilometers of Oxnard",
+    "natural-language": "Find roads within .25 kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 250)"
   },
   {
-    "natural-language": "Find all roads within .5 kilometers of Oxnard",
+    "natural-language": "Find roads within .5 kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 500)"
   },
   {
-    "natural-language": "Find all roads within 1 kilometer of Oxnard",
+    "natural-language": "Find roads within 1 kilometer of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1000)"
   },
   {
-    "natural-language": "Find all roads within 1.5 kilometers of Oxnard",
+    "natural-language": "Find roads within 1.5 kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1500)"
   },
   {
-    "natural-language": "Find all roads within 2 kilometers of Oxnard",
+    "natural-language": "Find roads within 2 kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2000)"
   },
   {
-    "natural-language": "Find all roads within 2.5 kilometers of Oxnard",
+    "natural-language": "Find roads within 2.5 kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2500)"
   },
   {
-    "natural-language": "Find all roads within 3 kilometers of Oxnard",
+    "natural-language": "Find roads within 3 kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3000)"
   },
   {
-    "natural-language": "Find all roads within 3.5 kilometers of Oxnard",
+    "natural-language": "Find roads within 3.5 kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3500)"
   },
   {
-    "natural-language": "Find all roads within 4 kilometers of Oxnard",
+    "natural-language": "Find roads within 4 kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4000)"
   },
   {
-    "natural-language": "Find all roads within 4.5 kilometers of Oxnard",
+    "natural-language": "Find roads within 4.5 kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4500)"
   },
   {
-    "natural-language": "Find all roads within 5 kilometers of Oxnard",
+    "natural-language": "Find roads within 5 kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5000)"
   },
   {
-    "natural-language": "Find all roads within 5.5 kilometers of Oxnard",
+    "natural-language": "Find roads within 5.5 kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5500)"
   },
   {
-    "natural-language": "Find all roads within 6 kilometers of Oxnard",
+    "natural-language": "Find roads within 6 kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6000)"
   },
   {
-    "natural-language": "Find all roads within 6.5 kilometers of Oxnard",
+    "natural-language": "Find roads within 6.5 kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6500)"
   },
   {
-    "natural-language": "Find all roads within 7 kilometers of Oxnard",
+    "natural-language": "Find roads within 7 kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7000)"
   },
   {
-    "natural-language": "Find all roads within 7.5 kilometers of Oxnard",
+    "natural-language": "Find roads within 7.5 kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7500)"
   },
   {
-    "natural-language": "Find all roads within 8 kilometers of Oxnard",
+    "natural-language": "Find roads within 8 kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8000)"
   },
   {
-    "natural-language": "Find all roads within 8.5 kilometers of Oxnard",
+    "natural-language": "Find roads within 8.5 kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8500)"
   },
   {
-    "natural-language": "Find all roads within 9 kilometers of Oxnard",
+    "natural-language": "Find roads within 9 kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9000)"
   },
   {
-    "natural-language": "Find all roads within 9.5 kilometers of Oxnard",
+    "natural-language": "Find roads within 9.5 kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9500)"
   },
   {
-    "natural-language": "Find all roads within 10 kilometers of Oxnard",
+    "natural-language": "Find roads within 10 kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10000)"
   },
   {
-    "natural-language": "Find all roads within 10.5 kilometers of Oxnard",
+    "natural-language": "Find roads within 10.5 kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10500)"
   },
   {
-    "natural-language": "Find all roads within 11 kilometers of Oxnard",
+    "natural-language": "Find roads within 11 kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11000)"
   },
   {
-    "natural-language": "Find all roads within 11.5 kilometers of Oxnard",
+    "natural-language": "Find roads within 11.5 kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11500)"
   },
   {
-    "natural-language": "Find all roads within 12 kilometers of Oxnard",
+    "natural-language": "Find roads within 12 kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12000)"
   },
   {
-    "natural-language": "Find all roads within 12.5 kilometers of Oxnard",
+    "natural-language": "Find roads within 12.5 kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12500)"
   },
   {
-    "natural-language": "Find all roads within 13 kilometers of Oxnard",
+    "natural-language": "Find roads within 13 kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 13000)"
   },
   {
-    "natural-language": "Find all roads within 14 kilometers of Oxnard",
+    "natural-language": "Find roads within 14 kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 14000)"
   },
   {
-    "natural-language": "Find all roads within 15 kilometers of Oxnard",
+    "natural-language": "Find roads within 15 kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 15000)"
   },
   {
-    "natural-language": "Find all roads within 16 kilometers of Oxnard",
+    "natural-language": "Find roads within 16 kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 16000)"
   },
   {
-    "natural-language": "Find all roads within 17 kilometers of Oxnard",
+    "natural-language": "Find roads within 17 kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 17000)"
   },
   {
-    "natural-language": "Find all roads within 18 kilometers of Oxnard",
+    "natural-language": "Find roads within 18 kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 18000)"
   },
   {
-    "natural-language": "Find all roads within 19 kilometers of Oxnard",
+    "natural-language": "Find roads within 19 kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 19000)"
   },
   {
-    "natural-language": "Find all roads within 20 kilometers of Oxnard",
+    "natural-language": "Find roads within 20 kilometers of Oxnard",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Oxnard' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 20000)"
   },
   {
-    "natural-language": "Find all roads within a quarter of a kilometer of Camarillo",
+    "natural-language": "Find roads within a quarter of a kilometer of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 250)"
   },
   {
-    "natural-language": "Find all roads within half of a kilometer of Camarillo",
+    "natural-language": "Find roads within half of a kilometer of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 500)"
   },
   {
-    "natural-language": "Find all roads within one kilometer of Camarillo",
+    "natural-language": "Find roads within one kilometer of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1000)"
   },
   {
-    "natural-language": "Find all roads within one and a half kilometers of Camarillo",
+    "natural-language": "Find roads within one and a half kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1500)"
   },
   {
-    "natural-language": "Find all roads within two kilometers of Camarillo",
+    "natural-language": "Find roads within two kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2000)"
   },
   {
-    "natural-language": "Find all roads within two and a half kilometers of Camarillo",
+    "natural-language": "Find roads within two and a half kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2500)"
   },
   {
-    "natural-language": "Find all roads within three kilometers of Camarillo",
+    "natural-language": "Find roads within three kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3000)"
   },
   {
-    "natural-language": "Find all roads within three and a half kilometers of Camarillo",
+    "natural-language": "Find roads within three and a half kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3500)"
   },
   {
-    "natural-language": "Find all roads within four kilometers of Camarillo",
+    "natural-language": "Find roads within four kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4000)"
   },
   {
-    "natural-language": "Find all roads within four and a half kilometers of Camarillo",
+    "natural-language": "Find roads within four and a half kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4500)"
   },
   {
-    "natural-language": "Find all roads within five kilometers of Camarillo",
+    "natural-language": "Find roads within five kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5000)"
   },
   {
-    "natural-language": "Find all roads within five and a half kilometers of Camarillo",
+    "natural-language": "Find roads within five and a half kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5500)"
   },
   {
-    "natural-language": "Find all roads within six kilometers of Camarillo",
+    "natural-language": "Find roads within six kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6000)"
   },
   {
-    "natural-language": "Find all roads within six and a half kilometers of Camarillo",
+    "natural-language": "Find roads within six and a half kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6500)"
   },
   {
-    "natural-language": "Find all roads within seven kilometers of Camarillo",
+    "natural-language": "Find roads within seven kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7000)"
   },
   {
-    "natural-language": "Find all roads within seven and a half kilometers of Camarillo",
+    "natural-language": "Find roads within seven and a half kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7500)"
   },
   {
-    "natural-language": "Find all roads within eight kilometers of Camarillo",
+    "natural-language": "Find roads within eight kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8000)"
   },
   {
-    "natural-language": "Find all roads within eight and a half kilometers of Camarillo",
+    "natural-language": "Find roads within eight and a half kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8500)"
   },
   {
-    "natural-language": "Find all roads within nine kilometers of Camarillo",
+    "natural-language": "Find roads within nine kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9000)"
   },
   {
-    "natural-language": "Find all roads within nine and a half kilometers of Camarillo",
+    "natural-language": "Find roads within nine and a half kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9500)"
   },
   {
-    "natural-language": "Find all roads within ten kilometers of Camarillo",
+    "natural-language": "Find roads within ten kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10000)"
   },
   {
-    "natural-language": "Find all roads within ten and a half kilometers of Camarillo",
+    "natural-language": "Find roads within ten and a half kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10500)"
   },
   {
-    "natural-language": "Find all roads within eleven kilometers of Camarillo",
+    "natural-language": "Find roads within eleven kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11000)"
   },
   {
-    "natural-language": "Find all roads within eleven and a half kilometers of Camarillo",
+    "natural-language": "Find roads within eleven and a half kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11500)"
   },
   {
-    "natural-language": "Find all roads within twelve kilometers of Camarillo",
+    "natural-language": "Find roads within twelve kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12000)"
   },
   {
-    "natural-language": "Find all roads within twelve and a half kilometers of Camarillo",
+    "natural-language": "Find roads within twelve and a half kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12500)"
   },
   {
-    "natural-language": "Find all roads within thirteen kilometers of Camarillo",
+    "natural-language": "Find roads within thirteen kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 13000)"
   },
   {
-    "natural-language": "Find all roads within fourteen kilometers of Camarillo",
+    "natural-language": "Find roads within fourteen kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 14000)"
   },
   {
-    "natural-language": "Find all roads within fifteen kilometers of Camarillo",
+    "natural-language": "Find roads within fifteen kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 15000)"
   },
   {
-    "natural-language": "Find all roads within sixteen kilometers of Camarillo",
+    "natural-language": "Find roads within sixteen kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 16000)"
   },
   {
-    "natural-language": "Find all roads within seventeen kilometers of Camarillo",
+    "natural-language": "Find roads within seventeen kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 17000)"
   },
   {
-    "natural-language": "Find all roads within eighteen kilometers of Camarillo",
+    "natural-language": "Find roads within eighteen kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 18000)"
   },
   {
-    "natural-language": "Find all roads within nineteen kilometers of Camarillo",
+    "natural-language": "Find roads within nineteen kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 19000)"
   },
   {
-    "natural-language": "Find all roads within twenty kilometers of Camarillo",
+    "natural-language": "Find roads within twenty kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 20000)"
   },
   {
-    "natural-language": "Find all roads within .25 kilometers of Camarillo",
+    "natural-language": "Find roads within .25 kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 250)"
   },
   {
-    "natural-language": "Find all roads within .5 kilometers of Camarillo",
+    "natural-language": "Find roads within .5 kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 500)"
   },
   {
-    "natural-language": "Find all roads within 1 kilometer of Camarillo",
+    "natural-language": "Find roads within 1 kilometer of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1000)"
   },
   {
-    "natural-language": "Find all roads within 1.5 kilometers of Camarillo",
+    "natural-language": "Find roads within 1.5 kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1500)"
   },
   {
-    "natural-language": "Find all roads within 2 kilometers of Camarillo",
+    "natural-language": "Find roads within 2 kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2000)"
   },
   {
-    "natural-language": "Find all roads within 2.5 kilometers of Camarillo",
+    "natural-language": "Find roads within 2.5 kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2500)"
   },
   {
-    "natural-language": "Find all roads within 3 kilometers of Camarillo",
+    "natural-language": "Find roads within 3 kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3000)"
   },
   {
-    "natural-language": "Find all roads within 3.5 kilometers of Camarillo",
+    "natural-language": "Find roads within 3.5 kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3500)"
   },
   {
-    "natural-language": "Find all roads within 4 kilometers of Camarillo",
+    "natural-language": "Find roads within 4 kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4000)"
   },
   {
-    "natural-language": "Find all roads within 4.5 kilometers of Camarillo",
+    "natural-language": "Find roads within 4.5 kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4500)"
   },
   {
-    "natural-language": "Find all roads within 5 kilometers of Camarillo",
+    "natural-language": "Find roads within 5 kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5000)"
   },
   {
-    "natural-language": "Find all roads within 5.5 kilometers of Camarillo",
+    "natural-language": "Find roads within 5.5 kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5500)"
   },
   {
-    "natural-language": "Find all roads within 6 kilometers of Camarillo",
+    "natural-language": "Find roads within 6 kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6000)"
   },
   {
-    "natural-language": "Find all roads within 6.5 kilometers of Camarillo",
+    "natural-language": "Find roads within 6.5 kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6500)"
   },
   {
-    "natural-language": "Find all roads within 7 kilometers of Camarillo",
+    "natural-language": "Find roads within 7 kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7000)"
   },
   {
-    "natural-language": "Find all roads within 7.5 kilometers of Camarillo",
+    "natural-language": "Find roads within 7.5 kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7500)"
   },
   {
-    "natural-language": "Find all roads within 8 kilometers of Camarillo",
+    "natural-language": "Find roads within 8 kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8000)"
   },
   {
-    "natural-language": "Find all roads within 8.5 kilometers of Camarillo",
+    "natural-language": "Find roads within 8.5 kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8500)"
   },
   {
-    "natural-language": "Find all roads within 9 kilometers of Camarillo",
+    "natural-language": "Find roads within 9 kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9000)"
   },
   {
-    "natural-language": "Find all roads within 9.5 kilometers of Camarillo",
+    "natural-language": "Find roads within 9.5 kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9500)"
   },
   {
-    "natural-language": "Find all roads within 10 kilometers of Camarillo",
+    "natural-language": "Find roads within 10 kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10000)"
   },
   {
-    "natural-language": "Find all roads within 10.5 kilometers of Camarillo",
+    "natural-language": "Find roads within 10.5 kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10500)"
   },
   {
-    "natural-language": "Find all roads within 11 kilometers of Camarillo",
+    "natural-language": "Find roads within 11 kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11000)"
   },
   {
-    "natural-language": "Find all roads within 11.5 kilometers of Camarillo",
+    "natural-language": "Find roads within 11.5 kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11500)"
   },
   {
-    "natural-language": "Find all roads within 12 kilometers of Camarillo",
+    "natural-language": "Find roads within 12 kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12000)"
   },
   {
-    "natural-language": "Find all roads within 12.5 kilometers of Camarillo",
+    "natural-language": "Find roads within 12.5 kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12500)"
   },
   {
-    "natural-language": "Find all roads within 13 kilometers of Camarillo",
+    "natural-language": "Find roads within 13 kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 13000)"
   },
   {
-    "natural-language": "Find all roads within 14 kilometers of Camarillo",
+    "natural-language": "Find roads within 14 kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 14000)"
   },
   {
-    "natural-language": "Find all roads within 15 kilometers of Camarillo",
+    "natural-language": "Find roads within 15 kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 15000)"
   },
   {
-    "natural-language": "Find all roads within 16 kilometers of Camarillo",
+    "natural-language": "Find roads within 16 kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 16000)"
   },
   {
-    "natural-language": "Find all roads within 17 kilometers of Camarillo",
+    "natural-language": "Find roads within 17 kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 17000)"
   },
   {
-    "natural-language": "Find all roads within 18 kilometers of Camarillo",
+    "natural-language": "Find roads within 18 kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 18000)"
   },
   {
-    "natural-language": "Find all roads within 19 kilometers of Camarillo",
+    "natural-language": "Find roads within 19 kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 19000)"
   },
   {
-    "natural-language": "Find all roads within 20 kilometers of Camarillo",
+    "natural-language": "Find roads within 20 kilometers of Camarillo",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Camarillo' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 20000)"
   },
   {
-    "natural-language": "Find all roads within a quarter of a kilometer of Fillmore",
+    "natural-language": "Find roads within a quarter of a kilometer of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 250)"
   },
   {
-    "natural-language": "Find all roads within half of a kilometer of Fillmore",
+    "natural-language": "Find roads within half of a kilometer of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 500)"
   },
   {
-    "natural-language": "Find all roads within one kilometer of Fillmore",
+    "natural-language": "Find roads within one kilometer of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1000)"
   },
   {
-    "natural-language": "Find all roads within one and a half kilometers of Fillmore",
+    "natural-language": "Find roads within one and a half kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1500)"
   },
   {
-    "natural-language": "Find all roads within two kilometers of Fillmore",
+    "natural-language": "Find roads within two kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2000)"
   },
   {
-    "natural-language": "Find all roads within two and a half kilometers of Fillmore",
+    "natural-language": "Find roads within two and a half kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2500)"
   },
   {
-    "natural-language": "Find all roads within three kilometers of Fillmore",
+    "natural-language": "Find roads within three kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3000)"
   },
   {
-    "natural-language": "Find all roads within three and a half kilometers of Fillmore",
+    "natural-language": "Find roads within three and a half kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3500)"
   },
   {
-    "natural-language": "Find all roads within four kilometers of Fillmore",
+    "natural-language": "Find roads within four kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4000)"
   },
   {
-    "natural-language": "Find all roads within four and a half kilometers of Fillmore",
+    "natural-language": "Find roads within four and a half kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4500)"
   },
   {
-    "natural-language": "Find all roads within five kilometers of Fillmore",
+    "natural-language": "Find roads within five kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5000)"
   },
   {
-    "natural-language": "Find all roads within five and a half kilometers of Fillmore",
+    "natural-language": "Find roads within five and a half kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5500)"
   },
   {
-    "natural-language": "Find all roads within six kilometers of Fillmore",
+    "natural-language": "Find roads within six kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6000)"
   },
   {
-    "natural-language": "Find all roads within six and a half kilometers of Fillmore",
+    "natural-language": "Find roads within six and a half kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6500)"
   },
   {
-    "natural-language": "Find all roads within seven kilometers of Fillmore",
+    "natural-language": "Find roads within seven kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7000)"
   },
   {
-    "natural-language": "Find all roads within seven and a half kilometers of Fillmore",
+    "natural-language": "Find roads within seven and a half kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7500)"
   },
   {
-    "natural-language": "Find all roads within eight kilometers of Fillmore",
+    "natural-language": "Find roads within eight kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8000)"
   },
   {
-    "natural-language": "Find all roads within eight and a half kilometers of Fillmore",
+    "natural-language": "Find roads within eight and a half kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8500)"
   },
   {
-    "natural-language": "Find all roads within nine kilometers of Fillmore",
+    "natural-language": "Find roads within nine kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9000)"
   },
   {
-    "natural-language": "Find all roads within nine and a half kilometers of Fillmore",
+    "natural-language": "Find roads within nine and a half kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9500)"
   },
   {
-    "natural-language": "Find all roads within ten kilometers of Fillmore",
+    "natural-language": "Find roads within ten kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10000)"
   },
   {
-    "natural-language": "Find all roads within ten and a half kilometers of Fillmore",
+    "natural-language": "Find roads within ten and a half kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10500)"
   },
   {
-    "natural-language": "Find all roads within eleven kilometers of Fillmore",
+    "natural-language": "Find roads within eleven kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11000)"
   },
   {
-    "natural-language": "Find all roads within eleven and a half kilometers of Fillmore",
+    "natural-language": "Find roads within eleven and a half kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11500)"
   },
   {
-    "natural-language": "Find all roads within twelve kilometers of Fillmore",
+    "natural-language": "Find roads within twelve kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12000)"
   },
   {
-    "natural-language": "Find all roads within twelve and a half kilometers of Fillmore",
+    "natural-language": "Find roads within twelve and a half kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12500)"
   },
   {
-    "natural-language": "Find all roads within thirteen kilometers of Fillmore",
+    "natural-language": "Find roads within thirteen kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 13000)"
   },
   {
-    "natural-language": "Find all roads within fourteen kilometers of Fillmore",
+    "natural-language": "Find roads within fourteen kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 14000)"
   },
   {
-    "natural-language": "Find all roads within fifteen kilometers of Fillmore",
+    "natural-language": "Find roads within fifteen kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 15000)"
   },
   {
-    "natural-language": "Find all roads within sixteen kilometers of Fillmore",
+    "natural-language": "Find roads within sixteen kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 16000)"
   },
   {
-    "natural-language": "Find all roads within seventeen kilometers of Fillmore",
+    "natural-language": "Find roads within seventeen kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 17000)"
   },
   {
-    "natural-language": "Find all roads within eighteen kilometers of Fillmore",
+    "natural-language": "Find roads within eighteen kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 18000)"
   },
   {
-    "natural-language": "Find all roads within nineteen kilometers of Fillmore",
+    "natural-language": "Find roads within nineteen kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 19000)"
   },
   {
-    "natural-language": "Find all roads within twenty kilometers of Fillmore",
+    "natural-language": "Find roads within twenty kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 20000)"
   },
   {
-    "natural-language": "Find all roads within .25 kilometers of Fillmore",
+    "natural-language": "Find roads within .25 kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 250)"
   },
   {
-    "natural-language": "Find all roads within .5 kilometers of Fillmore",
+    "natural-language": "Find roads within .5 kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 500)"
   },
   {
-    "natural-language": "Find all roads within 1 kilometer of Fillmore",
+    "natural-language": "Find roads within 1 kilometer of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1000)"
   },
   {
-    "natural-language": "Find all roads within 1.5 kilometers of Fillmore",
+    "natural-language": "Find roads within 1.5 kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1500)"
   },
   {
-    "natural-language": "Find all roads within 2 kilometers of Fillmore",
+    "natural-language": "Find roads within 2 kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2000)"
   },
   {
-    "natural-language": "Find all roads within 2.5 kilometers of Fillmore",
+    "natural-language": "Find roads within 2.5 kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2500)"
   },
   {
-    "natural-language": "Find all roads within 3 kilometers of Fillmore",
+    "natural-language": "Find roads within 3 kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3000)"
   },
   {
-    "natural-language": "Find all roads within 3.5 kilometers of Fillmore",
+    "natural-language": "Find roads within 3.5 kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3500)"
   },
   {
-    "natural-language": "Find all roads within 4 kilometers of Fillmore",
+    "natural-language": "Find roads within 4 kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4000)"
   },
   {
-    "natural-language": "Find all roads within 4.5 kilometers of Fillmore",
+    "natural-language": "Find roads within 4.5 kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4500)"
   },
   {
-    "natural-language": "Find all roads within 5 kilometers of Fillmore",
+    "natural-language": "Find roads within 5 kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5000)"
   },
   {
-    "natural-language": "Find all roads within 5.5 kilometers of Fillmore",
+    "natural-language": "Find roads within 5.5 kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5500)"
   },
   {
-    "natural-language": "Find all roads within 6 kilometers of Fillmore",
+    "natural-language": "Find roads within 6 kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6000)"
   },
   {
-    "natural-language": "Find all roads within 6.5 kilometers of Fillmore",
+    "natural-language": "Find roads within 6.5 kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6500)"
   },
   {
-    "natural-language": "Find all roads within 7 kilometers of Fillmore",
+    "natural-language": "Find roads within 7 kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7000)"
   },
   {
-    "natural-language": "Find all roads within 7.5 kilometers of Fillmore",
+    "natural-language": "Find roads within 7.5 kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7500)"
   },
   {
-    "natural-language": "Find all roads within 8 kilometers of Fillmore",
+    "natural-language": "Find roads within 8 kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8000)"
   },
   {
-    "natural-language": "Find all roads within 8.5 kilometers of Fillmore",
+    "natural-language": "Find roads within 8.5 kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8500)"
   },
   {
-    "natural-language": "Find all roads within 9 kilometers of Fillmore",
+    "natural-language": "Find roads within 9 kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9000)"
   },
   {
-    "natural-language": "Find all roads within 9.5 kilometers of Fillmore",
+    "natural-language": "Find roads within 9.5 kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9500)"
   },
   {
-    "natural-language": "Find all roads within 10 kilometers of Fillmore",
+    "natural-language": "Find roads within 10 kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10000)"
   },
   {
-    "natural-language": "Find all roads within 10.5 kilometers of Fillmore",
+    "natural-language": "Find roads within 10.5 kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10500)"
   },
   {
-    "natural-language": "Find all roads within 11 kilometers of Fillmore",
+    "natural-language": "Find roads within 11 kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11000)"
   },
   {
-    "natural-language": "Find all roads within 11.5 kilometers of Fillmore",
+    "natural-language": "Find roads within 11.5 kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11500)"
   },
   {
-    "natural-language": "Find all roads within 12 kilometers of Fillmore",
+    "natural-language": "Find roads within 12 kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12000)"
   },
   {
-    "natural-language": "Find all roads within 12.5 kilometers of Fillmore",
+    "natural-language": "Find roads within 12.5 kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12500)"
   },
   {
-    "natural-language": "Find all roads within 13 kilometers of Fillmore",
+    "natural-language": "Find roads within 13 kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 13000)"
   },
   {
-    "natural-language": "Find all roads within 14 kilometers of Fillmore",
+    "natural-language": "Find roads within 14 kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 14000)"
   },
   {
-    "natural-language": "Find all roads within 15 kilometers of Fillmore",
+    "natural-language": "Find roads within 15 kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 15000)"
   },
   {
-    "natural-language": "Find all roads within 16 kilometers of Fillmore",
+    "natural-language": "Find roads within 16 kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 16000)"
   },
   {
-    "natural-language": "Find all roads within 17 kilometers of Fillmore",
+    "natural-language": "Find roads within 17 kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 17000)"
   },
   {
-    "natural-language": "Find all roads within 18 kilometers of Fillmore",
+    "natural-language": "Find roads within 18 kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 18000)"
   },
   {
-    "natural-language": "Find all roads within 19 kilometers of Fillmore",
+    "natural-language": "Find roads within 19 kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 19000)"
   },
   {
-    "natural-language": "Find all roads within 20 kilometers of Fillmore",
+    "natural-language": "Find roads within 20 kilometers of Fillmore",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Fillmore' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 20000)"
   },
   {
-    "natural-language": "Find all roads within a quarter of a kilometer of Moorpark",
+    "natural-language": "Find roads within a quarter of a kilometer of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 250)"
   },
   {
-    "natural-language": "Find all roads within half of a kilometer of Moorpark",
+    "natural-language": "Find roads within half of a kilometer of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 500)"
   },
   {
-    "natural-language": "Find all roads within one kilometer of Moorpark",
+    "natural-language": "Find roads within one kilometer of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1000)"
   },
   {
-    "natural-language": "Find all roads within one and a half kilometers of Moorpark",
+    "natural-language": "Find roads within one and a half kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1500)"
   },
   {
-    "natural-language": "Find all roads within two kilometers of Moorpark",
+    "natural-language": "Find roads within two kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2000)"
   },
   {
-    "natural-language": "Find all roads within two and a half kilometers of Moorpark",
+    "natural-language": "Find roads within two and a half kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2500)"
   },
   {
-    "natural-language": "Find all roads within three kilometers of Moorpark",
+    "natural-language": "Find roads within three kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3000)"
   },
   {
-    "natural-language": "Find all roads within three and a half kilometers of Moorpark",
+    "natural-language": "Find roads within three and a half kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3500)"
   },
   {
-    "natural-language": "Find all roads within four kilometers of Moorpark",
+    "natural-language": "Find roads within four kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4000)"
   },
   {
-    "natural-language": "Find all roads within four and a half kilometers of Moorpark",
+    "natural-language": "Find roads within four and a half kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4500)"
   },
   {
-    "natural-language": "Find all roads within five kilometers of Moorpark",
+    "natural-language": "Find roads within five kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5000)"
   },
   {
-    "natural-language": "Find all roads within five and a half kilometers of Moorpark",
+    "natural-language": "Find roads within five and a half kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5500)"
   },
   {
-    "natural-language": "Find all roads within six kilometers of Moorpark",
+    "natural-language": "Find roads within six kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6000)"
   },
   {
-    "natural-language": "Find all roads within six and a half kilometers of Moorpark",
+    "natural-language": "Find roads within six and a half kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6500)"
   },
   {
-    "natural-language": "Find all roads within seven kilometers of Moorpark",
+    "natural-language": "Find roads within seven kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7000)"
   },
   {
-    "natural-language": "Find all roads within seven and a half kilometers of Moorpark",
+    "natural-language": "Find roads within seven and a half kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7500)"
   },
   {
-    "natural-language": "Find all roads within eight kilometers of Moorpark",
+    "natural-language": "Find roads within eight kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8000)"
   },
   {
-    "natural-language": "Find all roads within eight and a half kilometers of Moorpark",
+    "natural-language": "Find roads within eight and a half kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8500)"
   },
   {
-    "natural-language": "Find all roads within nine kilometers of Moorpark",
+    "natural-language": "Find roads within nine kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9000)"
   },
   {
-    "natural-language": "Find all roads within nine and a half kilometers of Moorpark",
+    "natural-language": "Find roads within nine and a half kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9500)"
   },
   {
-    "natural-language": "Find all roads within ten kilometers of Moorpark",
+    "natural-language": "Find roads within ten kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10000)"
   },
   {
-    "natural-language": "Find all roads within ten and a half kilometers of Moorpark",
+    "natural-language": "Find roads within ten and a half kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10500)"
   },
   {
-    "natural-language": "Find all roads within eleven kilometers of Moorpark",
+    "natural-language": "Find roads within eleven kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11000)"
   },
   {
-    "natural-language": "Find all roads within eleven and a half kilometers of Moorpark",
+    "natural-language": "Find roads within eleven and a half kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11500)"
   },
   {
-    "natural-language": "Find all roads within twelve kilometers of Moorpark",
+    "natural-language": "Find roads within twelve kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12000)"
   },
   {
-    "natural-language": "Find all roads within twelve and a half kilometers of Moorpark",
+    "natural-language": "Find roads within twelve and a half kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12500)"
   },
   {
-    "natural-language": "Find all roads within thirteen kilometers of Moorpark",
+    "natural-language": "Find roads within thirteen kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 13000)"
   },
   {
-    "natural-language": "Find all roads within fourteen kilometers of Moorpark",
+    "natural-language": "Find roads within fourteen kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 14000)"
   },
   {
-    "natural-language": "Find all roads within fifteen kilometers of Moorpark",
+    "natural-language": "Find roads within fifteen kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 15000)"
   },
   {
-    "natural-language": "Find all roads within sixteen kilometers of Moorpark",
+    "natural-language": "Find roads within sixteen kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 16000)"
   },
   {
-    "natural-language": "Find all roads within seventeen kilometers of Moorpark",
+    "natural-language": "Find roads within seventeen kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 17000)"
   },
   {
-    "natural-language": "Find all roads within eighteen kilometers of Moorpark",
+    "natural-language": "Find roads within eighteen kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 18000)"
   },
   {
-    "natural-language": "Find all roads within nineteen kilometers of Moorpark",
+    "natural-language": "Find roads within nineteen kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 19000)"
   },
   {
-    "natural-language": "Find all roads within twenty kilometers of Moorpark",
+    "natural-language": "Find roads within twenty kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 20000)"
   },
   {
-    "natural-language": "Find all roads within .25 kilometers of Moorpark",
+    "natural-language": "Find roads within .25 kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 250)"
   },
   {
-    "natural-language": "Find all roads within .5 kilometers of Moorpark",
+    "natural-language": "Find roads within .5 kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 500)"
   },
   {
-    "natural-language": "Find all roads within 1 kilometer of Moorpark",
+    "natural-language": "Find roads within 1 kilometer of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1000)"
   },
   {
-    "natural-language": "Find all roads within 1.5 kilometers of Moorpark",
+    "natural-language": "Find roads within 1.5 kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1500)"
   },
   {
-    "natural-language": "Find all roads within 2 kilometers of Moorpark",
+    "natural-language": "Find roads within 2 kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2000)"
   },
   {
-    "natural-language": "Find all roads within 2.5 kilometers of Moorpark",
+    "natural-language": "Find roads within 2.5 kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2500)"
   },
   {
-    "natural-language": "Find all roads within 3 kilometers of Moorpark",
+    "natural-language": "Find roads within 3 kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3000)"
   },
   {
-    "natural-language": "Find all roads within 3.5 kilometers of Moorpark",
+    "natural-language": "Find roads within 3.5 kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3500)"
   },
   {
-    "natural-language": "Find all roads within 4 kilometers of Moorpark",
+    "natural-language": "Find roads within 4 kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4000)"
   },
   {
-    "natural-language": "Find all roads within 4.5 kilometers of Moorpark",
+    "natural-language": "Find roads within 4.5 kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4500)"
   },
   {
-    "natural-language": "Find all roads within 5 kilometers of Moorpark",
+    "natural-language": "Find roads within 5 kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5000)"
   },
   {
-    "natural-language": "Find all roads within 5.5 kilometers of Moorpark",
+    "natural-language": "Find roads within 5.5 kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5500)"
   },
   {
-    "natural-language": "Find all roads within 6 kilometers of Moorpark",
+    "natural-language": "Find roads within 6 kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6000)"
   },
   {
-    "natural-language": "Find all roads within 6.5 kilometers of Moorpark",
+    "natural-language": "Find roads within 6.5 kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6500)"
   },
   {
-    "natural-language": "Find all roads within 7 kilometers of Moorpark",
+    "natural-language": "Find roads within 7 kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7000)"
   },
   {
-    "natural-language": "Find all roads within 7.5 kilometers of Moorpark",
+    "natural-language": "Find roads within 7.5 kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7500)"
   },
   {
-    "natural-language": "Find all roads within 8 kilometers of Moorpark",
+    "natural-language": "Find roads within 8 kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8000)"
   },
   {
-    "natural-language": "Find all roads within 8.5 kilometers of Moorpark",
+    "natural-language": "Find roads within 8.5 kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8500)"
   },
   {
-    "natural-language": "Find all roads within 9 kilometers of Moorpark",
+    "natural-language": "Find roads within 9 kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9000)"
   },
   {
-    "natural-language": "Find all roads within 9.5 kilometers of Moorpark",
+    "natural-language": "Find roads within 9.5 kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9500)"
   },
   {
-    "natural-language": "Find all roads within 10 kilometers of Moorpark",
+    "natural-language": "Find roads within 10 kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10000)"
   },
   {
-    "natural-language": "Find all roads within 10.5 kilometers of Moorpark",
+    "natural-language": "Find roads within 10.5 kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10500)"
   },
   {
-    "natural-language": "Find all roads within 11 kilometers of Moorpark",
+    "natural-language": "Find roads within 11 kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11000)"
   },
   {
-    "natural-language": "Find all roads within 11.5 kilometers of Moorpark",
+    "natural-language": "Find roads within 11.5 kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11500)"
   },
   {
-    "natural-language": "Find all roads within 12 kilometers of Moorpark",
+    "natural-language": "Find roads within 12 kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12000)"
   },
   {
-    "natural-language": "Find all roads within 12.5 kilometers of Moorpark",
+    "natural-language": "Find roads within 12.5 kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12500)"
   },
   {
-    "natural-language": "Find all roads within 13 kilometers of Moorpark",
+    "natural-language": "Find roads within 13 kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 13000)"
   },
   {
-    "natural-language": "Find all roads within 14 kilometers of Moorpark",
+    "natural-language": "Find roads within 14 kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 14000)"
   },
   {
-    "natural-language": "Find all roads within 15 kilometers of Moorpark",
+    "natural-language": "Find roads within 15 kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 15000)"
   },
   {
-    "natural-language": "Find all roads within 16 kilometers of Moorpark",
+    "natural-language": "Find roads within 16 kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 16000)"
   },
   {
-    "natural-language": "Find all roads within 17 kilometers of Moorpark",
+    "natural-language": "Find roads within 17 kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 17000)"
   },
   {
-    "natural-language": "Find all roads within 18 kilometers of Moorpark",
+    "natural-language": "Find roads within 18 kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 18000)"
   },
   {
-    "natural-language": "Find all roads within 19 kilometers of Moorpark",
+    "natural-language": "Find roads within 19 kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 19000)"
   },
   {
-    "natural-language": "Find all roads within 20 kilometers of Moorpark",
+    "natural-language": "Find roads within 20 kilometers of Moorpark",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Moorpark' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 20000)"
   },
   {
-    "natural-language": "Find all roads within a quarter of a kilometer of Simi Valley",
+    "natural-language": "Find roads within a quarter of a kilometer of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 250)"
   },
   {
-    "natural-language": "Find all roads within half of a kilometer of Simi Valley",
+    "natural-language": "Find roads within half of a kilometer of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 500)"
   },
   {
-    "natural-language": "Find all roads within one kilometer of Simi Valley",
+    "natural-language": "Find roads within one kilometer of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1000)"
   },
   {
-    "natural-language": "Find all roads within one and a half kilometers of Simi Valley",
+    "natural-language": "Find roads within one and a half kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1500)"
   },
   {
-    "natural-language": "Find all roads within two kilometers of Simi Valley",
+    "natural-language": "Find roads within two kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2000)"
   },
   {
-    "natural-language": "Find all roads within two and a half kilometers of Simi Valley",
+    "natural-language": "Find roads within two and a half kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2500)"
   },
   {
-    "natural-language": "Find all roads within three kilometers of Simi Valley",
+    "natural-language": "Find roads within three kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3000)"
   },
   {
-    "natural-language": "Find all roads within three and a half kilometers of Simi Valley",
+    "natural-language": "Find roads within three and a half kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3500)"
   },
   {
-    "natural-language": "Find all roads within four kilometers of Simi Valley",
+    "natural-language": "Find roads within four kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4000)"
   },
   {
-    "natural-language": "Find all roads within four and a half kilometers of Simi Valley",
+    "natural-language": "Find roads within four and a half kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4500)"
   },
   {
-    "natural-language": "Find all roads within five kilometers of Simi Valley",
+    "natural-language": "Find roads within five kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5000)"
   },
   {
-    "natural-language": "Find all roads within five and a half kilometers of Simi Valley",
+    "natural-language": "Find roads within five and a half kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5500)"
   },
   {
-    "natural-language": "Find all roads within six kilometers of Simi Valley",
+    "natural-language": "Find roads within six kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6000)"
   },
   {
-    "natural-language": "Find all roads within six and a half kilometers of Simi Valley",
+    "natural-language": "Find roads within six and a half kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6500)"
   },
   {
-    "natural-language": "Find all roads within seven kilometers of Simi Valley",
+    "natural-language": "Find roads within seven kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7000)"
   },
   {
-    "natural-language": "Find all roads within seven and a half kilometers of Simi Valley",
+    "natural-language": "Find roads within seven and a half kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7500)"
   },
   {
-    "natural-language": "Find all roads within eight kilometers of Simi Valley",
+    "natural-language": "Find roads within eight kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8000)"
   },
   {
-    "natural-language": "Find all roads within eight and a half kilometers of Simi Valley",
+    "natural-language": "Find roads within eight and a half kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8500)"
   },
   {
-    "natural-language": "Find all roads within nine kilometers of Simi Valley",
+    "natural-language": "Find roads within nine kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9000)"
   },
   {
-    "natural-language": "Find all roads within nine and a half kilometers of Simi Valley",
+    "natural-language": "Find roads within nine and a half kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9500)"
   },
   {
-    "natural-language": "Find all roads within ten kilometers of Simi Valley",
+    "natural-language": "Find roads within ten kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10000)"
   },
   {
-    "natural-language": "Find all roads within ten and a half kilometers of Simi Valley",
+    "natural-language": "Find roads within ten and a half kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10500)"
   },
   {
-    "natural-language": "Find all roads within eleven kilometers of Simi Valley",
+    "natural-language": "Find roads within eleven kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11000)"
   },
   {
-    "natural-language": "Find all roads within eleven and a half kilometers of Simi Valley",
+    "natural-language": "Find roads within eleven and a half kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11500)"
   },
   {
-    "natural-language": "Find all roads within twelve kilometers of Simi Valley",
+    "natural-language": "Find roads within twelve kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12000)"
   },
   {
-    "natural-language": "Find all roads within twelve and a half kilometers of Simi Valley",
+    "natural-language": "Find roads within twelve and a half kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12500)"
   },
   {
-    "natural-language": "Find all roads within thirteen kilometers of Simi Valley",
+    "natural-language": "Find roads within thirteen kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 13000)"
   },
   {
-    "natural-language": "Find all roads within fourteen kilometers of Simi Valley",
+    "natural-language": "Find roads within fourteen kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 14000)"
   },
   {
-    "natural-language": "Find all roads within fifteen kilometers of Simi Valley",
+    "natural-language": "Find roads within fifteen kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 15000)"
   },
   {
-    "natural-language": "Find all roads within sixteen kilometers of Simi Valley",
+    "natural-language": "Find roads within sixteen kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 16000)"
   },
   {
-    "natural-language": "Find all roads within seventeen kilometers of Simi Valley",
+    "natural-language": "Find roads within seventeen kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 17000)"
   },
   {
-    "natural-language": "Find all roads within eighteen kilometers of Simi Valley",
+    "natural-language": "Find roads within eighteen kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 18000)"
   },
   {
-    "natural-language": "Find all roads within nineteen kilometers of Simi Valley",
+    "natural-language": "Find roads within nineteen kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 19000)"
   },
   {
-    "natural-language": "Find all roads within twenty kilometers of Simi Valley",
+    "natural-language": "Find roads within twenty kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 20000)"
   },
   {
-    "natural-language": "Find all roads within .25 kilometers of Simi Valley",
+    "natural-language": "Find roads within .25 kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 250)"
   },
   {
-    "natural-language": "Find all roads within .5 kilometers of Simi Valley",
+    "natural-language": "Find roads within .5 kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 500)"
   },
   {
-    "natural-language": "Find all roads within 1 kilometer of Simi Valley",
+    "natural-language": "Find roads within 1 kilometer of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1000)"
   },
   {
-    "natural-language": "Find all roads within 1.5 kilometers of Simi Valley",
+    "natural-language": "Find roads within 1.5 kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1500)"
   },
   {
-    "natural-language": "Find all roads within 2 kilometers of Simi Valley",
+    "natural-language": "Find roads within 2 kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2000)"
   },
   {
-    "natural-language": "Find all roads within 2.5 kilometers of Simi Valley",
+    "natural-language": "Find roads within 2.5 kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2500)"
   },
   {
-    "natural-language": "Find all roads within 3 kilometers of Simi Valley",
+    "natural-language": "Find roads within 3 kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3000)"
   },
   {
-    "natural-language": "Find all roads within 3.5 kilometers of Simi Valley",
+    "natural-language": "Find roads within 3.5 kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3500)"
   },
   {
-    "natural-language": "Find all roads within 4 kilometers of Simi Valley",
+    "natural-language": "Find roads within 4 kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4000)"
   },
   {
-    "natural-language": "Find all roads within 4.5 kilometers of Simi Valley",
+    "natural-language": "Find roads within 4.5 kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4500)"
   },
   {
-    "natural-language": "Find all roads within 5 kilometers of Simi Valley",
+    "natural-language": "Find roads within 5 kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5000)"
   },
   {
-    "natural-language": "Find all roads within 5.5 kilometers of Simi Valley",
+    "natural-language": "Find roads within 5.5 kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5500)"
   },
   {
-    "natural-language": "Find all roads within 6 kilometers of Simi Valley",
+    "natural-language": "Find roads within 6 kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6000)"
   },
   {
-    "natural-language": "Find all roads within 6.5 kilometers of Simi Valley",
+    "natural-language": "Find roads within 6.5 kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6500)"
   },
   {
-    "natural-language": "Find all roads within 7 kilometers of Simi Valley",
+    "natural-language": "Find roads within 7 kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7000)"
   },
   {
-    "natural-language": "Find all roads within 7.5 kilometers of Simi Valley",
+    "natural-language": "Find roads within 7.5 kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7500)"
   },
   {
-    "natural-language": "Find all roads within 8 kilometers of Simi Valley",
+    "natural-language": "Find roads within 8 kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8000)"
   },
   {
-    "natural-language": "Find all roads within 8.5 kilometers of Simi Valley",
+    "natural-language": "Find roads within 8.5 kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8500)"
   },
   {
-    "natural-language": "Find all roads within 9 kilometers of Simi Valley",
+    "natural-language": "Find roads within 9 kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9000)"
   },
   {
-    "natural-language": "Find all roads within 9.5 kilometers of Simi Valley",
+    "natural-language": "Find roads within 9.5 kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9500)"
   },
   {
-    "natural-language": "Find all roads within 10 kilometers of Simi Valley",
+    "natural-language": "Find roads within 10 kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10000)"
   },
   {
-    "natural-language": "Find all roads within 10.5 kilometers of Simi Valley",
+    "natural-language": "Find roads within 10.5 kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10500)"
   },
   {
-    "natural-language": "Find all roads within 11 kilometers of Simi Valley",
+    "natural-language": "Find roads within 11 kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11000)"
   },
   {
-    "natural-language": "Find all roads within 11.5 kilometers of Simi Valley",
+    "natural-language": "Find roads within 11.5 kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11500)"
   },
   {
-    "natural-language": "Find all roads within 12 kilometers of Simi Valley",
+    "natural-language": "Find roads within 12 kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12000)"
   },
   {
-    "natural-language": "Find all roads within 12.5 kilometers of Simi Valley",
+    "natural-language": "Find roads within 12.5 kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12500)"
   },
   {
-    "natural-language": "Find all roads within 13 kilometers of Simi Valley",
+    "natural-language": "Find roads within 13 kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 13000)"
   },
   {
-    "natural-language": "Find all roads within 14 kilometers of Simi Valley",
+    "natural-language": "Find roads within 14 kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 14000)"
   },
   {
-    "natural-language": "Find all roads within 15 kilometers of Simi Valley",
+    "natural-language": "Find roads within 15 kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 15000)"
   },
   {
-    "natural-language": "Find all roads within 16 kilometers of Simi Valley",
+    "natural-language": "Find roads within 16 kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 16000)"
   },
   {
-    "natural-language": "Find all roads within 17 kilometers of Simi Valley",
+    "natural-language": "Find roads within 17 kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 17000)"
   },
   {
-    "natural-language": "Find all roads within 18 kilometers of Simi Valley",
+    "natural-language": "Find roads within 18 kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 18000)"
   },
   {
-    "natural-language": "Find all roads within 19 kilometers of Simi Valley",
+    "natural-language": "Find roads within 19 kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 19000)"
   },
   {
-    "natural-language": "Find all roads within 20 kilometers of Simi Valley",
+    "natural-language": "Find roads within 20 kilometers of Simi Valley",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Simi Valley' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 20000)"
   },
   {
-    "natural-language": "Find all roads within a quarter of a kilometer of Santa Paula",
+    "natural-language": "Find roads within a quarter of a kilometer of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 250)"
   },
   {
-    "natural-language": "Find all roads within half of a kilometer of Santa Paula",
+    "natural-language": "Find roads within half of a kilometer of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 500)"
   },
   {
-    "natural-language": "Find all roads within one kilometer of Santa Paula",
+    "natural-language": "Find roads within one kilometer of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1000)"
   },
   {
-    "natural-language": "Find all roads within one and a half kilometers of Santa Paula",
+    "natural-language": "Find roads within one and a half kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1500)"
   },
   {
-    "natural-language": "Find all roads within two kilometers of Santa Paula",
+    "natural-language": "Find roads within two kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2000)"
   },
   {
-    "natural-language": "Find all roads within two and a half kilometers of Santa Paula",
+    "natural-language": "Find roads within two and a half kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2500)"
   },
   {
-    "natural-language": "Find all roads within three kilometers of Santa Paula",
+    "natural-language": "Find roads within three kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3000)"
   },
   {
-    "natural-language": "Find all roads within three and a half kilometers of Santa Paula",
+    "natural-language": "Find roads within three and a half kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3500)"
   },
   {
-    "natural-language": "Find all roads within four kilometers of Santa Paula",
+    "natural-language": "Find roads within four kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4000)"
   },
   {
-    "natural-language": "Find all roads within four and a half kilometers of Santa Paula",
+    "natural-language": "Find roads within four and a half kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4500)"
   },
   {
-    "natural-language": "Find all roads within five kilometers of Santa Paula",
+    "natural-language": "Find roads within five kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5000)"
   },
   {
-    "natural-language": "Find all roads within five and a half kilometers of Santa Paula",
+    "natural-language": "Find roads within five and a half kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5500)"
   },
   {
-    "natural-language": "Find all roads within six kilometers of Santa Paula",
+    "natural-language": "Find roads within six kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6000)"
   },
   {
-    "natural-language": "Find all roads within six and a half kilometers of Santa Paula",
+    "natural-language": "Find roads within six and a half kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6500)"
   },
   {
-    "natural-language": "Find all roads within seven kilometers of Santa Paula",
+    "natural-language": "Find roads within seven kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7000)"
   },
   {
-    "natural-language": "Find all roads within seven and a half kilometers of Santa Paula",
+    "natural-language": "Find roads within seven and a half kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7500)"
   },
   {
-    "natural-language": "Find all roads within eight kilometers of Santa Paula",
+    "natural-language": "Find roads within eight kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8000)"
   },
   {
-    "natural-language": "Find all roads within eight and a half kilometers of Santa Paula",
+    "natural-language": "Find roads within eight and a half kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8500)"
   },
   {
-    "natural-language": "Find all roads within nine kilometers of Santa Paula",
+    "natural-language": "Find roads within nine kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9000)"
   },
   {
-    "natural-language": "Find all roads within nine and a half kilometers of Santa Paula",
+    "natural-language": "Find roads within nine and a half kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9500)"
   },
   {
-    "natural-language": "Find all roads within ten kilometers of Santa Paula",
+    "natural-language": "Find roads within ten kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10000)"
   },
   {
-    "natural-language": "Find all roads within ten and a half kilometers of Santa Paula",
+    "natural-language": "Find roads within ten and a half kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10500)"
   },
   {
-    "natural-language": "Find all roads within eleven kilometers of Santa Paula",
+    "natural-language": "Find roads within eleven kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11000)"
   },
   {
-    "natural-language": "Find all roads within eleven and a half kilometers of Santa Paula",
+    "natural-language": "Find roads within eleven and a half kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11500)"
   },
   {
-    "natural-language": "Find all roads within twelve kilometers of Santa Paula",
+    "natural-language": "Find roads within twelve kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12000)"
   },
   {
-    "natural-language": "Find all roads within twelve and a half kilometers of Santa Paula",
+    "natural-language": "Find roads within twelve and a half kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12500)"
   },
   {
-    "natural-language": "Find all roads within thirteen kilometers of Santa Paula",
+    "natural-language": "Find roads within thirteen kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 13000)"
   },
   {
-    "natural-language": "Find all roads within fourteen kilometers of Santa Paula",
+    "natural-language": "Find roads within fourteen kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 14000)"
   },
   {
-    "natural-language": "Find all roads within fifteen kilometers of Santa Paula",
+    "natural-language": "Find roads within fifteen kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 15000)"
   },
   {
-    "natural-language": "Find all roads within sixteen kilometers of Santa Paula",
+    "natural-language": "Find roads within sixteen kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 16000)"
   },
   {
-    "natural-language": "Find all roads within seventeen kilometers of Santa Paula",
+    "natural-language": "Find roads within seventeen kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 17000)"
   },
   {
-    "natural-language": "Find all roads within eighteen kilometers of Santa Paula",
+    "natural-language": "Find roads within eighteen kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 18000)"
   },
   {
-    "natural-language": "Find all roads within nineteen kilometers of Santa Paula",
+    "natural-language": "Find roads within nineteen kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 19000)"
   },
   {
-    "natural-language": "Find all roads within twenty kilometers of Santa Paula",
+    "natural-language": "Find roads within twenty kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 20000)"
   },
   {
-    "natural-language": "Find all roads within .25 kilometers of Santa Paula",
+    "natural-language": "Find roads within .25 kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 250)"
   },
   {
-    "natural-language": "Find all roads within .5 kilometers of Santa Paula",
+    "natural-language": "Find roads within .5 kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 500)"
   },
   {
-    "natural-language": "Find all roads within 1 kilometer of Santa Paula",
+    "natural-language": "Find roads within 1 kilometer of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1000)"
   },
   {
-    "natural-language": "Find all roads within 1.5 kilometers of Santa Paula",
+    "natural-language": "Find roads within 1.5 kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1500)"
   },
   {
-    "natural-language": "Find all roads within 2 kilometers of Santa Paula",
+    "natural-language": "Find roads within 2 kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2000)"
   },
   {
-    "natural-language": "Find all roads within 2.5 kilometers of Santa Paula",
+    "natural-language": "Find roads within 2.5 kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2500)"
   },
   {
-    "natural-language": "Find all roads within 3 kilometers of Santa Paula",
+    "natural-language": "Find roads within 3 kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3000)"
   },
   {
-    "natural-language": "Find all roads within 3.5 kilometers of Santa Paula",
+    "natural-language": "Find roads within 3.5 kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3500)"
   },
   {
-    "natural-language": "Find all roads within 4 kilometers of Santa Paula",
+    "natural-language": "Find roads within 4 kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4000)"
   },
   {
-    "natural-language": "Find all roads within 4.5 kilometers of Santa Paula",
+    "natural-language": "Find roads within 4.5 kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4500)"
   },
   {
-    "natural-language": "Find all roads within 5 kilometers of Santa Paula",
+    "natural-language": "Find roads within 5 kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5000)"
   },
   {
-    "natural-language": "Find all roads within 5.5 kilometers of Santa Paula",
+    "natural-language": "Find roads within 5.5 kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5500)"
   },
   {
-    "natural-language": "Find all roads within 6 kilometers of Santa Paula",
+    "natural-language": "Find roads within 6 kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6000)"
   },
   {
-    "natural-language": "Find all roads within 6.5 kilometers of Santa Paula",
+    "natural-language": "Find roads within 6.5 kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6500)"
   },
   {
-    "natural-language": "Find all roads within 7 kilometers of Santa Paula",
+    "natural-language": "Find roads within 7 kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7000)"
   },
   {
-    "natural-language": "Find all roads within 7.5 kilometers of Santa Paula",
+    "natural-language": "Find roads within 7.5 kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7500)"
   },
   {
-    "natural-language": "Find all roads within 8 kilometers of Santa Paula",
+    "natural-language": "Find roads within 8 kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8000)"
   },
   {
-    "natural-language": "Find all roads within 8.5 kilometers of Santa Paula",
+    "natural-language": "Find roads within 8.5 kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8500)"
   },
   {
-    "natural-language": "Find all roads within 9 kilometers of Santa Paula",
+    "natural-language": "Find roads within 9 kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9000)"
   },
   {
-    "natural-language": "Find all roads within 9.5 kilometers of Santa Paula",
+    "natural-language": "Find roads within 9.5 kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9500)"
   },
   {
-    "natural-language": "Find all roads within 10 kilometers of Santa Paula",
+    "natural-language": "Find roads within 10 kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10000)"
   },
   {
-    "natural-language": "Find all roads within 10.5 kilometers of Santa Paula",
+    "natural-language": "Find roads within 10.5 kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10500)"
   },
   {
-    "natural-language": "Find all roads within 11 kilometers of Santa Paula",
+    "natural-language": "Find roads within 11 kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11000)"
   },
   {
-    "natural-language": "Find all roads within 11.5 kilometers of Santa Paula",
+    "natural-language": "Find roads within 11.5 kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11500)"
   },
   {
-    "natural-language": "Find all roads within 12 kilometers of Santa Paula",
+    "natural-language": "Find roads within 12 kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12000)"
   },
   {
-    "natural-language": "Find all roads within 12.5 kilometers of Santa Paula",
+    "natural-language": "Find roads within 12.5 kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12500)"
   },
   {
-    "natural-language": "Find all roads within 13 kilometers of Santa Paula",
+    "natural-language": "Find roads within 13 kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 13000)"
   },
   {
-    "natural-language": "Find all roads within 14 kilometers of Santa Paula",
+    "natural-language": "Find roads within 14 kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 14000)"
   },
   {
-    "natural-language": "Find all roads within 15 kilometers of Santa Paula",
+    "natural-language": "Find roads within 15 kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 15000)"
   },
   {
-    "natural-language": "Find all roads within 16 kilometers of Santa Paula",
+    "natural-language": "Find roads within 16 kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 16000)"
   },
   {
-    "natural-language": "Find all roads within 17 kilometers of Santa Paula",
+    "natural-language": "Find roads within 17 kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 17000)"
   },
   {
-    "natural-language": "Find all roads within 18 kilometers of Santa Paula",
+    "natural-language": "Find roads within 18 kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 18000)"
   },
   {
-    "natural-language": "Find all roads within 19 kilometers of Santa Paula",
+    "natural-language": "Find roads within 19 kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 19000)"
   },
   {
-    "natural-language": "Find all roads within 20 kilometers of Santa Paula",
+    "natural-language": "Find roads within 20 kilometers of Santa Paula",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Santa Paula' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 20000)"
   },
   {
-    "natural-language": "Find all roads within a quarter of a kilometer of Thousand Oaks",
+    "natural-language": "Find roads within a quarter of a kilometer of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 250)"
   },
   {
-    "natural-language": "Find all roads within half of a kilometer of Thousand Oaks",
+    "natural-language": "Find roads within half of a kilometer of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 500)"
   },
   {
-    "natural-language": "Find all roads within one kilometer of Thousand Oaks",
+    "natural-language": "Find roads within one kilometer of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1000)"
   },
   {
-    "natural-language": "Find all roads within one and a half kilometers of Thousand Oaks",
+    "natural-language": "Find roads within one and a half kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1500)"
   },
   {
-    "natural-language": "Find all roads within two kilometers of Thousand Oaks",
+    "natural-language": "Find roads within two kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2000)"
   },
   {
-    "natural-language": "Find all roads within two and a half kilometers of Thousand Oaks",
+    "natural-language": "Find roads within two and a half kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2500)"
   },
   {
-    "natural-language": "Find all roads within three kilometers of Thousand Oaks",
+    "natural-language": "Find roads within three kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3000)"
   },
   {
-    "natural-language": "Find all roads within three and a half kilometers of Thousand Oaks",
+    "natural-language": "Find roads within three and a half kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3500)"
   },
   {
-    "natural-language": "Find all roads within four kilometers of Thousand Oaks",
+    "natural-language": "Find roads within four kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4000)"
   },
   {
-    "natural-language": "Find all roads within four and a half kilometers of Thousand Oaks",
+    "natural-language": "Find roads within four and a half kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4500)"
   },
   {
-    "natural-language": "Find all roads within five kilometers of Thousand Oaks",
+    "natural-language": "Find roads within five kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5000)"
   },
   {
-    "natural-language": "Find all roads within five and a half kilometers of Thousand Oaks",
+    "natural-language": "Find roads within five and a half kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5500)"
   },
   {
-    "natural-language": "Find all roads within six kilometers of Thousand Oaks",
+    "natural-language": "Find roads within six kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6000)"
   },
   {
-    "natural-language": "Find all roads within six and a half kilometers of Thousand Oaks",
+    "natural-language": "Find roads within six and a half kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6500)"
   },
   {
-    "natural-language": "Find all roads within seven kilometers of Thousand Oaks",
+    "natural-language": "Find roads within seven kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7000)"
   },
   {
-    "natural-language": "Find all roads within seven and a half kilometers of Thousand Oaks",
+    "natural-language": "Find roads within seven and a half kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7500)"
   },
   {
-    "natural-language": "Find all roads within eight kilometers of Thousand Oaks",
+    "natural-language": "Find roads within eight kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8000)"
   },
   {
-    "natural-language": "Find all roads within eight and a half kilometers of Thousand Oaks",
+    "natural-language": "Find roads within eight and a half kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8500)"
   },
   {
-    "natural-language": "Find all roads within nine kilometers of Thousand Oaks",
+    "natural-language": "Find roads within nine kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9000)"
   },
   {
-    "natural-language": "Find all roads within nine and a half kilometers of Thousand Oaks",
+    "natural-language": "Find roads within nine and a half kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9500)"
   },
   {
-    "natural-language": "Find all roads within ten kilometers of Thousand Oaks",
+    "natural-language": "Find roads within ten kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10000)"
   },
   {
-    "natural-language": "Find all roads within ten and a half kilometers of Thousand Oaks",
+    "natural-language": "Find roads within ten and a half kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10500)"
   },
   {
-    "natural-language": "Find all roads within eleven kilometers of Thousand Oaks",
+    "natural-language": "Find roads within eleven kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11000)"
   },
   {
-    "natural-language": "Find all roads within eleven and a half kilometers of Thousand Oaks",
+    "natural-language": "Find roads within eleven and a half kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11500)"
   },
   {
-    "natural-language": "Find all roads within twelve kilometers of Thousand Oaks",
+    "natural-language": "Find roads within twelve kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12000)"
   },
   {
-    "natural-language": "Find all roads within twelve and a half kilometers of Thousand Oaks",
+    "natural-language": "Find roads within twelve and a half kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12500)"
   },
   {
-    "natural-language": "Find all roads within thirteen kilometers of Thousand Oaks",
+    "natural-language": "Find roads within thirteen kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 13000)"
   },
   {
-    "natural-language": "Find all roads within fourteen kilometers of Thousand Oaks",
+    "natural-language": "Find roads within fourteen kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 14000)"
   },
   {
-    "natural-language": "Find all roads within fifteen kilometers of Thousand Oaks",
+    "natural-language": "Find roads within fifteen kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 15000)"
   },
   {
-    "natural-language": "Find all roads within sixteen kilometers of Thousand Oaks",
+    "natural-language": "Find roads within sixteen kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 16000)"
   },
   {
-    "natural-language": "Find all roads within seventeen kilometers of Thousand Oaks",
+    "natural-language": "Find roads within seventeen kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 17000)"
   },
   {
-    "natural-language": "Find all roads within eighteen kilometers of Thousand Oaks",
+    "natural-language": "Find roads within eighteen kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 18000)"
   },
   {
-    "natural-language": "Find all roads within nineteen kilometers of Thousand Oaks",
+    "natural-language": "Find roads within nineteen kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 19000)"
   },
   {
-    "natural-language": "Find all roads within twenty kilometers of Thousand Oaks",
+    "natural-language": "Find roads within twenty kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 20000)"
   },
   {
-    "natural-language": "Find all roads within .25 kilometers of Thousand Oaks",
+    "natural-language": "Find roads within .25 kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 250)"
   },
   {
-    "natural-language": "Find all roads within .5 kilometers of Thousand Oaks",
+    "natural-language": "Find roads within .5 kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 500)"
   },
   {
-    "natural-language": "Find all roads within 1 kilometer of Thousand Oaks",
+    "natural-language": "Find roads within 1 kilometer of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1000)"
   },
   {
-    "natural-language": "Find all roads within 1.5 kilometers of Thousand Oaks",
+    "natural-language": "Find roads within 1.5 kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1500)"
   },
   {
-    "natural-language": "Find all roads within 2 kilometers of Thousand Oaks",
+    "natural-language": "Find roads within 2 kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2000)"
   },
   {
-    "natural-language": "Find all roads within 2.5 kilometers of Thousand Oaks",
+    "natural-language": "Find roads within 2.5 kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2500)"
   },
   {
-    "natural-language": "Find all roads within 3 kilometers of Thousand Oaks",
+    "natural-language": "Find roads within 3 kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3000)"
   },
   {
-    "natural-language": "Find all roads within 3.5 kilometers of Thousand Oaks",
+    "natural-language": "Find roads within 3.5 kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3500)"
   },
   {
-    "natural-language": "Find all roads within 4 kilometers of Thousand Oaks",
+    "natural-language": "Find roads within 4 kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4000)"
   },
   {
-    "natural-language": "Find all roads within 4.5 kilometers of Thousand Oaks",
+    "natural-language": "Find roads within 4.5 kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4500)"
   },
   {
-    "natural-language": "Find all roads within 5 kilometers of Thousand Oaks",
+    "natural-language": "Find roads within 5 kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5000)"
   },
   {
-    "natural-language": "Find all roads within 5.5 kilometers of Thousand Oaks",
+    "natural-language": "Find roads within 5.5 kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5500)"
   },
   {
-    "natural-language": "Find all roads within 6 kilometers of Thousand Oaks",
+    "natural-language": "Find roads within 6 kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6000)"
   },
   {
-    "natural-language": "Find all roads within 6.5 kilometers of Thousand Oaks",
+    "natural-language": "Find roads within 6.5 kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6500)"
   },
   {
-    "natural-language": "Find all roads within 7 kilometers of Thousand Oaks",
+    "natural-language": "Find roads within 7 kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7000)"
   },
   {
-    "natural-language": "Find all roads within 7.5 kilometers of Thousand Oaks",
+    "natural-language": "Find roads within 7.5 kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7500)"
   },
   {
-    "natural-language": "Find all roads within 8 kilometers of Thousand Oaks",
+    "natural-language": "Find roads within 8 kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8000)"
   },
   {
-    "natural-language": "Find all roads within 8.5 kilometers of Thousand Oaks",
+    "natural-language": "Find roads within 8.5 kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8500)"
   },
   {
-    "natural-language": "Find all roads within 9 kilometers of Thousand Oaks",
+    "natural-language": "Find roads within 9 kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9000)"
   },
   {
-    "natural-language": "Find all roads within 9.5 kilometers of Thousand Oaks",
+    "natural-language": "Find roads within 9.5 kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9500)"
   },
   {
-    "natural-language": "Find all roads within 10 kilometers of Thousand Oaks",
+    "natural-language": "Find roads within 10 kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10000)"
   },
   {
-    "natural-language": "Find all roads within 10.5 kilometers of Thousand Oaks",
+    "natural-language": "Find roads within 10.5 kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10500)"
   },
   {
-    "natural-language": "Find all roads within 11 kilometers of Thousand Oaks",
+    "natural-language": "Find roads within 11 kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11000)"
   },
   {
-    "natural-language": "Find all roads within 11.5 kilometers of Thousand Oaks",
+    "natural-language": "Find roads within 11.5 kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11500)"
   },
   {
-    "natural-language": "Find all roads within 12 kilometers of Thousand Oaks",
+    "natural-language": "Find roads within 12 kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12000)"
   },
   {
-    "natural-language": "Find all roads within 12.5 kilometers of Thousand Oaks",
+    "natural-language": "Find roads within 12.5 kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12500)"
   },
   {
-    "natural-language": "Find all roads within 13 kilometers of Thousand Oaks",
+    "natural-language": "Find roads within 13 kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 13000)"
   },
   {
-    "natural-language": "Find all roads within 14 kilometers of Thousand Oaks",
+    "natural-language": "Find roads within 14 kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 14000)"
   },
   {
-    "natural-language": "Find all roads within 15 kilometers of Thousand Oaks",
+    "natural-language": "Find roads within 15 kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 15000)"
   },
   {
-    "natural-language": "Find all roads within 16 kilometers of Thousand Oaks",
+    "natural-language": "Find roads within 16 kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 16000)"
   },
   {
-    "natural-language": "Find all roads within 17 kilometers of Thousand Oaks",
+    "natural-language": "Find roads within 17 kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 17000)"
   },
   {
-    "natural-language": "Find all roads within 18 kilometers of Thousand Oaks",
+    "natural-language": "Find roads within 18 kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 18000)"
   },
   {
-    "natural-language": "Find all roads within 19 kilometers of Thousand Oaks",
+    "natural-language": "Find roads within 19 kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 19000)"
   },
   {
-    "natural-language": "Find all roads within 20 kilometers of Thousand Oaks",
+    "natural-language": "Find roads within 20 kilometers of Thousand Oaks",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Thousand Oaks' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 20000)"
   },
   {
-    "natural-language": "Find all roads within a quarter of a kilometer of Port Hueneme",
+    "natural-language": "Find roads within a quarter of a kilometer of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 250)"
   },
   {
-    "natural-language": "Find all roads within half of a kilometer of Port Hueneme",
+    "natural-language": "Find roads within half of a kilometer of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 500)"
   },
   {
-    "natural-language": "Find all roads within one kilometer of Port Hueneme",
+    "natural-language": "Find roads within one kilometer of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1000)"
   },
   {
-    "natural-language": "Find all roads within one and a half kilometers of Port Hueneme",
+    "natural-language": "Find roads within one and a half kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1500)"
   },
   {
-    "natural-language": "Find all roads within two kilometers of Port Hueneme",
+    "natural-language": "Find roads within two kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2000)"
   },
   {
-    "natural-language": "Find all roads within two and a half kilometers of Port Hueneme",
+    "natural-language": "Find roads within two and a half kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2500)"
   },
   {
-    "natural-language": "Find all roads within three kilometers of Port Hueneme",
+    "natural-language": "Find roads within three kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3000)"
   },
   {
-    "natural-language": "Find all roads within three and a half kilometers of Port Hueneme",
+    "natural-language": "Find roads within three and a half kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3500)"
   },
   {
-    "natural-language": "Find all roads within four kilometers of Port Hueneme",
+    "natural-language": "Find roads within four kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4000)"
   },
   {
-    "natural-language": "Find all roads within four and a half kilometers of Port Hueneme",
+    "natural-language": "Find roads within four and a half kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4500)"
   },
   {
-    "natural-language": "Find all roads within five kilometers of Port Hueneme",
+    "natural-language": "Find roads within five kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5000)"
   },
   {
-    "natural-language": "Find all roads within five and a half kilometers of Port Hueneme",
+    "natural-language": "Find roads within five and a half kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5500)"
   },
   {
-    "natural-language": "Find all roads within six kilometers of Port Hueneme",
+    "natural-language": "Find roads within six kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6000)"
   },
   {
-    "natural-language": "Find all roads within six and a half kilometers of Port Hueneme",
+    "natural-language": "Find roads within six and a half kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6500)"
   },
   {
-    "natural-language": "Find all roads within seven kilometers of Port Hueneme",
+    "natural-language": "Find roads within seven kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7000)"
   },
   {
-    "natural-language": "Find all roads within seven and a half kilometers of Port Hueneme",
+    "natural-language": "Find roads within seven and a half kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7500)"
   },
   {
-    "natural-language": "Find all roads within eight kilometers of Port Hueneme",
+    "natural-language": "Find roads within eight kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8000)"
   },
   {
-    "natural-language": "Find all roads within eight and a half kilometers of Port Hueneme",
+    "natural-language": "Find roads within eight and a half kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8500)"
   },
   {
-    "natural-language": "Find all roads within nine kilometers of Port Hueneme",
+    "natural-language": "Find roads within nine kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9000)"
   },
   {
-    "natural-language": "Find all roads within nine and a half kilometers of Port Hueneme",
+    "natural-language": "Find roads within nine and a half kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9500)"
   },
   {
-    "natural-language": "Find all roads within ten kilometers of Port Hueneme",
+    "natural-language": "Find roads within ten kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10000)"
   },
   {
-    "natural-language": "Find all roads within ten and a half kilometers of Port Hueneme",
+    "natural-language": "Find roads within ten and a half kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10500)"
   },
   {
-    "natural-language": "Find all roads within eleven kilometers of Port Hueneme",
+    "natural-language": "Find roads within eleven kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11000)"
   },
   {
-    "natural-language": "Find all roads within eleven and a half kilometers of Port Hueneme",
+    "natural-language": "Find roads within eleven and a half kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11500)"
   },
   {
-    "natural-language": "Find all roads within twelve kilometers of Port Hueneme",
+    "natural-language": "Find roads within twelve kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12000)"
   },
   {
-    "natural-language": "Find all roads within twelve and a half kilometers of Port Hueneme",
+    "natural-language": "Find roads within twelve and a half kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12500)"
   },
   {
-    "natural-language": "Find all roads within thirteen kilometers of Port Hueneme",
+    "natural-language": "Find roads within thirteen kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 13000)"
   },
   {
-    "natural-language": "Find all roads within fourteen kilometers of Port Hueneme",
+    "natural-language": "Find roads within fourteen kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 14000)"
   },
   {
-    "natural-language": "Find all roads within fifteen kilometers of Port Hueneme",
+    "natural-language": "Find roads within fifteen kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 15000)"
   },
   {
-    "natural-language": "Find all roads within sixteen kilometers of Port Hueneme",
+    "natural-language": "Find roads within sixteen kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 16000)"
   },
   {
-    "natural-language": "Find all roads within seventeen kilometers of Port Hueneme",
+    "natural-language": "Find roads within seventeen kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 17000)"
   },
   {
-    "natural-language": "Find all roads within eighteen kilometers of Port Hueneme",
+    "natural-language": "Find roads within eighteen kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 18000)"
   },
   {
-    "natural-language": "Find all roads within nineteen kilometers of Port Hueneme",
+    "natural-language": "Find roads within nineteen kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 19000)"
   },
   {
-    "natural-language": "Find all roads within twenty kilometers of Port Hueneme",
+    "natural-language": "Find roads within twenty kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 20000)"
   },
   {
-    "natural-language": "Find all roads within .25 kilometers of Port Hueneme",
+    "natural-language": "Find roads within .25 kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 250)"
   },
   {
-    "natural-language": "Find all roads within .5 kilometers of Port Hueneme",
+    "natural-language": "Find roads within .5 kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 500)"
   },
   {
-    "natural-language": "Find all roads within 1 kilometer of Port Hueneme",
+    "natural-language": "Find roads within 1 kilometer of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1000)"
   },
   {
-    "natural-language": "Find all roads within 1.5 kilometers of Port Hueneme",
+    "natural-language": "Find roads within 1.5 kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 1500)"
   },
   {
-    "natural-language": "Find all roads within 2 kilometers of Port Hueneme",
+    "natural-language": "Find roads within 2 kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2000)"
   },
   {
-    "natural-language": "Find all roads within 2.5 kilometers of Port Hueneme",
+    "natural-language": "Find roads within 2.5 kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 2500)"
   },
   {
-    "natural-language": "Find all roads within 3 kilometers of Port Hueneme",
+    "natural-language": "Find roads within 3 kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3000)"
   },
   {
-    "natural-language": "Find all roads within 3.5 kilometers of Port Hueneme",
+    "natural-language": "Find roads within 3.5 kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 3500)"
   },
   {
-    "natural-language": "Find all roads within 4 kilometers of Port Hueneme",
+    "natural-language": "Find roads within 4 kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4000)"
   },
   {
-    "natural-language": "Find all roads within 4.5 kilometers of Port Hueneme",
+    "natural-language": "Find roads within 4.5 kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 4500)"
   },
   {
-    "natural-language": "Find all roads within 5 kilometers of Port Hueneme",
+    "natural-language": "Find roads within 5 kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5000)"
   },
   {
-    "natural-language": "Find all roads within 5.5 kilometers of Port Hueneme",
+    "natural-language": "Find roads within 5.5 kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 5500)"
   },
   {
-    "natural-language": "Find all roads within 6 kilometers of Port Hueneme",
+    "natural-language": "Find roads within 6 kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6000)"
   },
   {
-    "natural-language": "Find all roads within 6.5 kilometers of Port Hueneme",
+    "natural-language": "Find roads within 6.5 kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 6500)"
   },
   {
-    "natural-language": "Find all roads within 7 kilometers of Port Hueneme",
+    "natural-language": "Find roads within 7 kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7000)"
   },
   {
-    "natural-language": "Find all roads within 7.5 kilometers of Port Hueneme",
+    "natural-language": "Find roads within 7.5 kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 7500)"
   },
   {
-    "natural-language": "Find all roads within 8 kilometers of Port Hueneme",
+    "natural-language": "Find roads within 8 kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8000)"
   },
   {
-    "natural-language": "Find all roads within 8.5 kilometers of Port Hueneme",
+    "natural-language": "Find roads within 8.5 kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 8500)"
   },
   {
-    "natural-language": "Find all roads within 9 kilometers of Port Hueneme",
+    "natural-language": "Find roads within 9 kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9000)"
   },
   {
-    "natural-language": "Find all roads within 9.5 kilometers of Port Hueneme",
+    "natural-language": "Find roads within 9.5 kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 9500)"
   },
   {
-    "natural-language": "Find all roads within 10 kilometers of Port Hueneme",
+    "natural-language": "Find roads within 10 kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10000)"
   },
   {
-    "natural-language": "Find all roads within 10.5 kilometers of Port Hueneme",
+    "natural-language": "Find roads within 10.5 kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 10500)"
   },
   {
-    "natural-language": "Find all roads within 11 kilometers of Port Hueneme",
+    "natural-language": "Find roads within 11 kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11000)"
   },
   {
-    "natural-language": "Find all roads within 11.5 kilometers of Port Hueneme",
+    "natural-language": "Find roads within 11.5 kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 11500)"
   },
   {
-    "natural-language": "Find all roads within 12 kilometers of Port Hueneme",
+    "natural-language": "Find roads within 12 kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12000)"
   },
   {
-    "natural-language": "Find all roads within 12.5 kilometers of Port Hueneme",
+    "natural-language": "Find roads within 12.5 kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 12500)"
   },
   {
-    "natural-language": "Find all roads within 13 kilometers of Port Hueneme",
+    "natural-language": "Find roads within 13 kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 13000)"
   },
   {
-    "natural-language": "Find all roads within 14 kilometers of Port Hueneme",
+    "natural-language": "Find roads within 14 kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 14000)"
   },
   {
-    "natural-language": "Find all roads within 15 kilometers of Port Hueneme",
+    "natural-language": "Find roads within 15 kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 15000)"
   },
   {
-    "natural-language": "Find all roads within 16 kilometers of Port Hueneme",
+    "natural-language": "Find roads within 16 kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 16000)"
   },
   {
-    "natural-language": "Find all roads within 17 kilometers of Port Hueneme",
+    "natural-language": "Find roads within 17 kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 17000)"
   },
   {
-    "natural-language": "Find all roads within 18 kilometers of Port Hueneme",
+    "natural-language": "Find roads within 18 kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 18000)"
   },
   {
-    "natural-language": "Find all roads within 19 kilometers of Port Hueneme",
+    "natural-language": "Find roads within 19 kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 19000)"
   },
   {
-    "natural-language": "Find all roads within 20 kilometers of Port Hueneme",
+    "natural-language": "Find roads within 20 kilometers of Port Hueneme",
     "sql": "SELECT r.* FROM roads r JOIN cities c ON c.name = 'Port Hueneme' WHERE ST_DWithin(ST_Transform(c.boundary, 2229), ST_Transform(r.route, 2229), 20000)"
   },  
 
@@ -6259,11 +6260,11 @@ ROAD_QUERIES = [
   },
   # Find roads by buildings TODO: Add queries V2
   # {
-  #   "natural-language": "Find all roads that have multiple buildings that are owned by the same group",
+  #   "natural-language": "Find roads that have multiple buildings that are owned by the same group",
   #   "sql": "SELECT r.name, ST_AsGeoJSON(r.route) AS route FROM roads r JOIN buildings b ON ST_Intersects(ST_Transform(b.location, 4326), ST_Transform(r.route, 4326)) JOIN owning_entities o ON b.owning_entity_id = o.id WHERE o.is_group = TRUE GROUP BY r.id HAVING COUNT(DISTINCT b.id) > 1"
   # },
   # {
-  #   "natural-language": "Find all roads that have buildings that are not owned by groups",
+  #   "natural-language": "Find roads that have buildings that are not owned by groups",
   #   "sql": "SELECT r.name, ST_AsGeoJSON(r.route) AS route FROM roads r JOIN buildings b ON ST_Intersects(ST_Transform(b.location, 4326), ST_Transform(r.route, 4326)) JOIN owning_entities o ON b.owning_entity_id = o.id WHERE o.is_group = FALSE"
   # },
   # {

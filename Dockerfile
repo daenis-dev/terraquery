@@ -9,14 +9,14 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY controller/app.py .
 COPY scripts/config.py .
-COPY terraquery_model/config.json \
-     terraquery_model/generation_config.json \
-     terraquery_model/model.safetensors \
-     terraquery_model/merges.txt \
-     terraquery_model/special_tokens_map.json \
-     terraquery_model/tokenizer_config.json \
-     terraquery_model/vocab.json \
-     /app/terraquery_model/
+COPY terraquery_model_v2/config.json \
+     terraquery_model_v2/generation_config.json \
+     terraquery_model_v2/model.safetensors \
+     terraquery_model_v2/merges.txt \
+     terraquery_model_v2/special_tokens_map.json \
+     terraquery_model_v2/tokenizer_config.json \
+     terraquery_model_v2/vocab.json \
+     /app/terraquery_model_v2/
 
 EXPOSE 9090
 

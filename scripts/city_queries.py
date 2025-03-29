@@ -3846,83 +3846,83 @@ CITY_QUERIES = [
 
   # Find cities by matching criteria around park area (1 - 10)
   {
-    "natural-language": "Find all cities that contain at least one square kilometer of park",
+    "natural-language": "Find cities that contain at least one square kilometer of park",
     "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary, SUM(ST_Area(ST_Transform(p.boundary, 3857))) AS total_area FROM cities c JOIN parks p ON ST_Within(ST_Transform(p.boundary, 4326), ST_Transform(c.boundary, 4326)) GROUP BY c.id HAVING SUM(ST_Area(ST_Transform(p.boundary, 3857))) >= 1000"
   },
   {
-    "natural-language": "Find all cities that contain at least two square kilometers of park",
+    "natural-language": "Find cities that contain at least two square kilometers of park",
     "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary, SUM(ST_Area(ST_Transform(p.boundary, 3857))) AS total_area FROM cities c JOIN parks p ON ST_Within(ST_Transform(p.boundary, 4326), ST_Transform(c.boundary, 4326)) GROUP BY c.id HAVING SUM(ST_Area(ST_Transform(p.boundary, 3857))) >= 2000"
   },
   {
-    "natural-language": "Find all cities that contain at least three square kilometers of park",
+    "natural-language": "Find cities that contain at least three square kilometers of park",
     "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary, SUM(ST_Area(ST_Transform(p.boundary, 3857))) AS total_area FROM cities c JOIN parks p ON ST_Within(ST_Transform(p.boundary, 4326), ST_Transform(c.boundary, 4326)) GROUP BY c.id HAVING SUM(ST_Area(ST_Transform(p.boundary, 3857))) >= 3000"
   },
   {
-    "natural-language": "Find all cities that contain at least four square kilometers of park",
+    "natural-language": "Find cities that contain at least four square kilometers of park",
     "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary, SUM(ST_Area(ST_Transform(p.boundary, 3857))) AS total_area FROM cities c JOIN parks p ON ST_Within(ST_Transform(p.boundary, 4326), ST_Transform(c.boundary, 4326)) GROUP BY c.id HAVING SUM(ST_Area(ST_Transform(p.boundary, 3857))) >= 4000"
   },
   {
-    "natural-language": "Find all cities that contain at least five square kilometers of park",
+    "natural-language": "Find cities that contain at least five square kilometers of park",
     "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary, SUM(ST_Area(ST_Transform(p.boundary, 3857))) AS total_area FROM cities c JOIN parks p ON ST_Within(ST_Transform(p.boundary, 4326), ST_Transform(c.boundary, 4326)) GROUP BY c.id HAVING SUM(ST_Area(ST_Transform(p.boundary, 3857))) >= 5000"
   },
   {
-    "natural-language": "Find all cities that contain at least six square kilometers of park",
+    "natural-language": "Find cities that contain at least six square kilometers of park",
     "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary, SUM(ST_Area(ST_Transform(p.boundary, 3857))) AS total_area FROM cities c JOIN parks p ON ST_Within(ST_Transform(p.boundary, 4326), ST_Transform(c.boundary, 4326)) GROUP BY c.id HAVING SUM(ST_Area(ST_Transform(p.boundary, 3857))) >= 6000"
   },
   {
-    "natural-language": "Find all cities that contain at least seven square kilometers of park",
+    "natural-language": "Find cities that contain at least seven square kilometers of park",
     "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary, SUM(ST_Area(ST_Transform(p.boundary, 3857))) AS total_area FROM cities c JOIN parks p ON ST_Within(ST_Transform(p.boundary, 4326), ST_Transform(c.boundary, 4326)) GROUP BY c.id HAVING SUM(ST_Area(ST_Transform(p.boundary, 3857))) >= 7000"
   },
   {
-    "natural-language": "Find all cities that contain at least eight square kilometers of park",
+    "natural-language": "Find cities that contain at least eight square kilometers of park",
     "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary, SUM(ST_Area(ST_Transform(p.boundary, 3857))) AS total_area FROM cities c JOIN parks p ON ST_Within(ST_Transform(p.boundary, 4326), ST_Transform(c.boundary, 4326)) GROUP BY c.id HAVING SUM(ST_Area(ST_Transform(p.boundary, 3857))) >= 8000"
   },
   {
-    "natural-language": "Find all cities that contain at least nine square kilometers of park",
+    "natural-language": "Find cities that contain at least nine square kilometers of park",
     "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary, SUM(ST_Area(ST_Transform(p.boundary, 3857))) AS total_area FROM cities c JOIN parks p ON ST_Within(ST_Transform(p.boundary, 4326), ST_Transform(c.boundary, 4326)) GROUP BY c.id HAVING SUM(ST_Area(ST_Transform(p.boundary, 3857))) >= 9000"
   },
   {
-    "natural-language": "Find all cities that contain at least ten square kilometers of park",
+    "natural-language": "Find cities that contain at least ten square kilometers of park",
     "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary, SUM(ST_Area(ST_Transform(p.boundary, 3857))) AS total_area FROM cities c JOIN parks p ON ST_Within(ST_Transform(p.boundary, 4326), ST_Transform(c.boundary, 4326)) GROUP BY c.id HAVING SUM(ST_Area(ST_Transform(p.boundary, 3857))) >= 10000"
   },
   {
-    "natural-language": "Find all cities that contain at least 1 square kilometer of park",
+    "natural-language": "Find cities that contain at least 1 square kilometer of park",
     "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary, SUM(ST_Area(ST_Transform(p.boundary, 3857))) AS total_area FROM cities c JOIN parks p ON ST_Within(ST_Transform(p.boundary, 4326), ST_Transform(c.boundary, 4326)) GROUP BY c.id HAVING SUM(ST_Area(ST_Transform(p.boundary, 3857))) >= 1000"
   },
   {
-    "natural-language": "Find all cities that contain at least 2 square kilometers of park",
+    "natural-language": "Find cities that contain at least 2 square kilometers of park",
     "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary, SUM(ST_Area(ST_Transform(p.boundary, 3857))) AS total_area FROM cities c JOIN parks p ON ST_Within(ST_Transform(p.boundary, 4326), ST_Transform(c.boundary, 4326)) GROUP BY c.id HAVING SUM(ST_Area(ST_Transform(p.boundary, 3857))) >= 2000"
   },
   {
-    "natural-language": "Find all cities that contain at least 3 square kilometers of park",
+    "natural-language": "Find cities that contain at least 3 square kilometers of park",
     "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary, SUM(ST_Area(ST_Transform(p.boundary, 3857))) AS total_area FROM cities c JOIN parks p ON ST_Within(ST_Transform(p.boundary, 4326), ST_Transform(c.boundary, 4326)) GROUP BY c.id HAVING SUM(ST_Area(ST_Transform(p.boundary, 3857))) >= 3000"
   },
   {
-    "natural-language": "Find all cities that contain at least 4 square kilometers of park",
+    "natural-language": "Find cities that contain at least 4 square kilometers of park",
     "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary, SUM(ST_Area(ST_Transform(p.boundary, 3857))) AS total_area FROM cities c JOIN parks p ON ST_Within(ST_Transform(p.boundary, 4326), ST_Transform(c.boundary, 4326)) GROUP BY c.id HAVING SUM(ST_Area(ST_Transform(p.boundary, 3857))) >= 4000"
   },
   {
-    "natural-language": "Find all cities that contain at least 5 square kilometers of park",
+    "natural-language": "Find cities that contain at least 5 square kilometers of park",
     "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary, SUM(ST_Area(ST_Transform(p.boundary, 3857))) AS total_area FROM cities c JOIN parks p ON ST_Within(ST_Transform(p.boundary, 4326), ST_Transform(c.boundary, 4326)) GROUP BY c.id HAVING SUM(ST_Area(ST_Transform(p.boundary, 3857))) >= 5000"
   },
   {
-    "natural-language": "Find all cities that contain at least 6 square kilometers of park",
+    "natural-language": "Find cities that contain at least 6 square kilometers of park",
     "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary, SUM(ST_Area(ST_Transform(p.boundary, 3857))) AS total_area FROM cities c JOIN parks p ON ST_Within(ST_Transform(p.boundary, 4326), ST_Transform(c.boundary, 4326)) GROUP BY c.id HAVING SUM(ST_Area(ST_Transform(p.boundary, 3857))) >= 6000"
   },
   {
-    "natural-language": "Find all cities that contain at least 7 square kilometers of park",
+    "natural-language": "Find cities that contain at least 7 square kilometers of park",
     "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary, SUM(ST_Area(ST_Transform(p.boundary, 3857))) AS total_area FROM cities c JOIN parks p ON ST_Within(ST_Transform(p.boundary, 4326), ST_Transform(c.boundary, 4326)) GROUP BY c.id HAVING SUM(ST_Area(ST_Transform(p.boundary, 3857))) >= 7000"
   },
   {
-    "natural-language": "Find all cities that contain at least 8 square kilometers of park",
+    "natural-language": "Find cities that contain at least 8 square kilometers of park",
     "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary, SUM(ST_Area(ST_Transform(p.boundary, 3857))) AS total_area FROM cities c JOIN parks p ON ST_Within(ST_Transform(p.boundary, 4326), ST_Transform(c.boundary, 4326)) GROUP BY c.id HAVING SUM(ST_Area(ST_Transform(p.boundary, 3857))) >= 8000"
   },
   {
-    "natural-language": "Find all cities that contain at least 9 square kilometers of park",
+    "natural-language": "Find cities that contain at least 9 square kilometers of park",
     "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary, SUM(ST_Area(ST_Transform(p.boundary, 3857))) AS total_area FROM cities c JOIN parks p ON ST_Within(ST_Transform(p.boundary, 4326), ST_Transform(c.boundary, 4326)) GROUP BY c.id HAVING SUM(ST_Area(ST_Transform(p.boundary, 3857))) >= 9000"
   },
   {
-    "natural-language": "Find all cities that contain at least 10 square kilometers of park",
+    "natural-language": "Find cities that contain at least 10 square kilometers of park",
     "sql": "SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary, SUM(ST_Area(ST_Transform(p.boundary, 3857))) AS total_area FROM cities c JOIN parks p ON ST_Within(ST_Transform(p.boundary, 4326), ST_Transform(c.boundary, 4326)) GROUP BY c.id HAVING SUM(ST_Area(ST_Transform(p.boundary, 3857))) >= 10000"
   },
  
