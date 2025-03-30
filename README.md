@@ -16,6 +16,14 @@ GIS powered by natural language based SQL generation, implemented with Ventura C
   >> pip install -r local_requirements.txt
   ```
 
+- Download the model from Hugging Face and copy the model to the project directory:
+
+  ```
+  >> huggingface-cli download google-t5/t5-small --repo-type model
+  
+  >> mv C:/Users/USERNAME/.cache/huggingface/hub/models--google-t5--t5-small/snapshots/df1b.. C:/Users/USERNAME/projects/terraquery/t5_small
+  ```
+  
 - Add a *scripts/config.py* file:
 
   ```
@@ -122,99 +130,3 @@ terraquery
 	- Dockerfile
 	- requirements.txt
 ```
-
-
-
-### Recommended Verbiage
-
-For best results, the following verbiage is recommended when sending requests to the API.
-
-- Find
-  - Search for
-  - Retrieve
-  - Get
-  - List
-- City
-  - Town
-  - Municipality
-  - Urban area
-- Road
-  - road
-  - street
-  - highway
-  - route
-  - way
-- People
-  - residents
-  - inhabitants
-- Intersections
-  - Intersections
-  - Roads that intersect
-  - Intersecting roads
-  - Roads that cross each other
-- Kilometers
-  - km
-- Square Kilometers
-  - sq km
-
-- Fewest roads
-  - Least number of roads
-- Most roads
-  - Greatest number of roads
-- That intersect the point
-  - That intersect
-  - That intersect the point at
-  - That cross
-- Roads that are longer than
-- Roads that are shorter than
-- Roads that are at most
-- Roads that span at least
-- Roads that span at most
-- Roads within
-  - All roads within
-- An area greater than
-  - An area larger than
-  - Greater than
-  - Larger than
-- An area less than
-  - An area smaller than
-  - Less than
-  - Smaller than
-- An area of at least
-  - An area no less than
-  - At least
-  - No less than
-- An area of at most
-  - An area no more than
-  - At most
-  - No more than
-- The largest area
-  - The greatest area
-- A population greater than
-  - A population that is greater than
-  - More than
-  - A population larger than
-  - A population that is larger than
-  - A population that is over
-  - Over
-- A population less than
-  - A population that is less than
-  - less than
-  - A population smaller than
-  - A population that is smaller than
-  - A population that is under
-  - Under
-- A population of at least
-  - At least
-  - A population no less than
-  - No less than
-- A population of at most
-  - At most
-  - A population of at most
-  - No more than
-- City with the highest population
-  - City with the most people
-  - Busiest city
-- City with the lowest population
-  - City with the least people
-  - Slowest city
