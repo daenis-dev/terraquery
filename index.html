@@ -56,19 +56,19 @@
     </head>
     <body>
         <div style="text-align: center;">
-            <h1>Terraquery</h1>
+            <h1>Ventura County GIS</h1>
         </div>
         <div style="text-align: center;">
             <form onsubmit="submitQuery(event)">
                 <div class="button-container">
-                    <input type="text" id="query" required placeholder="Type request here">
+                    <input type="text" id="query" required placeholder="Type your request here">
                     <button type="submit">↩</button>
                 </div>
             </form>
         </div>
 
         <div style="text-align: center;">
-            <pre id="sql-query"></pre>
+            <pre id="sql-query" style="width: 90%; white-space: pre-wrap; word-wrap: break-word; display: inline-block;"></pre>
             <div id="webmap" style="width: 50%; margin: 0 auto;"></div>
         </div>
     </body>

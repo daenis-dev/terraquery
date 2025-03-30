@@ -19,10 +19,10 @@ def test_query(query):
         cur.execute(query["sql"])
         result = cur.fetchall()
         if len(result) > 0:
-            print(f"Query '{query['natural-language']}' returned {len(result)} results.")
+            # print(f"Query '{query['natural-language']}' returned {len(result)} results.")
             return True
         else:
-            print(f"Query '{query['natural-language']}' returned no results.")
+            # print(f"Query '{query['natural-language']}' returned no results.")
             return False
     except Exception as e:
         conn.rollback()

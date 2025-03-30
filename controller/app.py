@@ -1,20 +1,19 @@
 import psycopg2
 import folium
-from flask import Flask, request, render_template_string, jsonify
+from flask import Flask, request, jsonify
 from flask_cors import CORS
-from transformers import GPT2LMHeadModel, GPT2Tokenizer
+from transformers import T5ForConditionalGeneration, T5Tokenizer
 import torch
 import json
 from config import DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT
-
-# TODO: Refactor, update HTML
+import re
 
 app = Flask(__name__)
 CORS(app)
 
-model_path = "./terraquery_model_v2"
-tokenizer = GPT2Tokenizer.from_pretrained(model_path)
-model = GPT2LMHeadModel.from_pretrained(model_path)
+model_path = "./terraquery_model_v3"
+tokenizer = T5Tokenizer.from_pretrained(model_path)
+model = T5ForConditionalGeneration.from_pretrained(model_path)
 
 if tokenizer.pad_token is None:
     tokenizer.pad_token = tokenizer.eos_token
@@ -27,8 +26,7 @@ def get_natural_language_query(request):
 
 def generate_sql_for_natural_language_query(natural_language_query):
     input_query = natural_language_query + ". " + get_schema()
-    prompt = f"Query: {input_query}\nSQL:"
-    inputs = tokenizer(prompt, return_tensors="pt")
+    inputs = tokenizer(input_query, return_tensors="pt", padding=True, truncation=True)
 
     with torch.no_grad():
         output = model.generate(
@@ -40,9 +38,9 @@ def generate_sql_for_natural_language_query(natural_language_query):
 
     generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
     
-    sql_start = generated_text.find("SQL:") + len("SQL:")
-    sql_query = generated_text[sql_start:].strip()
-    
+    sql_query = generated_text.strip()
+    sql_query = re.sub(r'\bSELECT\s+c\.\*', 'SELECT c.name, ST_AsGeoJSON(c.boundary) AS boundary', sql_query)
+    sql_query = re.sub(r'\bSELECT\s+r\.\*', 'SELECT r.name, ST_AsGeoJSON(r.route) AS route', sql_query)
     return sql_query
 
 def get_schema():

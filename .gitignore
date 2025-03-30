@@ -5,8 +5,10 @@ __pycache__/
 distilgpt2/
 terraquery_model/
 terraquery_model_v2/
+terraquery_model_v3/
 spider/
 county-data/
 terraquery_dataset.json
 webmap.html
 scripts/base_queries.py
+t5_small/

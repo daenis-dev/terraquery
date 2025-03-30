@@ -2,8 +2,8 @@ import psycopg2
 import json
 import random
 from config import DB_NAME, DB_USER, DB_PASSWORD, DB_PORT, DB_HOST_LOCAL
-from city_queries import CITY_QUERIES
-from road_queries import ROAD_QUERIES
+from city_queries_v2 import CITY_QUERIES_V2
+from road_queries_v2 import ROAD_QUERIES_V2
 import random
 import re
 
@@ -17,7 +17,7 @@ conn = psycopg2.connect(
 
 cur = conn.cursor()
 
-BASE_QUERIES = CITY_QUERIES + ROAD_QUERIES
+BASE_QUERIES = CITY_QUERIES_V2 + ROAD_QUERIES_V2
 
 query_variations = {
         "Find": ["Find", "Search for", "Retrieve", "Get", "List"],
@@ -97,14 +97,12 @@ def generate_dynamic_queries():
         new_queries.append(new_query)
         generated_queries_set.add(new_query["natural-language"])
         index += 1
-        print('Query number: ' + str(index), flush=True)
     
     return new_queries
 
 def get_next_query_from_base_queries(index):
     query = BASE_QUERIES[index]
     index += 1
-    print('query number: ' + str(index), flush=True)
     return query
 
 
