@@ -39,7 +39,7 @@ def parse_args() -> argparse.Namespace:
         description="Fine-tune FLAN-T5 Small to convert TerraQuery natural language queries into JSON specs."
     )
     parser.add_argument("--data", default="dataset_augmented.jsonl")
-    parser.add_argument("--output-dir", default="terraquery-flan-t5-small-v2")
+    parser.add_argument("--output-dir", default="terraquery-flan-t5-small")
     parser.add_argument("--model-name", default=DEFAULT_MODEL_NAME)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--test-size", type=float, default=0.10)
