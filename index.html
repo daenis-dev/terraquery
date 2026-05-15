@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>TerraQuery Potree Point Cloud POC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+
+  <link rel="stylesheet" href="./PotreeConverter/PotreeConverter_linux_x64/resources/page_template/libs/potree/potree.css" />
+  <link rel="stylesheet" href="./PotreeConverter/PotreeConverter_linux_x64/resources/page_template/libs/jquery-ui/jquery-ui.min.css" />
+  <link rel="stylesheet" href="./PotreeConverter/PotreeConverter_linux_x64/resources/page_template/libs/openlayers3/ol.css" />
+  <link rel="stylesheet" href="./PotreeConverter/PotreeConverter_linux_x64/resources/page_template/libs/spectrum/spectrum.css" />
+  <link rel="stylesheet" href="./PotreeConverter/PotreeConverter_linux_x64/resources/page_template/libs/jstree/themes/mixed/style.css" />
+
+  <script src="./PotreeConverter/PotreeConverter_linux_x64/resources/page_template/libs/jquery/jquery-3.1.1.min.js"></script>
+  <script src="./PotreeConverter/PotreeConverter_linux_x64/resources/page_template/libs/spectrum/spectrum.js"></script>
+  <script src="./PotreeConverter/PotreeConverter_linux_x64/resources/page_template/libs/jquery-ui/jquery-ui.min.js"></script>
+  <script src="./PotreeConverter/PotreeConverter_linux_x64/resources/page_template/libs/other/BinaryHeap.js"></script>
+  <script src="./PotreeConverter/PotreeConverter_linux_x64/resources/page_template/libs/tween/tween.min.js"></script>
+  <script src="./PotreeConverter/PotreeConverter_linux_x64/resources/page_template/libs/d3/d3.js"></script>
+  <script src="./PotreeConverter/PotreeConverter_linux_x64/resources/page_template/libs/proj4/proj4.js"></script>
+  <script src="./PotreeConverter/PotreeConverter_linux_x64/resources/page_template/libs/openlayers3/ol.js"></script>
+  <script src="./PotreeConverter/PotreeConverter_linux_x64/resources/page_template/libs/i18next/i18next.js"></script>
+  <script src="./PotreeConverter/PotreeConverter_linux_x64/resources/page_template/libs/jstree/jstree.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r110/three.min.js"></script>
+  <script src="./PotreeConverter/PotreeConverter_linux_x64/resources/page_template/libs/potree/potree.js"></script>
+
+  <style>
+    :root {
+      --bg: #06101b;
+      --panelSolid: #081321;
+      --border: #203247;
+      --text: #e8f1fb;
+      --muted: #8fa3b8;
+      --green: #2ecc71;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      overflow: hidden;
+    }
+
+    #app {
+      width: 100vw;
+      height: 100vh;
+      display: grid;
+      grid-template-columns: clamp(320px, 30vw, 430px) minmax(0, 1fr);
+      grid-template-rows: 92px 1fr;
+      grid-template-areas:
+        "top top"
+        "panel viewer";
+    }
+
+    .topbar {
+      grid-area: top;
+      background: var(--panelSolid);
+      border-bottom: 1px solid var(--border);
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 16px 24px;
+    }
+
+    .brand {
+      min-width: 170px;
+    }
+
+    .brand-title {
+      font-size: 20px;
+      font-weight: 900;
+      line-height: 1.1;
+    }
+
+    .brand-subtitle {
+      margin-top: 3px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .query-wrap {
+      flex: 1;
+      display: grid;
+      gap: 7px;
+    }
+
+    .query-label {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .query-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    input {
+      width: 100%;
+      height: 42px;
+      border: 1px solid #23634b;
+      background: #0b1828;
+      color: var(--text);
+      border-radius: 8px;
+      padding: 0 14px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    button {
+      height: 42px;
+      border: 0;
+      color: white;
+      background: #129b59;
+      padding: 0 18px;
+      border-radius: 8px;
+      font-weight: 800;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .side-panel {
+      grid-area: panel;
+      background: var(--panelSolid);
+      border-right: 1px solid var(--border);
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+      min-width: 0;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .panel-header {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .panel-title {
+      font-weight: 900;
+      font-size: 15px;
+    }
+
+    .panel-subtitle {
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    .demo-tiles-wrap {
+      margin-top: 12px;
+    }
+
+    .demo-tiles-label {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .demo-tiles {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: thin;
+    }
+
+    .demo-tile-chip {
+      flex: 0 0 auto;
+      border: 1px solid rgba(46, 204, 113, 0.85);
+      border-radius: 999px;
+      background: transparent;
+      color: white;
+      height: auto;
+      padding: 4px 11px;
+      line-height: 1;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .demo-tile-chip:hover {
+      background: rgba(46, 204, 113, 1);
+      color: #04150d;
+      transform: translateY(-1px);
+    }
+
+    .spec-panel {
+      padding: 12px 16px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.4;
+      min-height: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .spec-panel-title {
+      color: var(--text);
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .spec-json {
+      width: 100%;
+      flex: 1;
+      min-height: 0;
+      resize: none;
+      margin: 0;
+      padding: 12px;
+      overflow: auto;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #050d17;
+      color: #d7e7f7;
+      font-size: 11px;
+      line-height: 1.45;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    }
+
+    .render-spec-button {
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    .viewer-wrap {
+      grid-area: viewer;
+      position: relative;
+      overflow: hidden;
+      background: #000;
+      min-width: 0;
+      min-height: 0;
+    }
+
+    .potree_container,
+    #potree_render_area {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+    #potree_render_area {
+      background: #0b1522 !important;
+    }
+
+    #potree_sidebar_container {
+      display: none;
+    }
+
+    .point-size-control {
+      position: absolute;
+      left: 18px;
+      top: 18px;
+      z-index: 12;
+      padding: 9px 12px;
+      border-radius: 9px;
+      background: rgba(7, 17, 29, 0.9);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .point-size-control button {
+      width: 28px;
+      height: 26px;
+      padding: 0;
+      border-radius: 6px;
+    }
+
+    .point-cloud-loading {
+      position: absolute;
+      inset: 0;
+      z-index: 11;
+      display: grid;
+      place-items: center;
+      align-content: center;
+      gap: 14px;
+      background: rgba(0, 0, 0, 0.55);
+      color: var(--text);
+      font-size: 14px;
+    }
+
+    .point-cloud-loading.hidden {
+      display: none;
+    }
+
+    .spinner {
+      width: 42px;
+      height: 42px;
+      border: 4px solid rgba(255, 255, 255, 0.2);
+      border-top-color: var(--green);
+      border-radius: 50%;
+      animation: spin 0.85s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-title">TerraQuery</div>
+        <div class="brand-subtitle">Point Cloud Intelligence</div>
+      </div>
+
+      <div class="query-wrap">
+        <div class="query-label">Ask a question about vegetation and structures...</div>
+        <div class="query-row">
+          <input id="query" value="" placeholder="Ex: Show me all buildings with vegetation within 2 meters." />
+          <button id="runQuery">Run Query →</button>
+        </div>
+      </div>
+    </header>
+
+    <aside class="side-panel">
+      <div class="panel-header">
+        <div class="panel-title">KyFromAbove Demo Tiles</div>
+        <div class="panel-subtitle">Choose one of the available demo point clouds.</div>
+
+        <div class="demo-tiles-wrap">
+          <div class="demo-tiles-label">Demo tiles</div>
+          <div id="demoTiles" class="demo-tiles"></div>
+        </div>
+      </div>
+
+      <div class="spec-panel">
+        <div class="spec-panel-title">Analysis Spec</div>
+
+        <textarea
+          id="analysisSpecJson"
+          class="spec-json"
+          spellcheck="false"
+        >Select a demo tile or run a query to view the analysis spec.</textarea>
+
+        <button id="renderSpecButton" class="render-spec-button" disabled>
+          Render
+        </button>
+      </div>
+    </aside>
+
+    <main class="viewer-wrap">
+      <div class="potree_container">
+        <div id="potree_render_area"></div>
+        <div id="potree_sidebar_container"></div>
+      </div>
+
+      <div id="pointCloudLoadingOverlay" class="point-cloud-loading hidden">
+        <div class="spinner"></div>
+        <div id="pointCloudLoadingText">Preparing point cloud...</div>
+      </div>
+
+      <div class="point-size-control">
+        <span>Point size</span>
+        <button id="decreasePointSize">−</button>
+        <span id="pointSizeValue">2.0</span>
+        <button id="increasePointSize">+</button>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const API_BASE_URL = "http://localhost:8080";
+
+    Potree.resourcePath = new URL(
+      "./PotreeConverter/PotreeConverter_linux_x64/resources/page_template/libs/potree/resources/",
+      window.location.href
+    ).href;
+
+    Potree.scriptPath = new URL(
+      "./PotreeConverter/PotreeConverter_linux_x64/resources/page_template/libs/potree/",
+      window.location.href
+    ).href;
+
+    const renderSettings = {
+      pointBudget: 5_000_000,
+      pointSize: 2.0,
+      colorBy: "classification",
+      edl: true,
+      fov: 60
+    };
+
+    const DEMO_TILES = [
+      { id: "N031E314", label: "N031E314" },
+      { id: "N200E044", label: "N200E044" }
+    ];
+
+    const DEFAULT_ANALYSIS_SPEC = {
+      intent: "encroachment_analysis",
+      target: "structures",
+      conditions: {
+        proximity: {
+          object: "vegetation",
+          distance_meters: 2
+        }
+      },
+      filters: {
+        min_height_meters: null,
+        min_cluster_size: null
+      },
+      ranking: {
+        type: null,
+        top_n: null
+      },
+      render: {
+        mode: "highlight",
+        show: ["structures", "vegetation", "encroachment"]
+      }
+    };
+
+    let viewer;
+    let pointcloud;
+    let cloudCenter = null;
+    let cloudSize = null;
+    let currentTile = null;
+
+    function initPotree() {
+      viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
+
+      viewer.setEDLEnabled(renderSettings.edl);
+      viewer.setFOV(renderSettings.fov);
+      viewer.setPointBudget(renderSettings.pointBudget);
+      viewer.setMinNodeSize(0);
+      viewer.setBackground("gradient");
+      viewer.useHQ = true;
+    }
+
+    function renderDemoTileButtons() {
+      const wrap = document.getElementById("demoTiles");
+      if (!wrap) return;
+
+      wrap.innerHTML = "";
+
+      DEMO_TILES.forEach(tile => {
+        const chip = document.createElement("button");
+        chip.className = "demo-tile-chip";
+        chip.textContent = tile.label;
+
+        chip.addEventListener("click", () => {
+          renderDemoTile(tile.id);
+        });
+
+        wrap.appendChild(chip);
+      });
+    }
+
+    async function renderDemoTile(tileId) {
+      currentTile = {
+        id: tileId,
+        name: `Demo Tile ${tileId}`
+      };
+
+      displayAnalysisSpec(DEFAULT_ANALYSIS_SPEC, {
+        disableRenderButton: false
+      });
+
+      showPointCloudLoading("Loading labeled demo tile " + tileId + "...");
+
+      try {
+        const response = await fetch(`${API_BASE_URL}/api/demo-tiles/${tileId}/render`, {
+          method: "POST"
+        });
+
+        const result = await response.json();
+
+        if (result.status !== "ready") {
+          hidePointCloudLoading();
+          console.error(result);
+          return;
+        }
+
+        renderSettings.colorBy = "classification";
+        loadPotreePointCloud(result.potree_url, `Demo Tile ${tileId}`);
+      } catch (err) {
+        hidePointCloudLoading();
+        console.error(err);
+      }
+    }
+
+    async function runDemoQuery() {
+      if (!currentTile || !currentTile.id) {
+        displayAnalysisSpec({
+          status: "waiting_for_tile",
+          message: "Select demo tile N031E314 or N200E044 before running a query."
+        }, { disableRenderButton: true });
+
+        return;
+      }
+
+      const queryText =
+        document.getElementById("query").value.trim() ||
+        "Show all areas where vegetation is encroaching on a structure";
+
+      displayAnalysisSpec({
+        status: "generating",
+        message: "Generating analysis spec..."
+      }, { disableRenderButton: true });
+
+      showPointCloudLoading("Running encroachment query...");
+
+      try {
+        const response = await fetch(
+          `${API_BASE_URL}/api/demo-tiles/${currentTile.id}/query`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              query: queryText
+            })
+          }
+        );
+
+        const result = await response.json();
+
+        if (result.applied_spec) {
+          displayAnalysisSpec(result.applied_spec, {
+            disableRenderButton: true
+          });
+        }
+
+        if (result.status !== "ready") {
+          hidePointCloudLoading();
+          console.error(result);
+          return;
+        }
+
+        renderSettings.colorBy = "rgba";
+        loadPotreePointCloud(result.potree_url, `Query Result ${currentTile.id}`);
+      } catch (err) {
+        hidePointCloudLoading();
+        console.error(err);
+      }
+    }
+
+    async function renderAnalysisSpec() {
+      if (!currentTile || !currentTile.id) {
+        displayAnalysisSpec({
+          status: "waiting_for_tile",
+          message: "Select demo tile N031E314 or N200E044 before rendering."
+        }, { disableRenderButton: true });
+
+        return;
+      }
+
+      const specJson = document.getElementById("analysisSpecJson");
+      const renderButton = document.getElementById("renderSpecButton");
+
+      let spec;
+
+      try {
+        spec = JSON.parse(specJson.value);
+      } catch (err) {
+        displayAnalysisSpec({
+          status: "invalid_json",
+          message: "The analysis spec is not valid JSON.",
+          error: err.message
+        }, { disableRenderButton: false });
+
+        return;
+      }
+
+      showPointCloudLoading("Rendering analysis spec...");
+
+      try {
+        const response = await fetch(
+          `${API_BASE_URL}/api/demo-tiles/${currentTile.id}/render-spec`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              spec
+            })
+          }
+        );
+
+        const result = await response.json();
+
+        if (result.applied_spec) {
+          displayAnalysisSpec(result.applied_spec, {
+            disableRenderButton: true
+          });
+        }
+
+        if (result.status !== "ready") {
+          hidePointCloudLoading();
+          console.error(result);
+          return;
+        }
+
+        renderSettings.colorBy = "rgba";
+        loadPotreePointCloud(result.potree_url, `Manual Spec ${currentTile.id}`);
+
+        if (renderButton) {
+          renderButton.disabled = true;
+        }
+      } catch (err) {
+        hidePointCloudLoading();
+        console.error(err);
+      }
+    }
+
+    function displayAnalysisSpec(spec, options = {}) {
+      const specJson = document.getElementById("analysisSpecJson");
+      const renderButton = document.getElementById("renderSpecButton");
+
+      if (!specJson) return;
+
+      if (!spec) {
+        specJson.value = "Select a demo tile or run a query to view the analysis spec.";
+
+        if (renderButton) {
+          renderButton.disabled = true;
+        }
+
+        return;
+      }
+
+      specJson.value = JSON.stringify(spec, null, 2);
+
+      if (renderButton) {
+        renderButton.disabled = options.disableRenderButton ?? true;
+      }
+    }
+
+    function applyPointCloudRenderSettings() {
+      if (!pointcloud) return;
+
+      const material = pointcloud.material;
+
+      material.size = renderSettings.pointSize;
+      material.pointSizeType = Potree.PointSizeType.FIXED;
+      material.shape = Potree.PointShape.CIRCLE;
+
+      if (renderSettings.colorBy === "rgba") {
+        material.activeAttributeName = "rgba";
+      } else {
+        material.activeAttributeName = renderSettings.colorBy;
+      }
+
+      material.needsUpdate = true;
+
+      updatePointSizeLabel();
+    }
+
+    function removeCurrentPointCloud() {
+      if (!pointcloud || !viewer) return;
+
+      if (typeof viewer.scene.removePointCloud === "function") {
+        viewer.scene.removePointCloud(pointcloud);
+      } else {
+        viewer.scene.scenePointCloud.remove(pointcloud);
+      }
+
+      pointcloud = null;
+      cloudCenter = null;
+      cloudSize = null;
+    }
+
+    function loadPotreePointCloud(potreeUrl, name) {
+      removeCurrentPointCloud();
+
+      Potree.loadPointCloud(
+        potreeUrl,
+        name,
+        function (e) {
+          pointcloud = e.pointcloud;
+          viewer.scene.addPointCloud(pointcloud);
+
+          applyPointCloudRenderSettings();
+
+          const box = pointcloud.boundingBox.clone();
+          box.applyMatrix4(pointcloud.matrixWorld);
+
+          cloudCenter = new THREE.Vector3();
+          box.getCenter(cloudCenter);
+
+          cloudSize = new THREE.Vector3();
+          box.getSize(cloudSize);
+
+          resetCameraToTile();
+
+          if (viewer.earthControls) {
+            viewer.setControls(viewer.earthControls);
+          }
+
+          const activeCamera = viewer.scene.getActiveCamera();
+          activeCamera.near = 0.01;
+          activeCamera.far = 1000000;
+          activeCamera.updateProjectionMatrix();
+
+          hidePointCloudLoading();
+        },
+        function (err) {
+          hidePointCloudLoading();
+          console.error(err);
+        }
+      );
+    }
+
+    function resetCameraToTile() {
+      if (!cloudCenter) return;
+
+      const camera = viewer.scene.getActiveCamera();
+
+      camera.position.set(
+        cloudCenter.x,
+        cloudCenter.y - 300,
+        cloudCenter.z + 225
+      );
+
+      camera.lookAt(cloudCenter);
+      camera.updateProjectionMatrix();
+
+      viewer.scene.view.position.copy(camera.position);
+      viewer.scene.view.lookAt(cloudCenter);
+      viewer.scene.view.radius = 120;
+      viewer.setMoveSpeed(50);
+    }
+
+    function updatePointSizeLabel() {
+      if (!pointcloud) return;
+
+      document.getElementById("pointSizeValue").textContent =
+        pointcloud.material.size.toFixed(1);
+    }
+
+    function changePointSize(delta) {
+      if (!pointcloud) return;
+
+      const material = pointcloud.material;
+      material.size = Math.max(0.5, Math.min(10, material.size + delta));
+
+      updatePointSizeLabel();
+    }
+
+    function showPointCloudLoading(message) {
+      removeCurrentPointCloud();
+
+      document.getElementById("pointCloudLoadingText").textContent =
+        message || "Preparing point cloud...";
+
+      document.getElementById("pointCloudLoadingOverlay").classList.remove("hidden");
+    }
+
+    function hidePointCloudLoading() {
+      document.getElementById("pointCloudLoadingOverlay").classList.add("hidden");
+    }
+
+    initPotree();
+    renderDemoTileButtons();
+    displayAnalysisSpec(null);
+
+    document.getElementById("increasePointSize").addEventListener("click", () => {
+      changePointSize(0.5);
+    });
+
+    document.getElementById("decreasePointSize").addEventListener("click", () => {
+      changePointSize(-0.5);
+    });
+
+    document.getElementById("runQuery").addEventListener("click", () => {
+      runDemoQuery();
+    });
+
+    document.getElementById("analysisSpecJson").addEventListener("input", () => {
+      const renderButton = document.getElementById("renderSpecButton");
+
+      if (renderButton) {
+        renderButton.disabled = false;
+      }
+    });
+
+    document.getElementById("renderSpecButton").addEventListener("click", () => {
+      renderAnalysisSpec();
+    });
+  </script>
+</body>
+</html>
