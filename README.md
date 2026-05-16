@@ -28,27 +28,21 @@ python3 train_flan_t5_small.py
 ```
 
 ## Running the TerraQuery Application
+Change into the project directory
+```
+cd terraquery
+```
+Download the prerequisite components
+- Demo tiles (.LAS); I will send these on request. Place them in the directory named 'demo-tiles'
+- The trained model should live within the following directory: 'spec-geneator-model/terraquery-flan-t5-small'. Train using the steps above or message me for a base implemenation.
 
-Build the LiDAR Analysis API
+Build the application
 ```
-docker build --no-cache --platform linux/amd64 -t terraquery-api -f terraquery-api/Dockerfile .
+docker compose build --no-cache
 ```
-Run the LiDAR Analysis API
+Run the application
 ```
-docker run --rm -it \
-    --platform linux/amd64 \                           
-    -p 8080:8080 \
-    -v "$(pwd)":/data \
-    -e KY_TILE_INDEX_URL="https://opendata.arcgis.com/datasets/b3a74b4e740847a1b9272d40100d9d60_0.geojson" \
-    terraquery-api
-```
-Run the LiDAR Spec Generation API
-```
-cd spec-generator-model && uvicorn inference_server:app --host 0.0.0.0 --port 8000
-```
-Run the TerraQuery web client
-```
-npx http-server . -p 4200 --cors
+docker compose up
 ```
 
 ## Architecture Overview
