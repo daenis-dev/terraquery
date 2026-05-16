@@ -2,6 +2,8 @@
 
 Point cloud analysis powered by natural language.
 
+![TerraQuery Example](canopy_30m.png)
+
 Project includes everything needed to train a small language model locally, as well as all files needed to run the web application locally.
 
 The only piece that is not included is the directory that holds the demo tiles. Reach out to me if you want access to these.
