@@ -1,0 +1,39 @@
+services:
+  terraquery-api:
+    build:
+      context: .
+      dockerfile: terraquery-api/Dockerfile
+    container_name: terraquery-api
+    platform: linux/amd64
+    ports:
+      - "8080:8080"
+    environment:
+      SPEC_GENERATOR_URL: "http://spec-generator-api:8000/generate-spec"
+      KY_TILE_INDEX_URL: "https://opendata.arcgis.com/datasets/b3a74b4e740847a1b9272d40100d9d60_0.geojson"
+    volumes:
+      - ./demo-tiles:/data/demo-tiles
+      - ./pointclouds:/data/pointclouds
+      - ./demo-renders:/data/demo-renders
+    depends_on:
+      - spec-generator-api
+
+  spec-generator-api:
+    build:
+      context: ./spec-generator-model
+      dockerfile: Dockerfile
+    container_name: spec-generator-api
+    platform: linux/amd64
+    ports:
+      - "8000:8000"
+
+  terraquery-web-client:
+    build:
+      context: ./terraquery-web-client
+      dockerfile: Dockerfile
+    container_name: terraquery-web-client
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./pointclouds:/app/pointclouds
+    depends_on:
+      - terraquery-api

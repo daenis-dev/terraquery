@@ -13,7 +13,7 @@ tokenizer = AutoTokenizer.from_pretrained(MODEL_DIR)
 print("Loading model...")
 model = AutoModelForSeq2SeqLM.from_pretrained(MODEL_DIR)
 
-device = "mps" if torch.backends.mps.is_available() else "cpu"
+device = "cpu"
 model = model.to(device)
 model.eval()
 

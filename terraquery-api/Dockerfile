@@ -29,7 +29,6 @@ RUN mkdir -p /opt/potreeconverter \
 ENV LD_LIBRARY_PATH=/opt/potreeconverter/PotreeConverter_linux_x64
 
 COPY terraquery-api/scripts /app/scripts
-COPY demo-tiles /data/demo-tiles
 COPY --from=builder /app/target/release/terraquery-api /usr/local/bin/terraquery-api
 
 EXPOSE 8080
